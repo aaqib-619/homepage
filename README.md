@@ -35,22 +35,26 @@ node scripts/build-standalone.mjs  # single-file preview with images inlined
 | 2 | Sticky header | Menu and search on the left, logo in the centre, account and **always-visible bag with a live count** (`aria-live`). |
 | 3 | Hero | One message: benefit-led headline, a price anchor ("From £16"), proof points (18k plated, waterproof, hypoallergenic), a primary and a secondary CTA, and a star rating above the fold. Copy is live HTML over the art, not baked in, so it is editable, accessible and SEO-friendly. |
 | 4 | USP grid | Answers the four fast-jewellery objections: tarnish, sensitive skin, delivery cost, returns. |
-| 5 | Category circles | Swipeable shortcuts, including "Bestsellers", "New In" and a price shortcut, so shoppers reach intent in one tap. |
+| 4b | "Design it with us" strip | A slim link to the custom-made service just below the fold, for visitors who arrive wanting something one of a kind. |
+| 5 | Category circles | Swipeable shortcuts, including "Bestsellers", "New In", "Custom" and a price shortcut, so shoppers reach intent in one tap. |
 | 6 | Bestsellers with tabs | Social-proof-led grid. Tabs let shoppers self-segment by type. Cards show rating, sale price with strike-through, gold/silver swatches, Klarna split, low-stock flags and a **Quick add** button (44px targets). An odd count is filled with a "Shop all" tile. |
 | 7 | "Any 3 for £45" banner and countdown | AOV driver built for stacking. The timer counts to a real end date (`CONFIG.offerEnds`) and hides itself when the offer ends. |
 | 8 | Shop by price | Fast-fashion shoppers browse by budget: Under £20/£30/£40, plus Gift sets. |
 | 9 | New In slider | Signals freshness and brings repeat visitors back. |
 | 10 | Shop the look | Hotspot image and checklist. "Add the look" adds all pieces at a 15% bundle saving. Lifts items per order. |
-| 11 | Reviews | Aggregate score and swipeable verified reviews, each linked to the product purchased. |
+| 10b | **Custom made** | Bespoke is a slower, higher-value purchase than quick add, so it gets its own funnel: a sketch-to-ring banner, a 3-step process (idea → free sketch and quote in 48h → handmade in 2–3 weeks), key facts (from £65, 9k–18k gold, silver, vermeil, gems) and a short enquiry form with piece-type and budget chips. The form posts to Shopify's native contact form (`form_type=contact`, tagged `custom-enquiry`), so enquiries arrive by email with piece, budget, idea, name and email. |
+| 11 | Reviews | Aggregate score and swipeable verified reviews, each linked to the product purchased, including one custom commission. |
 | 12 | Waterproof promise | Removes the "cheap means it tarnishes" objection with specific claims: plating, coating, 12-month warranty, nickel-free. |
 | 13 | Gifting banner | Evergreen high-intent occasion; free gift box and note. |
 | 14 | Newsletter (10% off) | Single email form on the page. The footer deliberately has none, to avoid duplication. |
-| 15 | FAQ | Handles objections before checkout. Also emitted as `FAQPage` JSON-LD. |
+| 15 | FAQ | Handles objections before checkout, including "Do you make custom jewellery?". Also emitted as `FAQPage` JSON-LD. |
 | 16 | Footer | Accordion links, social, payment and BNPL badges. |
 | - | Sticky bottom CTA | Appears once the hero scrolls away; hides over the footer and when drawers are open. Respects `safe-area-inset-bottom`. |
 | - | Cart drawer | Free-delivery progress bar, "add N more for 3 for £45" nudge, an upsell that picks items closest to the free-delivery gap, Klarna split, dispatch countdown, secure-checkout trust row. |
 | - | Welcome offer | Bottom sheet, not a full-screen blocker. Shows after 20s **or** 45% scroll, at most once per visitor, never while a drawer is open, and never for subscribers. |
-| - | Search overlay | Trending chips and instant results. |
+| - | Search overlay | Trending chips and instant results. Searches for "custom", "bespoke", "engagement" and similar surface the custom-made service first. |
+
+Custom made is also linked from the announcement bar, the menu ("Bespoke" tag) and the footer.
 
 ### Performance and accessibility
 
@@ -67,7 +71,8 @@ node scripts/build-standalone.mjs  # single-file preview with images inlined
 4. **Claims**: confirm waterproof, 18k plating, nickel-free and 12-month-warranty claims match your product specs and policies.
 5. **Offers**: set `CONFIG.offerEnds`, create the matching automatic discounts in Shopify ("Any 3 for £45", the look bundle, `WELCOME10`), and update `freeShippingThreshold` and `dispatchCutoffHour` to your real policy.
 6. **Links**: collection handles (`/collections/under-20` and others) must exist in the store.
-7. **Domain**: update `canonical`, `og:image` and the JSON-LD URLs to the live domain, and add the social profile links.
+7. **Custom made**: confirm the starting price, turnaround, metals and gemstones in the custom section and FAQ, and check that contact-form emails reach whoever handles commissions. The menu and footer link to `#custom` on the homepage; if you add a dedicated page (for example `/pages/custom-jewellery`), point them there.
+8. **Domain**: update `canonical`, `og:image` and the JSON-LD URLs to the live domain, and add the social profile links.
 
 ## Recommended A/B tests
 

@@ -90,6 +90,22 @@ const coin = (x, y, s, letter = "") => `
   ${letter ? `<text x="0" y="60" text-anchor="middle" font-family="Georgia, serif" font-size="46" font-style="italic" fill="#7a5418">${letter}</text>` : `<path d="M-14 30L0 16 14 30 0 72Z" fill="#fff" opacity=".5"/>`}
 </g>`;
 
+// Sapphire solitaire ring; sketch=true draws it as a dashed pencil outline.
+const solitaire = (x, y, s, sketch = false) => {
+  const st = sketch ? 'fill="none" stroke="#fff" stroke-opacity=".45" stroke-width="3" stroke-dasharray="10 7"' : "";
+  return `<g transform="translate(${x} ${y}) scale(${s})"${sketch ? "" : ' filter="url(#drop)"'}>
+    <ellipse cx="0" cy="140" rx="150" ry="118" ${sketch ? st : 'fill="none" stroke="url(#gold)" stroke-width="26"'}/>
+    <path d="M-44 40L44 40 26 78-26 78Z" ${sketch ? st : 'fill="url(#goldV)"'}/>
+    ${sketch ? "" : `<rect x="-52" y="-6" width="10" height="40" rx="5" fill="url(#goldV)" transform="rotate(-18 -47 14)"/>
+    <rect x="42" y="-6" width="10" height="40" rx="5" fill="url(#goldV)" transform="rotate(18 47 14)"/>`}
+    <ellipse cx="0" cy="8" rx="64" ry="46" ${sketch ? st : 'fill="url(#sapphire)"'}/>
+    ${sketch ? "" : `<path d="M-64 8L64 8M0-38L0 54M-40-28L40 44M40-28L-40 44" stroke="#fff" stroke-opacity=".22" stroke-width="2"/>
+    <ellipse cx="-22" cy="-10" rx="16" ry="9" fill="#fff" opacity=".55"/>
+    <rect x="-8" y="-50" width="16" height="14" rx="5" fill="url(#goldV)"/>
+    <rect x="-8" y="44" width="16" height="12" rx="5" fill="url(#goldV)"/>`}
+  </g>`;
+};
+
 const pearl = (x, y, r) => `<circle cx="${x}" cy="${y}" r="${r}" fill="url(#pearl)" filter="url(#drop)"/>`;
 
 // ---------- product scenes (600x750) ----------
@@ -228,6 +244,11 @@ const products = {
     return s + pearl(300, 408, 22) + shadow(300, 660, 120, 10) + sparkle(330, 380, 0.8);
   })(),
 
+  "custom-ring": `
+    ${shadow(300, 650, 190)}
+    ${solitaire(300, 280, 1.15)}
+    ${sparkle(400, 230, 1.2)}${sparkle(190, 330, 0.7)}`,
+
   "bangle-duo": `
     ${shadow(300, 640, 220)}
     <g filter="url(#drop)">
@@ -252,6 +273,7 @@ const tones = {
   "charm-bracelet": ["#f5ebe6", "#ead8cf"],
   "bangle-duo": ["#f1ede8", "#e3dbd0"],
   "pearl-choker": ["#f3ece2", "#e8dccb"],
+  "custom-ring": ["#eef0f3", "#dde2e8"],
 };
 
 for (const [name, body] of Object.entries(products)) {
@@ -348,6 +370,32 @@ out(
   ${chain("M160 350C260 800 820 800 920 350", 6)}
   ${teardrop(540, 700, 0.9)}
   ${sparkle(660, 760, 1.4)}${sparkle(420, 520, 1)}
+</svg>`
+);
+
+// Custom banner: 1080x720, design-desk look with a sketch becoming a finished ring.
+out(
+  "assets/banners/custom.svg",
+  `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 720" width="1080" height="720">${defs}
+  <defs>
+    <linearGradient id="ink" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#26221d"/><stop offset="1" stop-color="#141210"/></linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#fff" stroke-opacity=".06" stroke-width="1"/></pattern>
+    <linearGradient id="fade" x1="0" y1="0" x2="1" y2="0"><stop offset=".3" stop-color="#fff" stop-opacity="0"/><stop offset=".6" stop-color="#fff" stop-opacity="1"/></linearGradient>
+    <mask id="gm"><rect width="1080" height="720" fill="url(#fade)"/></mask>
+  </defs>
+  <rect width="1080" height="720" fill="url(#ink)"/>
+  <rect width="1080" height="720" fill="url(#grid)" mask="url(#gm)"/>
+  <circle cx="820" cy="370" r="260" fill="#c99a45" opacity=".08"/>
+  ${solitaire(720, 150, 1.05, true)}
+  ${shadow(860, 610, 170, 14)}
+  ${solitaire(860, 230, 1.1)}
+  <g transform="translate(700 640) rotate(-8)">
+    <rect x="0" y="-9" width="230" height="18" rx="3" fill="#d9b56a"/>
+    <rect x="0" y="-9" width="230" height="6" fill="#fff" opacity=".25"/>
+    <rect x="200" y="-9" width="30" height="18" fill="#8a6420"/>
+    <path d="M0-9L-34 0 0 9Z" fill="#e9d3a8"/><path d="M-22-3.5L-34 0-22 3.5Z" fill="#26221d"/>
+  </g>
+  ${sparkle(990, 170, 1.2)}${sparkle(760, 520, 0.7)}
 </svg>`
 );
 

@@ -49,7 +49,7 @@ async function open(){
 }
 let page = await open();
 await page.addStyleTag({ content: ".promo,.feature,.look-media{border-radius:0!important}" });
-const shots = { "banner-hero": ".hero", "banner-3-for-45": ".promo", "banner-waterproof": "section[aria-labelledby=wp-h] .feature", "banner-gifts": "section[aria-labelledby=gift-h] .feature", "banner-shop-the-look": ".look-media" };
+const shots = { "banner-hero": ".hero", "banner-3-for-45": ".promo", "banner-waterproof": "section[aria-labelledby=wp-h] .feature", "banner-gifts": "section[aria-labelledby=gift-h] .feature", "banner-shop-the-look": ".look-media", "banner-custom-made": "#custom .feature" };
 for (const [name, sel] of Object.entries(shots)) await page.locator(sel).screenshot({ path: join(exp, `${name}.jpg`), type: "jpeg", quality: 88 });
 
 // 3. Previews: above the fold, full page, cart drawer, menu, welcome offer.
