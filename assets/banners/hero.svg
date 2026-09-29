@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1440" width="1080" height="1440">
+<defs>
+  <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#8a6420"/>
+    <stop offset=".28" stop-color="#e9c87a"/>
+    <stop offset=".5" stop-color="#b8893b"/>
+    <stop offset=".72" stop-color="#f7e4b0"/>
+    <stop offset="1" stop-color="#9c7228"/>
+  </linearGradient>
+  <linearGradient id="goldV" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#f7e4b0"/>
+    <stop offset=".45" stop-color="#c99a45"/>
+    <stop offset="1" stop-color="#8a6420"/>
+  </linearGradient>
+  <linearGradient id="emerald" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#5fe0ae"/>
+    <stop offset=".45" stop-color="#11805f"/>
+    <stop offset="1" stop-color="#063d2e"/>
+  </linearGradient>
+  <linearGradient id="sapphire" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#9dbcff"/>
+    <stop offset=".5" stop-color="#2a4fb8"/>
+    <stop offset="1" stop-color="#0f1f5c"/>
+  </linearGradient>
+  <linearGradient id="ruby" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#ff9aa8"/>
+    <stop offset=".5" stop-color="#c0183a"/>
+    <stop offset="1" stop-color="#5e0619"/>
+  </linearGradient>
+  <radialGradient id="crystal" cx=".35" cy=".3" r=".8">
+    <stop offset="0" stop-color="#ffffff"/>
+    <stop offset=".4" stop-color="#dce7f5"/>
+    <stop offset="1" stop-color="#6f86a6"/>
+  </radialGradient>
+  <radialGradient id="pearl" cx=".35" cy=".3" r=".85">
+    <stop offset="0" stop-color="#ffffff"/>
+    <stop offset=".55" stop-color="#f1e9df"/>
+    <stop offset="1" stop-color="#c9b9a6"/>
+  </radialGradient>
+  <radialGradient id="glow" cx=".5" cy=".42" r=".6">
+    <stop offset="0" stop-color="#ffffff" stop-opacity=".85"/>
+    <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+  </radialGradient>
+  <filter id="soft" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="14"/></filter>
+  <filter id="drop" x="-20%" y="-20%" width="140%" height="140%">
+    <feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#5b4323" flood-opacity=".22"/>
+  </filter>
+</defs>
+  <defs>
+    <linearGradient id="heroBg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#e9d6c2"/><stop offset="1" stop-color="#cfae8f"/>
+    </linearGradient>
+    <linearGradient id="skin" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#a86d4c"/><stop offset=".5" stop-color="#c58a66"/><stop offset="1" stop-color="#b87c59"/>
+    </linearGradient>
+    <radialGradient id="skinLight" cx=".5" cy=".55" r=".5">
+      <stop offset="0" stop-color="#e6b08c" stop-opacity=".7"/><stop offset="1" stop-color="#e6b08c" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="top" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#123f35"/><stop offset="1" stop-color="#0a2620"/>
+    </linearGradient>
+  </defs>
+  <rect width="1080" height="1440" fill="url(#heroBg)"/>
+  <circle cx="860" cy="180" r="260" fill="#fff" opacity=".18"/>
+  <g transform="translate(0 -220)">
+  <path d="M395 0L395 300C395 450 230 520 0 580L0 1700 1080 1700 1080 580C850 520 685 450 685 300L685 0Z" fill="url(#skin)"/>
+  <ellipse cx="540" cy="720" rx="420" ry="300" fill="url(#skinLight)"/>
+  <path d="M395 0L395 300C395 360 370 400 330 430" fill="none" stroke="#8a5537" stroke-opacity=".35" stroke-width="10"/>
+  <path d="M685 0L685 300C685 360 710 400 750 430" fill="none" stroke="#8a5537" stroke-opacity=".35" stroke-width="10"/>
+  <path d="M260 600C360 580 450 600 510 640M820 600C720 580 630 600 570 640" fill="none" stroke="#8a5537" stroke-opacity=".28" stroke-width="8" stroke-linecap="round"/>
+  <!-- necklaces -->
+  <path d="M398 300C420 420 660 420 682 300" fill="none" stroke="#8a6420" stroke-width="8" stroke-linecap="round" opacity=".35"/>
+   <path d="M398 300C420 420 660 420 682 300" fill="none" stroke="url(#gold)" stroke-width="6" stroke-linecap="round" stroke-dasharray="9.600000000000001 4.199999999999999"/>
+  <circle cx="540" cy="392" r="16" fill="url(#pearl)" filter="url(#drop)"/>
+  <path d="M330 430C380 640 700 640 750 430" fill="none" stroke="#8a6420" stroke-width="9" stroke-linecap="round" opacity=".35"/>
+   <path d="M330 430C380 640 700 640 750 430" fill="none" stroke="url(#gold)" stroke-width="7" stroke-linecap="round" stroke-dasharray="11.200000000000001 4.8999999999999995"/>
+  
+<g transform="translate(540 588) scale(1.2)" filter="url(#drop)">
+  <circle cx="0" cy="-10" r="10" fill="none" stroke="url(#gold)" stroke-width="6"/>
+  <circle cx="0" cy="44" r="46" fill="url(#gold)"/>
+  <circle cx="0" cy="44" r="38" fill="none" stroke="#8a6420" stroke-opacity=".35" stroke-width="2"/>
+  <path d="M-14 30L0 16 14 30 0 72Z" fill="#fff" opacity=".5"/>
+</g>
+  <path d="M250 520C330 860 750 860 830 520" fill="none" stroke="#8a6420" stroke-width="8" stroke-linecap="round" opacity=".35"/>
+   <path d="M250 520C330 860 750 860 830 520" fill="none" stroke="url(#gold)" stroke-width="6" stroke-linecap="round" stroke-dasharray="9.600000000000001 4.199999999999999"/>
+  
+<g transform="translate(540 772) scale(0.95)" filter="url(#drop)">
+  <circle cx="0" cy="-14" r="12" fill="none" stroke="url(#gold)" stroke-width="7"/>
+  <path d="M0 0C44 58 66 100 66 138A66 66 0 0 1-66 138C-66 100-44 58 0 0Z" fill="url(#gold)"/>
+  <path d="M0 18C34 66 52 102 52 136A52 52 0 0 1-52 136C-52 102-34 66 0 18Z" fill="url(#emerald)"/>
+  <path d="M0 18L0 188M-52 136L52 136M-30 80L30 180M30 80L-30 180" stroke="#fff" stroke-opacity=".22" stroke-width="2"/>
+  <path d="M-20 70C-30 90-34 110-30 130" stroke="#fff" stroke-opacity=".7" stroke-width="7" stroke-linecap="round" fill="none"/>
+</g>
+  <path transform="translate(640 820) scale(1.6)" d="M0-18C2-6 6-2 18 0 6 2 2 6 0 18-2 6-6 2-18 0-6-2-2-6 0-18Z" fill="#fff" opacity="0.9"/><path transform="translate(470 610) scale(1)" d="M0-18C2-6 6-2 18 0 6 2 2 6 0 18-2 6-6 2-18 0-6-2-2-6 0-18Z" fill="#fff" opacity="0.9"/><path transform="translate(610 400) scale(0.8)" d="M0-18C2-6 6-2 18 0 6 2 2 6 0 18-2 6-6 2-18 0-6-2-2-6 0-18Z" fill="#fff" opacity="0.9"/>
+  <!-- top -->
+  <path d="M0 880C200 900 320 1080 540 1090C760 1080 880 900 1080 880L1080 1700 0 1700Z" fill="url(#top)"/>
+  <path d="M0 880C200 900 320 1080 540 1090C760 1080 880 900 1080 880" fill="none" stroke="#1e5a4b" stroke-width="6"/>
+  </g>
+</svg>
