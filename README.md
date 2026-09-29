@@ -9,12 +9,20 @@ A mobile-first, conversion-optimised HTML homepage for Amirah Gems, positioned a
   - `art-*.jpg`: the same artwork **without text**, for theme sections that overlay their own heading and button (recommended).
   - `product-*.jpg`: 1200×1500 (4:5) placeholder product images.
 - `preview/`: screenshots at iPhone 13 size (above the fold, full page, sticky CTA, cart drawer, menu, welcome offer).
+- `preview/homepage-standalone.html`: the whole page as **one file** with every image embedded. Open it anywhere, email it, or send it to a phone (built by `scripts/build-standalone.mjs`).
+
+## Viewing it
+
+1. **One file:** open `preview/homepage-standalone.html` in any browser, desktop or phone.
+2. **Mobile view on desktop:** open the file in Chrome, press `Cmd+Opt+I` (Mac) or `Ctrl+Shift+I` (Windows), then `Cmd+Shift+M` / `Ctrl+Shift+M`, and choose an iPhone.
+3. **From the repo:** download the branch as a ZIP from GitHub (Code > Download ZIP), unzip it and open `index.html`. Keep the `assets` folder next to it.
 
 Regenerate everything:
 
 ```bash
 node scripts/generate-assets.mjs   # SVG artwork
 node scripts/render.mjs            # JPG exports and previews (uses the Playwright/Chromium install)
+node scripts/build-standalone.mjs  # single-file preview with images inlined
 ```
 
 > **Note:** the live store (`xaubg9-xm.myshopify.com`) could not be reached from the build environment, so products, prices, ratings and copy are **placeholders** modelled on the category. Swap them for the real catalogue before launch (see *Before going live*).
