@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 750" width="600" height="750">
+<defs>
+  <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#8a6420"/>
+    <stop offset=".28" stop-color="#e9c87a"/>
+    <stop offset=".5" stop-color="#b8893b"/>
+    <stop offset=".72" stop-color="#f7e4b0"/>
+    <stop offset="1" stop-color="#9c7228"/>
+  </linearGradient>
+  <linearGradient id="goldV" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#f7e4b0"/>
+    <stop offset=".45" stop-color="#c99a45"/>
+    <stop offset="1" stop-color="#8a6420"/>
+  </linearGradient>
+  <linearGradient id="emerald" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#5fe0ae"/>
+    <stop offset=".45" stop-color="#11805f"/>
+    <stop offset="1" stop-color="#063d2e"/>
+  </linearGradient>
+  <linearGradient id="sapphire" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#9dbcff"/>
+    <stop offset=".5" stop-color="#2a4fb8"/>
+    <stop offset="1" stop-color="#0f1f5c"/>
+  </linearGradient>
+  <linearGradient id="ruby" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#ff9aa8"/>
+    <stop offset=".5" stop-color="#c0183a"/>
+    <stop offset="1" stop-color="#5e0619"/>
+  </linearGradient>
+  <radialGradient id="crystal" cx=".35" cy=".3" r=".8">
+    <stop offset="0" stop-color="#ffffff"/>
+    <stop offset=".4" stop-color="#dce7f5"/>
+    <stop offset="1" stop-color="#6f86a6"/>
+  </radialGradient>
+  <radialGradient id="pearl" cx=".35" cy=".3" r=".85">
+    <stop offset="0" stop-color="#ffffff"/>
+    <stop offset=".55" stop-color="#f1e9df"/>
+    <stop offset="1" stop-color="#c9b9a6"/>
+  </radialGradient>
+  <radialGradient id="glow" cx=".5" cy=".42" r=".6">
+    <stop offset="0" stop-color="#ffffff" stop-opacity=".85"/>
+    <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+  </radialGradient>
+  <filter id="soft" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="14"/></filter>
+  <filter id="drop" x="-20%" y="-20%" width="140%" height="140%">
+    <feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#5b4323" flood-opacity=".22"/>
+  </filter>
+</defs>
+<rect width="600" height="750" fill="#fdf8f8"/>
+<rect width="600" height="750" fill="url(#glow)"/>
+<rect y="540" width="600" height="210.00000000000003" fill="#f3e4e7" opacity=".55"/><g transform="translate(300 380) scale(1.14) translate(-300 -380)"><ellipse cx="300" cy="600" rx="150" ry="14" fill="#6b5130" opacity=".18" filter="url(#soft)"/><g filter="url(#drop)"><polygon points="300.0,210.0 357.4,221.4 406.1,253.9 438.6,302.6 450.0,360.0 438.6,417.4 406.1,466.1 357.4,498.6 300.0,510.0 242.6,498.6 193.9,466.1 161.4,417.4 150.0,360.0 161.4,302.6 193.9,253.9 242.6,221.4" fill="#7e1541"/><polygon points="300.0,210.0 357.4,221.4 344.8,251.9 300.0,243.0" fill="#eb79aa"/><polygon points="357.4,221.4 406.1,253.9 382.7,277.3 344.8,251.9" fill="#ef8db7"/><polygon points="406.1,253.9 438.6,302.6 408.1,315.2 382.7,277.3" fill="#c13d76"/><polygon points="438.6,302.6 450.0,360.0 417.0,360.0 408.1,315.2" fill="#ce447f"/><polygon points="450.0,360.0 438.6,417.4 408.1,404.8 417.0,360.0" fill="#891b49"/><polygon points="438.6,417.4 406.1,466.1 382.7,442.7 408.1,404.8" fill="#a62d60"/><polygon points="406.1,466.1 357.4,498.6 344.8,468.1 382.7,442.7" fill="#7e1541"/><polygon points="357.4,498.6 300.0,510.0 300.0,477.0 344.8,468.1" fill="#ae3167"/><polygon points="300.0,510.0 242.6,498.6 255.2,468.1 300.0,477.0" fill="#982455"/><polygon points="242.6,498.6 193.9,466.1 217.3,442.7 255.2,468.1" fill="#e2508f"/><polygon points="193.9,466.1 161.4,417.4 191.9,404.8 217.3,442.7" fill="#d74986"/><polygon points="161.4,417.4 150.0,360.0 183.0,360.0 191.9,404.8" fill="#f5a8c9"/><polygon points="150.0,360.0 161.4,302.6 191.9,315.2 183.0,360.0" fill="#ef8eb8"/><polygon points="161.4,302.6 193.9,253.9 217.3,277.3 191.9,315.2" fill="#ffd9ea"/><polygon points="193.9,253.9 242.6,221.4 255.2,251.9 217.3,277.3" fill="#f4a5c8"/><polygon points="242.6,221.4 300.0,210.0 300.0,243.0 255.2,251.9" fill="#fed3e6"/><polygon points="300.0,243.0 344.8,251.9 328.7,290.7 300.0,285.0" fill="#b23369"/><polygon points="344.8,251.9 382.7,277.3 353.0,307.0 328.7,290.7" fill="#e7669e"/><polygon points="382.7,277.3 408.1,315.2 369.3,331.3 353.0,307.0" fill="#dd4d8b"/><polygon points="408.1,315.2 417.0,360.0 375.0,360.0 369.3,331.3" fill="#f4a4c7"/><polygon points="417.0,360.0 408.1,404.8 369.3,388.7 375.0,360.0" fill="#ec80af"/><polygon points="408.1,404.8 382.7,442.7 353.0,413.0 369.3,388.7" fill="#fccae0"/><polygon points="382.7,442.7 344.8,468.1 328.7,429.3 353.0,413.0" fill="#f090ba"/><polygon points="344.8,468.1 300.0,477.0 300.0,435.0 328.7,429.3" fill="#fac3db"/><polygon points="300.0,477.0 255.2,468.1 271.3,429.3 300.0,435.0" fill="#e972a5"/><polygon points="255.2,468.1 217.3,442.7 247.0,413.0 271.3,429.3" fill="#f091ba"/><polygon points="217.3,442.7 191.9,404.8 230.7,388.7 247.0,413.0" fill="#cf4580"/><polygon points="191.9,404.8 183.0,360.0 225.0,360.0 230.7,388.7" fill="#e35391"/><polygon points="183.0,360.0 191.9,315.2 230.7,331.3 225.0,360.0" fill="#a72d61"/><polygon points="191.9,315.2 217.3,277.3 247.0,307.0 230.7,331.3" fill="#c9417b"/><polygon points="217.3,277.3 255.2,251.9 271.3,290.7 247.0,307.0" fill="#9b2658"/><polygon points="255.2,251.9 300.0,243.0 300.0,285.0 271.3,290.7" fill="#ce4480"/><polygon points="300.0,285.0 328.7,290.7 353.0,307.0 369.3,331.3 375.0,360.0 369.3,388.7 353.0,413.0 328.7,429.3 300.0,435.0 271.3,429.3 247.0,413.0 230.7,388.7 225.0,360.0 230.7,331.3 247.0,307.0 271.3,290.7" fill="#eb7cac"/><polygon points="300.0,210.0 357.4,221.4 406.1,253.9 438.6,302.6 450.0,360.0 438.6,417.4 406.1,466.1 357.4,498.6 300.0,510.0 242.6,498.6 193.9,466.1 161.4,417.4 150.0,360.0 161.4,302.6 193.9,253.9 242.6,221.4" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="2.5"/><ellipse cx="252" cy="315" rx="24" ry="10.500000000000002" transform="rotate(-30 252 315)" fill="#fff" opacity=".55"/></g><path transform="translate(420 250) scale(1.1)" d="M0-18C2-6 6-2 18 0 6 2 2 6 0 18-2 6-6 2-18 0-6-2-2-6 0-18Z" fill="#fff" opacity="0.9"/><path transform="translate(190 470) scale(0.6)" d="M0-18C2-6 6-2 18 0 6 2 2 6 0 18-2 6-6 2-18 0-6-2-2-6 0-18Z" fill="#fff" opacity="0.9"/></g></svg>

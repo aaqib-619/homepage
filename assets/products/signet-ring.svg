@@ -46,9 +46,9 @@
     <feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#5b4323" flood-opacity=".22"/>
   </filter>
 </defs>
-<rect width="600" height="750" fill="#f1ede8"/>
+<rect width="600" height="750" fill="#fdf8f8"/>
 <rect width="600" height="750" fill="url(#glow)"/>
-<rect y="540" width="600" height="210.00000000000003" fill="#e3dbd0" opacity=".55"/><g transform="translate(300 380) scale(1.14) translate(-300 -380)">
+<rect y="540" width="600" height="210.00000000000003" fill="#f3e4e7" opacity=".55"/><g transform="translate(300 380) scale(1.14) translate(-300 -380)">
     <ellipse cx="300" cy="640" rx="170" ry="16" fill="#6b5130" opacity=".18" filter="url(#soft)"/>
     <g filter="url(#drop)">
       <ellipse cx="300" cy="440" rx="150" ry="120" fill="none" stroke="url(#gold)" stroke-width="36"/>

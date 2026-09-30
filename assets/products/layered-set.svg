@@ -46,9 +46,9 @@
     <feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#5b4323" flood-opacity=".22"/>
   </filter>
 </defs>
-<rect width="600" height="750" fill="#eef1ec"/>
+<rect width="600" height="750" fill="#fff5f5"/>
 <rect width="600" height="750" fill="url(#glow)"/>
-<rect y="540" width="600" height="210.00000000000003" fill="#dde6de" opacity=".55"/><g transform="translate(300 380) scale(1.14) translate(-300 -380)">
+<rect y="540" width="600" height="210.00000000000003" fill="#f8dede" opacity=".55"/><g transform="translate(300 380) scale(1.14) translate(-300 -380)">
     <path d="M150 -10C170 150 230 220 300 224C370 220 430 150 450 -10" fill="none" stroke="#8a6420" stroke-width="5" stroke-linecap="round" opacity=".35"/>
    <path d="M150 -10C170 150 230 220 300 224C370 220 430 150 450 -10" fill="none" stroke="url(#gold)" stroke-width="3" stroke-linecap="round" stroke-dasharray="4.800000000000001 2.0999999999999996"/>
     <path d="M100 -10C130 260 210 350 300 356C390 350 470 260 500 -10" fill="none" stroke="#8a6420" stroke-width="6" stroke-linecap="round" opacity=".35"/>

@@ -259,22 +259,82 @@ const products = {
     ${sparkle(150, 300, 1)}${sparkle(470, 500, 0.7)}`,
 };
 
-const tones = {
-  "dome-hoops": ["#f3ece2", "#e8dccb"],
-  "emerald-pendant": ["#eef1ec", "#dde6de"],
-  "pearl-huggies": ["#f5ebe6", "#ead8cf"],
-  "herringbone-chain": ["#f3ece2", "#e8dccb"],
-  "signet-ring": ["#f1ede8", "#e3dbd0"],
-  "stacking-rings": ["#efeef3", "#dedbe8"],
-  "tennis-bracelet": ["#eef0f3", "#dde2e8"],
-  "initial-necklace": ["#f5ebe6", "#ead8cf"],
-  "ear-cuff": ["#f3ece2", "#e8dccb"],
-  "layered-set": ["#eef1ec", "#dde6de"],
-  "charm-bracelet": ["#f5ebe6", "#ead8cf"],
-  "bangle-duo": ["#f1ede8", "#e3dbd0"],
-  "pearl-choker": ["#f3ece2", "#e8dccb"],
-  "custom-ring": ["#eef0f3", "#dde2e8"],
+// ---------- loose gemstones ----------
+// [light, mid, dark] per stone
+const GEMS = {
+  sapphire: ["#c9dcff", "#2f58c9", "#0b1b5c"],
+  padparadscha: ["#ffe2d4", "#f0876c", "#9c3a33"],
+  pink: ["#ffd9ea", "#e2508f", "#7e1541"],
+  yellow: ["#fff4bd", "#f0bf2a", "#9c6606"],
+  ruby: ["#ffc4cd", "#c8163c", "#560316"],
+  emerald: ["#c4f5de", "#138a62", "#04382a"],
 };
+const hexRgb = h => [1, 3, 5].map(i => parseInt(h.slice(i, i + 2), 16));
+const mix = (a, b, t) => "#" + hexRgb(a).map((v, i) => Math.round(v + (hexRgb(b)[i] - v) * t).toString(16).padStart(2, "0")).join("");
+const shade = ([lt, mid, dk], v) => (v > 0 ? mix(mid, lt, Math.min(v, 1)) : mix(mid, dk, Math.min(-v, 1)));
+const poly = pts => pts.map(([x, y]) => `${x.toFixed(1)},${y.toFixed(1)}`).join(" ");
+
+function outline(shape, n) {
+  const pts = [];
+  for (let i = 0; i < n; i++) {
+    const t = (i / n) * 2 * Math.PI - Math.PI / 2;
+    let x = Math.cos(t), y = Math.sin(t);
+    if (shape === "oval") y *= 0.78;
+    if (shape === "cushion") {
+      const e = 0.6;
+      x = Math.sign(x) * Math.abs(x) ** e; y = Math.sign(y) * Math.abs(y) ** e * 0.92;
+    }
+    if (shape === "pear") {
+      const k = (1 - Math.sin(t)) / 2;          // 1 at the top point, 0 at the bottom
+      x *= 1 - 0.62 * k ** 1.6; y *= 1.18;
+    }
+    pts.push([x, y]);
+  }
+  return pts;
+}
+const octagon = (w = 1, h = 0.74, c = 0.24) => [[-w + c, -h], [w - c, -h], [w, -h + c], [w, h - c], [w - c, h], [-w + c, h], [-w, h - c], [-w, -h + c]];
+
+function gem(cx, cy, s, shape, kind) {
+  const col = GEMS[kind];
+  const light = Math.atan2(-0.75, -0.65);
+  const base = (shape === "emerald" ? octagon() : outline(shape, 16)).map(([x, y]) => [cx + x * s, cy + y * s]);
+  const ring = k => base.map(([x, y]) => [cx + (x - cx) * k, cy + (y - cy) * k]);
+  const quads = (A, B, flip, bias) => A.map((p, i) => {
+    const j = (i + 1) % A.length;
+    const mx = (p[0] + A[j][0]) / 2 - cx, my = (p[1] + A[j][1]) / 2 - cy;
+    let v = Math.cos(Math.atan2(my, mx) - light) * 0.85 * flip + (i % 2 ? 0.22 : -0.22) + bias;
+    return `<polygon points="${poly([p, A[j], B[j], B[i]])}" fill="${shade(col, v)}"/>`;
+  }).join("");
+  let g = `<g filter="url(#drop)"><polygon points="${poly(base)}" fill="${col[2]}"/>`;
+  if (shape === "emerald") {
+    const rs = [1, 0.84, 0.68, 0.52].map(ring);
+    g += quads(rs[0], rs[1], 1, 0) + quads(rs[1], rs[2], -0.8, 0.1) + quads(rs[2], rs[3], 0.6, 0.2);
+    g += `<polygon points="${poly(rs[3])}" fill="${mix(col[1], col[0], 0.3)}"/>`;
+  } else {
+    const M = ring(0.78), T = ring(0.5);
+    g += quads(base, M, 1, 0) + quads(M, T, -0.7, 0.1);
+    g += `<polygon points="${poly(T)}" fill="${mix(col[1], col[0], 0.32)}"/>`;
+  }
+  g += `<polygon points="${poly(base)}" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="${Math.max(1.5, s / 60)}"/>`;
+  g += `<ellipse cx="${cx - s * 0.32}" cy="${cy - s * 0.3}" rx="${s * 0.16}" ry="${s * 0.07}" transform="rotate(-30 ${cx - s * 0.32} ${cy - s * 0.3})" fill="#fff" opacity=".55"/></g>`;
+  return g;
+}
+
+const gemProducts = {
+  "gem-blue-sapphire": ["oval", "sapphire"],
+  "gem-padparadscha": ["oval", "padparadscha"],
+  "gem-pink-sapphire": ["round", "pink"],
+  "gem-yellow-sapphire": ["pear", "yellow"],
+  "gem-ruby": ["cushion", "ruby"],
+  "gem-emerald": ["emerald", "emerald"],
+};
+for (const [name, [shape, kind]] of Object.entries(gemProducts)) {
+  products[name] = `${shadow(300, 600, 150, 14)}${gem(300, 360, shape === "round" ? 150 : 165, shape, kind)}${sparkle(420, 250, 1.1)}${sparkle(190, 470, 0.6)}`;
+}
+
+// Brand-toned backgrounds: white fading to blush (#eedcdf) and pink (#ffc2c2).
+const TONE_A = ["#fdf8f8", "#f3e4e7"], TONE_B = ["#fff5f5", "#f8dede"];
+const tones = Object.fromEntries(Object.keys(products).map((k, i) => [k, i % 2 ? TONE_B : TONE_A]));
 
 for (const [name, body] of Object.entries(products)) {
   const [c1, c2] = tones[name];
@@ -284,108 +344,76 @@ for (const [name, body] of Object.entries(products)) {
   );
 }
 
-// ---------- banners ----------
+// ---------- collection tiles (800x1000, copy overlays the bottom third) ----------
+const svg = (w, h, body, extraDefs = "") =>
+  `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${w} ${h}" width="${w}" height="${h}">${defs}<defs>${extraDefs}</defs>${body}</svg>`;
+const grad = (id, a, b) => `<linearGradient id="${id}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${a}"/><stop offset="1" stop-color="${b}"/></linearGradient>`;
+const place = (body, x, y, s) => `<g transform="translate(${x} ${y}) scale(${s})">${body}</g>`;
 
-// Hero: 1080x1440 (3:4). Neckline with layered necklaces; dark top leaves space for overlay copy.
-out(
-  "assets/banners/hero.svg",
-  `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1440" width="1080" height="1440">${defs}
-  <defs>
-    <linearGradient id="heroBg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#e9d6c2"/><stop offset="1" stop-color="#cfae8f"/>
-    </linearGradient>
-    <linearGradient id="skin" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#a86d4c"/><stop offset=".5" stop-color="#c58a66"/><stop offset="1" stop-color="#b87c59"/>
-    </linearGradient>
-    <radialGradient id="skinLight" cx=".5" cy=".55" r=".5">
-      <stop offset="0" stop-color="#e6b08c" stop-opacity=".7"/><stop offset="1" stop-color="#e6b08c" stop-opacity="0"/>
-    </radialGradient>
-    <linearGradient id="top" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#123f35"/><stop offset="1" stop-color="#0a2620"/>
-    </linearGradient>
-  </defs>
-  <rect width="1080" height="1440" fill="url(#heroBg)"/>
-  <circle cx="860" cy="180" r="260" fill="#fff" opacity=".18"/>
-  <g transform="translate(0 -220)">
-  <path d="M395 0L395 300C395 450 230 520 0 580L0 1700 1080 1700 1080 580C850 520 685 450 685 300L685 0Z" fill="url(#skin)"/>
-  <ellipse cx="540" cy="720" rx="420" ry="300" fill="url(#skinLight)"/>
-  <path d="M395 0L395 300C395 360 370 400 330 430" fill="none" stroke="#8a5537" stroke-opacity=".35" stroke-width="10"/>
-  <path d="M685 0L685 300C685 360 710 400 750 430" fill="none" stroke="#8a5537" stroke-opacity=".35" stroke-width="10"/>
-  <path d="M260 600C360 580 450 600 510 640M820 600C720 580 630 600 570 640" fill="none" stroke="#8a5537" stroke-opacity=".28" stroke-width="8" stroke-linecap="round"/>
-  <!-- necklaces -->
-  ${chain("M398 300C420 420 660 420 682 300", 6)}
-  ${pearl(540, 392, 16)}
-  ${chain("M330 430C380 640 700 640 750 430", 7)}
-  ${coin(540, 588, 1.2)}
-  ${chain("M250 520C330 860 750 860 830 520", 6)}
-  ${teardrop(540, 772, 0.95)}
-  ${sparkle(640, 820, 1.6)}${sparkle(470, 610, 1)}${sparkle(610, 400, 0.8)}
-  <!-- top -->
-  <path d="M0 880C200 900 320 1080 540 1090C760 1080 880 900 1080 880L1080 1700 0 1700Z" fill="url(#top)"/>
-  <path d="M0 880C200 900 320 1080 540 1090C760 1080 880 900 1080 880" fill="none" stroke="#1e5a4b" stroke-width="6"/>
-  </g>
-</svg>`
-);
+const giftBox = (x, y, s) => `<g transform="translate(${x} ${y}) scale(${s})" filter="url(#drop)">
+  <rect x="-180" y="0" width="360" height="250" fill="#641946"/>
+  <rect x="-200" y="-50" width="400" height="70" fill="#7a2458"/>
+  <rect x="-20" y="-50" width="40" height="300" fill="url(#goldV)"/>
+  <path d="M0-48C-60-130-140-110-110-60-90-30-30-42 0-48ZM0-48C60-130 140-110 110-60 90-30 30-42 0-48Z" fill="url(#gold)"/>
+</g>`;
 
-// Promo "stack" banner art: 1080x720, art on the right, plain emerald area left for copy.
-out(
-  "assets/banners/stack.svg",
-  `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 720" width="1080" height="720">${defs}
-  <defs><linearGradient id="em" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0f4d3f"/><stop offset="1" stop-color="#082e26"/></linearGradient></defs>
-  <rect width="1080" height="720" fill="url(#em)"/>
-  <circle cx="820" cy="360" r="300" fill="#1c6b58" opacity=".35"/>
-  <circle cx="820" cy="360" r="210" fill="#1c6b58" opacity=".35"/>
-  <g transform="translate(560 40) scale(.9)">
-    ${[[300, 250, "sapphire"], [300, 380, "emerald"], [300, 510, "ruby"]]
-      .map(
-        ([x, y, g]) => `
-      <g filter="url(#drop)">
-        <ellipse cx="${x}" cy="${y}" rx="150" ry="52" fill="none" stroke="url(#gold)" stroke-width="18"/>
-        <ellipse cx="${x}" cy="${y - 50}" rx="32" ry="24" fill="url(#gold)"/>
-        <ellipse cx="${x}" cy="${y - 54}" rx="24" ry="17" fill="url(#${g})"/>
-        <ellipse cx="${x - 7}" cy="${y - 59}" rx="6" ry="4" fill="#fff" opacity=".7"/>
-      </g>`
-      )
-      .join("")}
-  </g>
-  ${sparkle(700, 140, 1.4)}${sparkle(1000, 560, 1)}${sparkle(640, 600, 0.7)}
-</svg>`
-);
+out("assets/banners/col-premium.svg", svg(800, 1000, `
+  <rect width="800" height="1000" fill="url(#cp)"/>
+  <circle cx="400" cy="400" r="300" fill="#fff" opacity=".35"/>
+  ${place(products["pearl-huggies"], 60, -20, 1.14)}
+  ${sparkle(640, 220, 1.4)}${sparkle(150, 560, 0.9)}`, grad("cp", "#f6e6e8", "#ffc2c2")));
 
-// Look banner: 1080x1080, close-up of layered stack used for "Shop the look" hotspots.
-out(
-  "assets/banners/look.svg",
-  `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080" width="1080" height="1080">${defs}
-  <defs>
-    <linearGradient id="lk" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f1e1d3"/><stop offset="1" stop-color="#d9b99c"/></linearGradient>
-    <linearGradient id="sk2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d9a584"/><stop offset="1" stop-color="#c48d6b"/></linearGradient>
-  </defs>
-  <rect width="1080" height="1080" fill="url(#lk)"/>
-  <path d="M330 0L330 140C330 260 180 320 0 360L0 1080 1080 1080 1080 360C900 320 750 260 750 140L750 0Z" fill="url(#sk2)"/>
-  <path d="M0 840C220 850 330 1000 540 1010C750 1000 860 850 1080 840L1080 1080 0 1080Z" fill="#f4eee6"/>
-  ${chain("M335 150C360 300 720 300 745 150", 6)}
-  ${pearl(540, 262, 20)}
-  ${chain("M250 300C320 560 760 560 830 300", 7)}
-  ${coin(540, 490, 1.3, "A")}
-  ${chain("M160 350C260 800 820 800 920 350", 6)}
-  ${teardrop(540, 700, 0.9)}
-  ${sparkle(660, 760, 1.4)}${sparkle(420, 520, 1)}
-</svg>`
-);
+out("assets/banners/col-gold.svg", svg(800, 1000, `
+  <rect width="800" height="1000" fill="url(#cg)"/>
+  <circle cx="400" cy="400" r="300" fill="#ffc2c2" opacity=".08"/>
+  ${place(products["bangle-duo"], 70, -10, 1.1)}
+  ${sparkle(630, 230, 1.4)}${sparkle(170, 590, 0.9)}`, grad("cg", "#7a2458", "#3c0e2a")));
 
-// Custom banner: 1080x720, design-desk look with a sketch becoming a finished ring.
-out(
-  "assets/banners/custom.svg",
-  `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 720" width="1080" height="720">${defs}
-  <defs>
-    <linearGradient id="ink" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#26221d"/><stop offset="1" stop-color="#141210"/></linearGradient>
-    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#fff" stroke-opacity=".06" stroke-width="1"/></pattern>
-    <linearGradient id="fade" x1="0" y1="0" x2="1" y2="0"><stop offset=".3" stop-color="#fff" stop-opacity="0"/><stop offset=".6" stop-color="#fff" stop-opacity="1"/></linearGradient>
-    <mask id="gm"><rect width="1080" height="720" fill="url(#fade)"/></mask>
-  </defs>
+out("assets/banners/col-gems.svg", svg(800, 1000, `
+  <rect width="800" height="1000" fill="url(#cm)"/>
+  <circle cx="400" cy="400" r="300" fill="#fff" opacity=".6"/>
+  ${shadow(400, 620, 260, 18)}
+  ${gem(400, 390, 140, "oval", "sapphire")}
+  ${gem(620, 220, 62, "oval", "padparadscha")}
+  ${gem(190, 230, 58, "round", "pink")}
+  ${gem(200, 560, 74, "cushion", "ruby")}
+  ${gem(610, 570, 78, "emerald", "emerald")}
+  ${sparkle(470, 250, 1.2)}${sparkle(330, 590, 0.7)}`, grad("cm", "#ffffff", "#eedcdf")));
+
+// ---------- section banners (1080x720, art on the right, copy on the left) ----------
+out("assets/banners/gifting.svg", svg(1080, 720, `
+  <rect width="1080" height="720" fill="url(#bgf)"/>
+  <circle cx="800" cy="380" r="280" fill="#fff" opacity=".35"/>
+  ${shadow(800, 640, 230, 18)}
+  ${giftBox(800, 370, 0.95)}
+  ${chain("M560 330C600 470 520 560 470 620", 4)}
+  ${pearl(470, 632, 24)}
+  ${sparkle(640, 200, 1.3)}${sparkle(990, 250, 0.9)}`, grad("bgf", "#ffd6d6", "#eedcdf")));
+
+out("assets/banners/gold.svg", svg(1080, 720, `
+  <rect width="1080" height="720" fill="url(#bgd)"/>
+  <circle cx="800" cy="360" r="300" fill="#ffc2c2" opacity=".08"/>
+  ${place(products["bangle-duo"], 500, -20, 1.0)}
+  ${sparkle(640, 150, 1.3)}${sparkle(1000, 560, 0.9)}`, grad("bgd", "#7a2458", "#3c0e2a")));
+
+out("assets/banners/gems.svg", svg(1080, 720, `
+  <rect width="1080" height="720" fill="url(#bgm)"/>
+  <circle cx="800" cy="360" r="290" fill="#fff" opacity=".6"/>
+  <g transform="translate(840 350) scale(.86) translate(-800 -340)">
+  ${shadow(800, 600, 230, 16)}
+  ${gem(800, 340, 130, "oval", "sapphire")}
+  ${gem(980, 190, 55, "oval", "padparadscha")}
+  ${gem(620, 200, 52, "round", "pink")}
+  ${gem(640, 520, 64, "cushion", "ruby")}
+  ${gem(980, 520, 66, "emerald", "emerald")}
+  ${sparkle(880, 210, 1.1)}
+  </g>`, grad("bgm", "#ffffff", "#eedcdf")));
+
+// Custom made: sketch becoming a finished ring, on deep plum.
+out("assets/banners/custom.svg", svg(1080, 720, `
   <rect width="1080" height="720" fill="url(#ink)"/>
   <rect width="1080" height="720" fill="url(#grid)" mask="url(#gm)"/>
-  <circle cx="820" cy="370" r="260" fill="#c99a45" opacity=".08"/>
+  <circle cx="820" cy="370" r="260" fill="#ffc2c2" opacity=".08"/>
   ${solitaire(720, 150, 1.05, true)}
   ${shadow(860, 610, 170, 14)}
   ${solitaire(860, 230, 1.1)}
@@ -393,50 +421,12 @@ out(
     <rect x="0" y="-9" width="230" height="18" rx="3" fill="#d9b56a"/>
     <rect x="0" y="-9" width="230" height="6" fill="#fff" opacity=".25"/>
     <rect x="200" y="-9" width="30" height="18" fill="#8a6420"/>
-    <path d="M0-9L-34 0 0 9Z" fill="#e9d3a8"/><path d="M-22-3.5L-34 0-22 3.5Z" fill="#26221d"/>
+    <path d="M0-9L-34 0 0 9Z" fill="#e9d3a8"/><path d="M-22-3.5L-34 0-22 3.5Z" fill="#3c0e2a"/>
   </g>
-  ${sparkle(990, 170, 1.2)}${sparkle(760, 520, 0.7)}
-</svg>`
-);
-
-// Gift banner: 1080x720, blush with gift box.
-out(
-  "assets/banners/gift.svg",
-  `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 720" width="1080" height="720">${defs}
-  <defs><linearGradient id="bl" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f6e2da"/><stop offset="1" stop-color="#e9c5b8"/></linearGradient></defs>
-  <rect width="1080" height="720" fill="url(#bl)"/>
-  <circle cx="800" cy="380" r="280" fill="#fff" opacity=".35"/>
-  ${shadow(800, 620, 230, 18)}
-  <g filter="url(#drop)">
-    <rect x="620" y="360" width="360" height="250" rx="10" fill="#0f4d3f"/>
-    <rect x="600" y="310" width="400" height="70" rx="10" fill="#146050"/>
-    <rect x="780" y="310" width="40" height="300" fill="url(#goldV)"/>
-    <path d="M800 312C740 230 660 250 690 300 710 330 770 318 800 312ZM800 312C860 230 940 250 910 300 890 330 830 318 800 312Z" fill="url(#gold)"/>
-  </g>
-  ${chain("M560 330C600 470 520 560 470 620", 4)}
-  ${teardrop(468, 610, 0.5)}
-  ${sparkle(640, 200, 1.3)}${sparkle(990, 250, 0.9)}${sparkle(560, 560, 0.7)}
-</svg>`
-);
-
-// Waterproof banner: 1080x720, aqua-cream with droplets and hoops.
-out(
-  "assets/banners/waterproof.svg",
-  `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 720" width="1080" height="720">${defs}
-  <defs>
-    <linearGradient id="aq" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e3eeec"/><stop offset="1" stop-color="#c3dbd7"/></linearGradient>
-    <radialGradient id="drop2" cx=".35" cy=".35" r=".8"><stop offset="0" stop-color="#fff" stop-opacity=".95"/><stop offset=".6" stop-color="#d8ecea" stop-opacity=".55"/><stop offset="1" stop-color="#8fbab5" stop-opacity=".6"/></radialGradient>
-  </defs>
-  <rect width="1080" height="720" fill="url(#aq)"/>
-  ${shadow(800, 600, 220, 18)}
-  <g filter="url(#drop)">
-    <ellipse cx="730" cy="370" rx="130" ry="165" fill="none" stroke="url(#gold)" stroke-width="48"/>
-    <ellipse cx="900" cy="395" rx="112" ry="145" fill="none" stroke="url(#gold)" stroke-width="42"/>
-  </g>
-  ${[[640, 250, 22], [760, 190, 14], [880, 290, 18], [960, 480, 12], [700, 520, 16], [820, 560, 10], [600, 420, 11], [1000, 200, 16]]
-    .map(([x, y, r]) => `<path transform="translate(${x} ${y})" d="M0 ${-r * 1.6}C${r * 0.6} ${-r * 0.6} ${r} 0 ${r} ${r * 0.35}A${r} ${r} 0 0 1 ${-r} ${r * 0.35}C${-r} 0 ${-r * 0.6} ${-r * 0.6} 0 ${-r * 1.6}Z" fill="url(#drop2)" stroke="#fff" stroke-opacity=".7" stroke-width="1.5"/>`)
-    .join("")}
-</svg>`
-);
+  ${sparkle(990, 170, 1.2)}${sparkle(760, 520, 0.7)}`,
+  `${grad("ink", "#5a153f", "#2e0a20")}
+   <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#fff" stroke-opacity=".07" stroke-width="1"/></pattern>
+   <linearGradient id="fade" x1="0" y1="0" x2="1" y2="0"><stop offset=".3" stop-color="#fff" stop-opacity="0"/><stop offset=".6" stop-color="#fff" stop-opacity="1"/></linearGradient>
+   <mask id="gm"><rect width="1080" height="720" fill="url(#fade)"/></mask>`));
 
 console.log("Assets generated.");
