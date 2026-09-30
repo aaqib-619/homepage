@@ -15,7 +15,7 @@ let html = readFileSync(join(root, "index.html"), "utf8");
 html = html.replace(/<link rel="preload"[^>]*>\n?/, "").replace(/<meta property="og:image"[^>]*>\n?/, "");
 
 // Literal references in markup and in the PRODUCTS data.
-html = html.replace(/assets\/(?:banners|brand|images)\/[\w.-]+\.(?:svg|png|webp)/g, m => uri(m));
+html = html.replace(/assets\/(?:banners|brand|images|products)\/[\w.-]+\.(?:svg|png|webp)/g, m => uri(m));
 
 // Product images are also built in JS from an id; inline them as a lookup.
 const products = Object.fromEntries(

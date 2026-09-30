@@ -59,6 +59,7 @@ node scripts/build-standalone.mjs  # single-file preview with images inlined
 | 1 | Transparent header | Sits over the hero photo with the white wordmark and icons. It turns solid white with the plum wordmark after 40px of scroll, so it stays legible over content. The cart count is always visible (`aria-live`). |
 | 2 | Hero | Brand photography with "Rare Gems, Timeless" and two paths: **Shop Now** for ready-to-wear buyers and **Design Your Own** for custom buyers. No rating. |
 | 3 | USP strip | One line, looping: 300+ Five-Star Reviews · Ready-to-Wear Jewellery · Custom Designs · Expert Guidance. It pauses on touch or hover, and shows statically with reduced motion. |
+| 3b | Category carousel | Swipeable circles directly below the hero: New Arrivals, Rings, Earrings, Necklaces, Bracelets, Gold, Gemstones, Custom and Gifts. They give one-tap shortcuts by jewellery type, and a rose ring highlights New Arrivals and Custom. |
 | 4 | Our Collections | Three swipeable tiles, one per primary collection, so shoppers self-select immediately. |
 | 5 | Premium Jewellery & Gifting | Type tabs (Earrings, Necklaces, Rings, Bracelets) and a product grid. Cards show metal colour swatches, "Save %" and "New Arrival" badges, low-stock flags and **Add to cart**. |
 | 6 | Gifting banner | Gifting is part of the premium collection and a high-intent occasion. |
