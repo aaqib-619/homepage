@@ -381,23 +381,25 @@ out("assets/banners/col-gems.svg", svg(800, 1000, `
   ${sparkle(470, 250, 1.2)}${sparkle(330, 590, 0.7)}`, grad("cm", "#ffffff", "#eedcdf")));
 
 // ---------- section banners (1080x720, art on the right, copy on the left) ----------
-out("assets/banners/gifting.svg", svg(1080, 720, `
-  <rect width="1080" height="720" fill="url(#bgf)"/>
+// Each banner is also written as <name>-wide.svg (1920x720, 8:3) for tablet/desktop, art shifted right.
+const banner = (name, fillId, body, gradDef) => {
+  out(`assets/banners/${name}.svg`, svg(1080, 720, `<rect width="1080" height="720" fill="url(#${fillId})"/>${body}`, gradDef));
+  out(`assets/banners/${name}-wide.svg`, svg(1920, 720, `<rect width="1920" height="720" fill="url(#${fillId})"/><g transform="translate(700 0)">${body}</g>`, gradDef));
+};
+banner("gifting", "bgf", `
   <circle cx="800" cy="380" r="280" fill="#fff" opacity=".35"/>
   ${shadow(800, 640, 230, 18)}
   ${giftBox(800, 370, 0.95)}
   ${chain("M560 330C600 470 520 560 470 620", 4)}
   ${pearl(470, 632, 24)}
-  ${sparkle(640, 200, 1.3)}${sparkle(990, 250, 0.9)}`, grad("bgf", "#ffd6d6", "#eedcdf")));
+  ${sparkle(640, 200, 1.3)}${sparkle(990, 250, 0.9)}`, grad("bgf", "#ffd6d6", "#eedcdf"));
 
-out("assets/banners/gold.svg", svg(1080, 720, `
-  <rect width="1080" height="720" fill="url(#bgd)"/>
+banner("gold", "bgd", `
   <circle cx="800" cy="360" r="300" fill="#ffc2c2" opacity=".08"/>
   ${place(products["bangle-duo"], 500, -20, 1.0)}
-  ${sparkle(640, 150, 1.3)}${sparkle(1000, 560, 0.9)}`, grad("bgd", "#7a2458", "#3c0e2a")));
+  ${sparkle(640, 150, 1.3)}${sparkle(1000, 560, 0.9)}`, grad("bgd", "#7a2458", "#3c0e2a"));
 
-out("assets/banners/gems.svg", svg(1080, 720, `
-  <rect width="1080" height="720" fill="url(#bgm)"/>
+banner("gems", "bgm", `
   <circle cx="800" cy="360" r="290" fill="#fff" opacity=".6"/>
   <g transform="translate(840 350) scale(.86) translate(-800 -340)">
   ${shadow(800, 600, 230, 16)}
@@ -407,7 +409,7 @@ out("assets/banners/gems.svg", svg(1080, 720, `
   ${gem(640, 520, 64, "cushion", "ruby")}
   ${gem(980, 520, 66, "emerald", "emerald")}
   ${sparkle(880, 210, 1.1)}
-  </g>`, grad("bgm", "#ffffff", "#eedcdf")));
+  </g>`, grad("bgm", "#ffffff", "#eedcdf"));
 
 // Custom made: sketch becoming a finished ring, on deep plum.
 out("assets/banners/custom.svg", svg(1080, 720, `

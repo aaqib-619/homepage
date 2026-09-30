@@ -19,7 +19,7 @@ It also features the **Custom Designs** service, with an enquiry form.
   - `banner-*.jpg`: banners with copy baked in, 1170px wide.
   - `art-*.jpg`: the same artwork **without text**, for theme sections that overlay their own heading and button (recommended).
   - `product-*.jpg`: 1200×1500 (4:5) placeholder product images.
-- `preview/*.png|jpg`: screenshots at iPhone 13 size.
+- `preview/*.png|jpg`: screenshots at iPhone 13 size, plus `preview/desktop-*` at 1440x900.
 
 Regenerate everything:
 
@@ -36,6 +36,30 @@ node scripts/build-standalone.mjs  # single-file preview with images inlined
    - Open the file in Chrome.
    - Press `Cmd+Opt+I` (Mac) or `Ctrl+Shift+I` (Windows).
    - Press `Cmd+Shift+M` / `Ctrl+Shift+M` and choose an iPhone.
+
+## Responsive layout
+
+One `index.html` serves every screen size, the same way a Shopify theme does.
+
+| Width | Layout |
+|---|---|
+| Under 768px (phones) | The mobile layout described below. |
+| 768–1023px (tablets) | 3-column product grids, collections in a 3-up grid, centered category circles, and wide 8:3 banners. |
+| 1024px and up (desktop) | See the list below. |
+
+The desktop layout includes:
+
+- **Header:** a two-row header with the search, "Talk to an expert", logo, account and cart row above a full navigation bar. The nav has dropdowns for Premium Jewellery & Gifting, Gold Jewellery and Gemstones. It's transparent over the hero and turns solid white on scroll or hover.
+- **Hero:** a split layout, with copy on plum beside the photograph.
+- **Static sections:** the USP strip sits on one static line, and the category circles are centered.
+- **Grids:** collections are 3-up; the Premium and Gemstones grids are 4 columns (8 premium pieces); Gold is a 5-up row; reviews are 4-up.
+- **Wide banners:** served through `<picture>` from `assets/banners/*-wide.svg` (1920x720).
+- **Custom Designs:** the explainer sits in a sticky left column, with the form on the right.
+- **Narrower sections:** the expert, newsletter and FAQ sections use a narrower measure, and the newsletter form is inline.
+- **Footer:** four columns, with link groups always open.
+- **Hidden:** the mobile sticky bar and hamburger menu.
+
+The content width is capped at 1240px. Desktop previews are in `preview/desktop-*`.
 
 ## Brand system (from the guidelines)
 

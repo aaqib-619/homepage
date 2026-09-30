@@ -84,5 +84,23 @@ await page.evaluate(() => document.getElementById("welcome").classList.remove("o
 await page.locator("#custom-form").scrollIntoViewIfNeeded(); await page.waitForTimeout(300);
 await page.locator("#custom-form").screenshot({ path: join(prev, "07-custom-design-form.png") });
 
+// 4. Desktop previews (1440 x 900).
+const dctx = await browser.newContext({ viewport: { width: 1440, height: 900 }, ignoreHTTPSErrors: true });
+await dctx.addInitScript(() => { try { localStorage.setItem("welcomeSeen", "true"); localStorage.removeItem("cart"); } catch {} });
+const dpage = await dctx.newPage();
+for (let i = 0; i < 4; i++) {
+  await dpage.goto(pathToFileURL(join(root, "index.html")).href, { waitUntil: "load" });
+  await dpage.evaluate(() => document.fonts.ready);
+  if (await dpage.evaluate(() => ["Cormorant", "DM Sans", "Prata"].every(n => [...document.fonts].some(f => f.family.includes(n) && f.status === "loaded")))) break;
+}
+await dpage.evaluate(() => Promise.all([...document.images].map(i => { i.loading = "eager"; return i.complete ? 0 : new Promise(r => { i.onload = i.onerror = r; }); })));
+await dpage.mouse.move(720, 880); await dpage.waitForTimeout(400);
+await dpage.screenshot({ path: join(prev, "desktop-01-above-the-fold.png") });
+await dpage.screenshot({ path: join(prev, "desktop-02-full-page.jpg"), fullPage: true, type: "jpeg", quality: 78 });
+await dpage.locator(".desk-nav .dd").first().hover(); await dpage.waitForTimeout(400);
+await dpage.screenshot({ path: join(prev, "desktop-03-navigation.png"), clip: { x: 0, y: 0, width: 1440, height: 480 } });
+await dpage.locator("#custom").scrollIntoViewIfNeeded(); await dpage.mouse.move(720, 880);
+await dpage.locator("#custom").screenshot({ path: join(prev, "desktop-04-custom-designs.jpg"), type: "jpeg", quality: 82 });
+
 await browser.close();
 console.log("Exported to assets/export and preview/");
