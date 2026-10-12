@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="800" height="1000">
+<defs>
+  <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#8a6420"/>
+    <stop offset=".28" stop-color="#e9c87a"/>
+    <stop offset=".5" stop-color="#b8893b"/>
+    <stop offset=".72" stop-color="#f7e4b0"/>
+    <stop offset="1" stop-color="#9c7228"/>
+  </linearGradient>
+  <linearGradient id="goldV" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#f7e4b0"/>
+    <stop offset=".45" stop-color="#c99a45"/>
+    <stop offset="1" stop-color="#8a6420"/>
+  </linearGradient>
+  <linearGradient id="emerald" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#5fe0ae"/>
+    <stop offset=".45" stop-color="#11805f"/>
+    <stop offset="1" stop-color="#063d2e"/>
+  </linearGradient>
+  <linearGradient id="sapphire" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#9dbcff"/>
+    <stop offset=".5" stop-color="#2a4fb8"/>
+    <stop offset="1" stop-color="#0f1f5c"/>
+  </linearGradient>
+  <linearGradient id="padpa" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#ffe0d2"/><stop offset=".5" stop-color="#ee8064"/><stop offset="1" stop-color="#9c3a33"/>
+  </linearGradient>
+  <linearGradient id="yellowgem" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#fff4bd"/><stop offset=".5" stop-color="#f0bf2a"/><stop offset="1" stop-color="#9c6606"/>
+  </linearGradient>
+  <linearGradient id="wgold" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#8d939b"/><stop offset=".28" stop-color="#f4f6f8"/><stop offset=".5" stop-color="#b9bfc6"/><stop offset=".72" stop-color="#ffffff"/><stop offset="1" stop-color="#9aa1a9"/>
+  </linearGradient>
+  <linearGradient id="wgoldV" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#ffffff"/><stop offset=".45" stop-color="#c3c8ce"/><stop offset="1" stop-color="#8d939b"/>
+  </linearGradient>
+  <linearGradient id="rgold" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#9a5a48"/><stop offset=".28" stop-color="#f6c9b6"/><stop offset=".5" stop-color="#c98a72"/><stop offset=".72" stop-color="#fbe0d3"/><stop offset="1" stop-color="#a5634f"/>
+  </linearGradient>
+  <linearGradient id="rgoldV" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#fbe0d3"/><stop offset=".45" stop-color="#d0927a"/><stop offset="1" stop-color="#9a5a48"/>
+  </linearGradient>
+  <linearGradient id="ruby" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#ff9aa8"/>
+    <stop offset=".5" stop-color="#c0183a"/>
+    <stop offset="1" stop-color="#5e0619"/>
+  </linearGradient>
+  <radialGradient id="crystal" cx=".35" cy=".3" r=".8">
+    <stop offset="0" stop-color="#ffffff"/>
+    <stop offset=".4" stop-color="#dce7f5"/>
+    <stop offset="1" stop-color="#6f86a6"/>
+  </radialGradient>
+  <radialGradient id="pearl" cx=".35" cy=".3" r=".85">
+    <stop offset="0" stop-color="#ffffff"/>
+    <stop offset=".55" stop-color="#f1e9df"/>
+    <stop offset="1" stop-color="#c9b9a6"/>
+  </radialGradient>
+  <radialGradient id="glow" cx=".5" cy=".42" r=".6">
+    <stop offset="0" stop-color="#ffffff" stop-opacity=".85"/>
+    <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+  </radialGradient>
+  <filter id="soft" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="14"/></filter>
+  <filter id="drop" x="-20%" y="-20%" width="140%" height="140%">
+    <feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#5b4323" flood-opacity=".22"/>
+  </filter>
+</defs>
+  <rect width="800" height="1000" fill="#fdf8f8"/><rect width="800" height="1000" fill="url(#glow)"/><rect y="720" width="800" height="280" fill="#f3e4e7" opacity=".6"/>
+  <path d="M150 -10C190 320 300 440 400 448C500 440 610 320 650 -10" fill="none" stroke="#8a6420" stroke-width="7" stroke-linecap="round" opacity=".35"/>
+   <path d="M150 -10C190 320 300 440 400 448C500 440 610 320 650 -10" fill="none" stroke="url(#gold)" stroke-width="5" stroke-linecap="round" stroke-dasharray="8 3.5"/>
+<g transform="translate(400 460) scale(2.2)" filter="url(#drop)">
+  <circle cx="0" cy="-10" r="10" fill="none" stroke="url(#gold)" stroke-width="6"/>
+  <circle cx="0" cy="44" r="46" fill="url(#gold)"/>
+  <circle cx="0" cy="44" r="38" fill="none" stroke="#8a6420" stroke-opacity=".35" stroke-width="2"/>
+  <text x="0" y="60" text-anchor="middle" font-family="Georgia, serif" font-size="46" font-style="italic" fill="#7a5418">S</text>
+</g><path transform="translate(520 560) scale(1)" d="M0-18C2-6 6-2 18 0 6 2 2 6 0 18-2 6-6 2-18 0-6-2-2-6 0-18Z" fill="#fff" opacity="0.9"/></svg>

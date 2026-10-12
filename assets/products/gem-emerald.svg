@@ -22,6 +22,24 @@
     <stop offset=".5" stop-color="#2a4fb8"/>
     <stop offset="1" stop-color="#0f1f5c"/>
   </linearGradient>
+  <linearGradient id="padpa" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#ffe0d2"/><stop offset=".5" stop-color="#ee8064"/><stop offset="1" stop-color="#9c3a33"/>
+  </linearGradient>
+  <linearGradient id="yellowgem" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#fff4bd"/><stop offset=".5" stop-color="#f0bf2a"/><stop offset="1" stop-color="#9c6606"/>
+  </linearGradient>
+  <linearGradient id="wgold" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#8d939b"/><stop offset=".28" stop-color="#f4f6f8"/><stop offset=".5" stop-color="#b9bfc6"/><stop offset=".72" stop-color="#ffffff"/><stop offset="1" stop-color="#9aa1a9"/>
+  </linearGradient>
+  <linearGradient id="wgoldV" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#ffffff"/><stop offset=".45" stop-color="#c3c8ce"/><stop offset="1" stop-color="#8d939b"/>
+  </linearGradient>
+  <linearGradient id="rgold" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#9a5a48"/><stop offset=".28" stop-color="#f6c9b6"/><stop offset=".5" stop-color="#c98a72"/><stop offset=".72" stop-color="#fbe0d3"/><stop offset="1" stop-color="#a5634f"/>
+  </linearGradient>
+  <linearGradient id="rgoldV" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#fbe0d3"/><stop offset=".45" stop-color="#d0927a"/><stop offset="1" stop-color="#9a5a48"/>
+  </linearGradient>
   <linearGradient id="ruby" x1="0" y1="0" x2="1" y2="1">
     <stop offset="0" stop-color="#ff9aa8"/>
     <stop offset=".5" stop-color="#c0183a"/>

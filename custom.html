@@ -1,0 +1,852 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Custom Jewellery, Designed by You | Amirah Gems</title>
+<meta name="description" content="One of a kind custom rings, pendants and heirlooms in 18k, 22k and 24k gold, silver or platinum. Share your idea and our experts will guide you from sketch to finished piece.">
+<meta name="theme-color" content="#641946">
+<link rel="canonical" href="https://amirahgems.com/pages/custom-jewellery">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Amirah Gems">
+<meta property="og:title" content="Custom Jewellery, Designed by You | Amirah Gems">
+<meta property="og:description" content="One of a kind pieces crafted to your idea, with an expert by your side.">
+<meta property="og:image" content="assets/video/custom-hero-poster.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preload" as="image" href="assets/video/custom-hero-poster.jpg" fetchpriority="high">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Prata&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "Custom jewellery design",
+      "serviceType": "Bespoke jewellery design and manufacture",
+      "provider": { "@type": "Organization", "name": "Amirah Gems", "url": "https://amirahgems.com/" },
+      "description": "One of a kind rings, pendants, earrings and heirlooms crafted to your idea in 18k, 22k or 24k gold, silver or platinum, with expert guidance from sketch to finished piece."
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type": "Question", "name": "How much does a custom piece cost?", "acceptedAnswer": {"@type": "Answer", "text": "It depends on the metal, stones and design. Share your idea and we will give you a clear quote before anything is made, with no obligation."}},
+        {"@type": "Question", "name": "Can I make changes to the design?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. We refine the design with you and only begin crafting once you have approved it."}},
+        {"@type": "Question", "name": "Can you work from a photo or sketch?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Upload reference images, sketches or screenshots with your enquiry and our experts will use them as the starting point."}},
+        {"@type": "Question", "name": "Which metals and stones can I choose?", "acceptedAnswer": {"@type": "Answer", "text": "18k, 22k and 24k gold in yellow, white or rose, plus silver and platinum, set with sapphires, rubies, emeralds, pearls and other gemstones."}}
+      ]
+    }
+  ]
+}
+</script>
+
+<style>
+/* Brand tokens from the Amirah brand guidelines */
+:root{
+  --plum:#641946; --rose:#b84d69; --pink:#ffc2c2; --blush:#eedcdf; --white:#ffffff;
+  --plum-deep:#3c0e2a; --tint:#fbf3f4; --ink:#2b1422; --muted:#7a6470; --line:#eedcdf;
+  --gutter:16px; --head:64px;
+  --serif:"Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --accent:Prata, Georgia, serif;
+  --sans:"DM Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --safe-b:env(safe-area-inset-bottom, 0px);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background:#fff;color:var(--ink);font:400 16px/1.55 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,video{display:block;max-width:100%}
+img{height:auto}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
+:focus-visible{outline:2px solid var(--rose);outline-offset:2px}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.skip{position:absolute;left:8px;top:-60px;background:var(--plum);color:#fff;padding:10px 14px;z-index:200}
+.skip:focus{top:8px}
+.icon{width:22px;height:22px;flex:none;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.wrap{padding:0 var(--gutter)}
+.section{padding:56px 0}
+.tint{background:var(--tint)}
+.h2{font:600 34px/1.08 var(--serif);color:var(--plum);margin:0;letter-spacing:-.005em;text-wrap:balance}
+.accent{display:block;font:400 15px/1.3 var(--accent);color:var(--rose);margin-bottom:8px}
+.sub{margin:10px 0 0;color:var(--muted);font-size:15px}
+.sec-head{margin-bottom:26px;text-align:center}
+.sec-head .sub{max-width:520px;margin-left:auto;margin-right:auto}
+#work,#process,#reviews,#enquire,#faq{scroll-margin-top:var(--head)}
+
+/* Buttons: square, 1px borders (brand button/badge system) */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:50px;padding:0 24px;border:1px solid transparent;font:500 15px/1 var(--sans);letter-spacing:.02em;transition:background .2s,color .2s,transform .15s}
+.btn:active{transform:scale(.98)}
+.btn-pink{background:var(--pink);color:var(--plum);border-color:var(--plum)}
+.btn-plum{background:var(--plum);color:#fff;border-color:var(--pink)}
+.btn-outline{background:#fff;color:var(--rose);border-color:var(--rose)}
+.btn-ghost{background:transparent;color:#fff;border-color:#fff}
+.btn-block{width:100%}
+.btn .icon{width:18px;height:18px}
+.stars{display:inline-flex;gap:2px;color:var(--rose)}
+.stars svg{width:14px;height:14px;fill:currentColor}
+.badge{display:inline-block;padding:5px 8px;font:500 10.5px/1 var(--sans);letter-spacing:.08em;text-transform:uppercase;background:var(--plum);color:#fff;border:1px solid var(--pink)}
+.scroller{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding:0 var(--gutter);padding:0 var(--gutter) 6px;scrollbar-width:none;-webkit-overflow-scrolling:touch;scroll-behavior:smooth}
+.scroller::-webkit-scrollbar{display:none}
+.scroller>*{scroll-snap-align:start;flex:none}
+
+/* ---------- header (minimal: one goal) ---------- */
+.header{position:sticky;top:0;z-index:50;height:var(--head);margin-bottom:calc(var(--head) * -1);color:#fff;transition:background .25s,color .25s,box-shadow .25s}
+.header.solid{background:#fff;color:var(--plum);box-shadow:0 1px 0 var(--blush)}
+.header-row{height:100%;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:0 6px 0 var(--gutter)}
+.logo{position:relative;display:block;width:118px;height:19px}
+.logo img{position:absolute;inset:0;width:100%;height:100%;transition:opacity .25s}
+.logo .dark,.header.solid .logo .light{opacity:0}
+.header.solid .logo .dark{opacity:1}
+.head-actions{display:flex;align-items:center;gap:6px}
+.icon-btn{width:44px;height:44px;display:inline-flex;align-items:center;justify-content:center}
+.head-cta{min-height:40px;padding:0 14px;font-size:13.5px}
+.expert-link{display:none}
+
+/* ---------- hero with video ---------- */
+.hero{position:relative;height:min(100svh,170vw);min-height:560px;overflow:hidden;background:var(--plum-deep);color:#fff}
+.hero-media{position:absolute;inset:0 0 auto;aspect-ratio:4/5}
+.hero-media video{width:100%;height:100%;object-fit:cover}
+.hero::before{content:"";position:absolute;inset:0 0 auto;height:120px;background:linear-gradient(rgba(30,6,20,.55),rgba(30,6,20,0));z-index:1;pointer-events:none}
+.hero-copy{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:120px var(--gutter) 28px;background:linear-gradient(to top,rgba(46,10,32,.97) 0%,rgba(46,10,32,.85) 55%,rgba(46,10,32,0) 100%)}
+.hero .accent{color:var(--pink);margin-bottom:6px}
+.hero h1{font:600 44px/1 var(--serif);margin:0 0 12px;letter-spacing:-.01em;text-wrap:balance}
+.hero p{margin:0 0 20px;font-size:15px;color:rgba(255,255,255,.88)}
+.hero-ctas{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.hero-ctas .btn{padding:0 10px}
+.vid-toggle{position:absolute;z-index:3;top:calc(var(--head) + 8px);right:10px;width:44px;height:44px;display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.5);background:rgba(46,10,32,.35);color:#fff;backdrop-filter:blur(4px)}
+.vid-toggle .icon{width:16px;height:16px;fill:currentColor;stroke:none}
+.vid-toggle .play,.vid-toggle.paused .pause{display:none}
+.vid-toggle.paused .play{display:block}
+
+/* ---------- stats ---------- */
+.stats{background:var(--blush);color:var(--plum)}
+.stats ul{list-style:none;margin:0;padding:22px var(--gutter);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;text-align:center}
+.stats li{display:flex;flex-direction:column;align-items:center;gap:4px}
+.stats li+li{border-left:1px solid rgba(100,25,70,.18)}
+.stat-num{font:600 34px/1 var(--serif);white-space:nowrap;font-variant-numeric:tabular-nums}
+.stat-num small{font-size:.55em;font-weight:500}
+.stat-label{font:500 11.5px/1.3 var(--sans);letter-spacing:.06em;text-transform:uppercase}
+.stat-sub{font-size:11px;color:var(--muted);line-height:1.3}
+
+/* ---------- gallery ---------- */
+.filters{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding:0 var(--gutter);margin-bottom:20px}
+.filters::-webkit-scrollbar{display:none}
+.chip{flex:none;min-height:40px;padding:0 16px;border:1px solid var(--line);background:#fff;font:500 13.5px/1 var(--sans);color:var(--plum)}
+.chip[aria-pressed="true"]{background:var(--plum);border-color:var(--plum);color:#fff}
+.work{width:76vw;max-width:340px;display:flex;flex-direction:column}
+.work-media{position:relative;display:block;width:100%;overflow:hidden;background:var(--tint)}
+.work-media img{width:100%;aspect-ratio:4/5;object-fit:cover;transition:transform .6s}
+.work-media .badge{position:absolute;left:10px;top:10px}
+.work-media .zoom{position:absolute;right:10px;bottom:10px;width:40px;height:40px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.9);color:var(--plum);border:1px solid var(--blush)}
+.work-media .zoom .icon{width:18px;height:18px}
+.work-body{padding:14px 2px 0}
+.work-body h3{margin:0;font:400 19px/1.25 var(--accent);color:var(--plum)}
+.work-body p{margin:4px 0 10px;font-size:13.5px;color:var(--muted)}
+.similar{display:inline-flex;align-items:center;gap:6px;min-height:40px;font:500 12.5px/1 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--rose)}
+.similar .icon{width:16px;height:16px}
+.car-nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px var(--gutter) 0}
+.progress{flex:1;height:2px;background:var(--line);position:relative;overflow:hidden}
+.progress i{position:absolute;left:0;top:0;bottom:0;width:20%;background:var(--plum);transition:transform .2s}
+.arrows{display:flex;gap:8px}
+.arrow{width:44px;height:44px;display:flex;align-items:center;justify-content:center;border:1px solid var(--plum);color:var(--plum);background:#fff}
+.arrow:disabled{opacity:.3;cursor:default}
+.arrow .icon{width:18px;height:18px}
+.prev .icon{transform:rotate(180deg)}
+
+/* ---------- lightbox ---------- */
+.lightbox{padding:0;border:0;width:min(100vw,980px);max-width:100vw;max-height:100dvh;background:#fff;color:var(--ink)}
+.lightbox::backdrop{background:rgba(30,6,20,.75)}
+.lb-inner{display:flex;flex-direction:column;max-height:100dvh;overflow:auto}
+.lb-media{position:relative;background:var(--tint)}
+.lb-media img{width:100%;aspect-ratio:4/5;object-fit:cover;max-height:50dvh}
+.lb-close{position:absolute;top:8px;right:8px;width:44px;height:44px;display:flex;align-items:center;justify-content:center;background:#fff;color:var(--plum);border:1px solid var(--blush)}
+.lb-step{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.92);color:var(--plum);border:1px solid var(--blush)}
+.lb-step.prev{left:8px}.lb-step.next{right:8px}
+.lb-text{padding:20px var(--gutter) calc(20px + var(--safe-b))}
+.lb-text h3{margin:6px 0 4px;font:600 28px/1.1 var(--serif);color:var(--plum)}
+.lb-text .meta{font-size:13.5px;color:var(--muted)}
+.lb-text blockquote{margin:14px 0 18px;padding-left:14px;border-left:2px solid var(--pink);font:italic 500 19px/1.4 var(--serif);color:var(--ink)}
+
+/* ---------- process ---------- */
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:14px;counter-reset:step}
+.steps li{position:relative;padding:20px 18px 20px 70px;background:#fff;border:1px solid var(--line)}
+.steps li::before{counter-increment:step;content:counter(step);position:absolute;left:18px;top:18px;width:36px;height:36px;border:1px solid var(--plum);color:var(--plum);font:600 20px/34px var(--serif);text-align:center}
+.steps h3{margin:0 0 4px;font:400 18px/1.3 var(--accent);color:var(--plum)}
+.steps p{margin:0;font-size:14.5px;color:var(--muted)}
+.inline-cta{margin-top:28px;text-align:center}
+.inline-cta p{margin:10px 0 0;font-size:13px;color:var(--muted)}
+
+/* ---------- testimonials ---------- */
+.quote{width:84vw;max-width:380px;background:#fff;border:1px solid var(--line);padding:22px;display:flex;flex-direction:column;gap:12px}
+.quote blockquote{margin:0;font:italic 500 20px/1.4 var(--serif);color:var(--ink)}
+.quote footer{display:flex;align-items:center;gap:12px;margin-top:auto;padding-top:14px;border-top:1px solid var(--line)}
+.quote footer img{width:48px;height:60px;object-fit:cover}
+.quote footer b{display:block;font-weight:500;color:var(--plum);font-size:14.5px}
+.quote footer span{font-size:12.5px;color:var(--muted)}
+
+/* ---------- materials ---------- */
+.materials{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin:0;padding:0;list-style:none}
+.materials li{padding:10px 14px;border:1px solid var(--plum);color:var(--plum);font-size:13.5px;background:#fff}
+
+/* ---------- enquiry ---------- */
+.enquire{background:var(--plum);color:#fff}
+.enquire .h2{color:#fff}
+.enquire .accent{color:var(--pink)}
+.next-steps{list-style:none;margin:18px 0 0;padding:0;display:grid;gap:12px}
+.next-steps li{display:flex;gap:12px;align-items:flex-start;font-size:14.5px;color:rgba(255,255,255,.88)}
+.next-steps .icon{color:var(--pink);width:20px;height:20px;margin-top:1px}
+.chat-alt{display:flex;align-items:center;gap:12px;margin:22px 0 26px;padding:14px;border:1px solid rgba(255,194,194,.35);font-size:14px;color:rgba(255,255,255,.88)}
+.chat-alt .icon{color:var(--pink)}
+.chat-alt a{color:var(--pink);text-decoration:underline;text-underline-offset:3px}
+.cform{background:#fff;color:var(--ink);padding:24px 16px}
+.cform h3{font:600 28px/1.1 var(--serif);color:var(--plum);margin:0 0 4px}
+.cform>p{margin:0 0 18px;font-size:14px;color:var(--muted)}
+.inspired{display:none;align-items:center;gap:10px;margin:0 0 18px;padding:10px;background:var(--tint);border:1px solid var(--line);font-size:13.5px;color:var(--plum)}
+.inspired.on{display:flex}
+.inspired img{width:44px;height:55px;object-fit:cover}
+.inspired span{flex:1}
+.inspired button{width:36px;height:36px;display:flex;align-items:center;justify-content:center;color:var(--muted)}
+.inspired button .icon{width:16px;height:16px}
+.cform fieldset{border:0;margin:0 0 18px;padding:0;min-width:0}
+.cform legend,.cform .lbl{display:block;font:500 13.5px/1.3 var(--sans);color:var(--plum);margin-bottom:8px;padding:0}
+.cform legend small,.cform .lbl small{font-weight:400;color:var(--muted)}
+.opt{display:flex;flex-wrap:wrap;gap:8px}
+.opt label{position:relative;display:inline-flex}
+.opt input{position:absolute;inset:0;opacity:0;margin:0;cursor:pointer}
+.opt span{display:inline-flex;align-items:center;gap:6px;min-height:42px;padding:0 14px;border:1px solid var(--line);background:#fff;font-size:13.5px;color:var(--ink);transition:background .15s,color .15s}
+.opt input:checked+span{background:var(--plum);border-color:var(--plum);color:#fff}
+.opt input:focus-visible+span{outline:2px solid var(--rose);outline-offset:2px}
+.opt input:disabled+span{opacity:.35;text-decoration:line-through}
+.opt input:disabled{cursor:not-allowed}
+.opt .dot{width:12px;height:12px;border-radius:50%;box-shadow:inset 0 0 0 1px rgba(0,0,0,.15)}
+.hint{display:none;margin:8px 0 0;font-size:12.5px;color:var(--muted)}
+.hint.on{display:block}
+.field{margin-bottom:12px}
+.cform input[type=text],.cform input[type=email],.cform input[type=tel],.cform textarea{display:block;width:100%;border:1px solid #dcc5ca;padding:13px 14px;font:16px/1.4 var(--sans);background:#fff;color:var(--ink)}
+.cform textarea{min-height:96px;resize:vertical}
+.cform input:focus,.cform textarea:focus{outline:none;border-color:var(--rose);box-shadow:0 0 0 1px var(--rose)}
+.drop{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;min-height:100px;padding:14px;border:1px dashed var(--rose);background:var(--tint);text-align:center;font-size:14px;color:var(--plum)}
+.drop input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:pointer}
+.drop small{color:var(--muted);font-size:12px}
+.drop .icon{color:var(--rose)}
+.drop.over{background:var(--blush)}
+.thumbs{display:flex;gap:12px;flex-wrap:wrap}
+.thumbs:not(:empty){margin-top:14px}
+.thumb{position:relative;width:72px;height:72px}
+.thumb img{width:100%;height:100%;object-fit:cover;border:1px solid var(--line)}
+.thumb button{position:absolute;top:-10px;right:-10px;width:28px;height:28px;border-radius:50%;background:var(--plum);color:#fff;display:flex;align-items:center;justify-content:center}
+.thumb button .icon{width:14px;height:14px}
+.err{display:none;margin:8px 0 0;font-size:12.5px;color:#a3123a}
+.err.on{display:block}
+.cnote{display:flex;align-items:center;justify-content:center;gap:6px;margin-top:10px;font-size:12px;color:var(--muted);text-align:center}
+.cnote .icon{width:14px;height:14px}
+.success{display:none;padding:22px;text-align:center;border:1px solid var(--plum);background:var(--blush);color:var(--plum)}
+.success b{display:block;font:600 30px/1.2 var(--serif)}
+.success p{margin:8px 0 16px;font-size:14.5px}
+.cform.done form,.cform.done .inspired{display:none}
+.cform.done .success{display:block}
+
+/* ---------- FAQ, final CTA, footer ---------- */
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px;min-height:58px;font:500 15.5px/1.35 var(--sans);color:var(--plum);cursor:pointer}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary .icon{transition:transform .2s;width:18px;height:18px;color:var(--rose)}
+.faq details[open] summary .icon{transform:rotate(45deg)}
+.faq details p{margin:0 0 18px;font-size:14.5px}
+.faq details a{color:var(--rose);text-decoration:underline}
+.final{background:var(--pink);color:var(--plum);text-align:center}
+.final p{margin:10px 0 22px;font-size:15px}
+.final .btns{display:grid;gap:10px}
+.footer{background:var(--plum);color:rgba(255,255,255,.8);padding:36px 0 calc(96px + var(--safe-b));text-align:center;font-size:13.5px}
+.footer .lockup{width:180px;margin:0 auto 18px}
+.footer nav{display:flex;flex-wrap:wrap;justify-content:center;gap:4px 18px;margin-bottom:14px}
+.footer nav a{min-height:40px;display:inline-flex;align-items:center}
+.footer small{color:rgba(255,255,255,.55)}
+
+/* ---------- sticky CTA ---------- */
+.sticky{position:fixed;left:0;right:0;bottom:0;z-index:40;background:#fff;border-top:1px solid var(--line);padding:10px var(--gutter) calc(10px + var(--safe-b));display:flex;gap:10px;transform:translateY(110%);transition:transform .3s ease;box-shadow:0 -6px 24px rgba(60,14,42,.08)}
+.sticky.show{transform:none}
+.sticky .btn{flex:1;min-height:48px}
+.sticky .wa{flex:none;width:52px;padding:0}
+.sticky .wa .icon{width:22px;height:22px}
+
+/* ================= Tablet (768px+) ================= */
+@media (min-width:768px){
+  :root{--gutter:32px}
+  .stats ul{padding:28px var(--gutter)}
+  .stat-num{font-size:46px}
+  .stat-label{font-size:12.5px}
+  .stat-sub{font-size:12.5px}
+  .work{width:42vw}
+  .quote{width:46vw}
+  .steps{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .final .btns{grid-template-columns:repeat(2,minmax(0,260px));justify-content:center}
+  .hero{height:min(100svh,1000px)}
+  .lightbox{max-height:90dvh}
+  .lb-inner{flex-direction:row;max-height:90dvh}
+  .lb-media{flex:0 0 55%}
+  .lb-media img{max-height:90dvh;height:100%}
+  .lb-text{align-self:center;padding:36px}
+}
+
+/* ================= Desktop (1024px+) ================= */
+@media (min-width:1024px){
+  :root{--gutter:max(40px, calc((100vw - 1240px) / 2));--head:76px}
+  .section{padding:96px 0}
+  .h2{font-size:48px}
+  .accent{font-size:17px;margin-bottom:12px}
+  .sec-head{margin-bottom:40px}
+  .sub{font-size:17px}
+  .btn{min-height:52px;padding:0 32px}
+  .header-row{padding:0 var(--gutter)}
+  .logo{width:176px;height:29px}
+  .expert-link{display:inline-flex;align-items:center;gap:8px;margin-right:18px;font:500 12.5px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase}
+  .expert-link .icon{width:18px;height:18px}
+  .head-actions .wa-icon{display:none}
+  .head-cta{min-height:46px;padding:0 24px;font-size:14px}
+
+  /* hero: copy on plum, video beside it */
+  .hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);height:min(100vh,900px);min-height:680px}
+  .hero-media{position:relative;grid-area:1/2;aspect-ratio:auto;height:100%}
+  .hero::before{left:50%}
+  .hero-copy{position:relative;grid-area:1/1;display:flex;flex-direction:column;justify-content:center;padding:calc(var(--head) + 48px) 64px 64px var(--gutter);background:linear-gradient(150deg,#561540 0%,#3c0e2a 60%,#2e0a20 100%)}
+  .hero h1{font-size:72px;margin-bottom:22px}
+  .hero p{font-size:18px;max-width:470px;margin-bottom:34px}
+  .hero-ctas{display:flex;gap:14px}
+  .hero-ctas .btn{min-width:210px}
+  .vid-toggle{top:auto;bottom:20px;right:20px}
+
+  .stats ul{padding:36px var(--gutter)}
+  .stat-num{font-size:60px}
+  .stat-label{font-size:13px}
+
+  .filters{justify-content:center}
+  .work{width:calc((min(100vw, 1240px + 80px) - 80px - 42px) / 3.3);max-width:none}
+  .work:hover .work-media img{transform:scale(1.04)}
+  .quote{width:calc((min(100vw, 1240px + 80px) - 80px - 28px) / 3);max-width:none}
+  .car-nav{padding-top:28px}
+
+  .steps{grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
+  .steps li{padding:76px 24px 28px}
+  .steps li::before{left:24px;top:24px}
+
+  .enquire .wrap{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);column-gap:72px;align-items:start}
+  .enquire-intro{position:sticky;top:calc(var(--head) + 40px)}
+  .cform{padding:44px}
+  .cform h3{font-size:36px}
+
+  .faq .wrap,.final .wrap{max-width:900px;margin:0 auto;padding:0 40px}
+  .faq summary{font-size:17px;min-height:66px}
+  .faq details p{font-size:16px}
+  .final p{font-size:17px}
+  .footer{padding:48px 0}
+  .sticky{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2 6.3 20.3l1.2-6.4L2.8 9.5l6.4-.8L12 2.8Z"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4V5Z"/><path d="M8 10h8M8 13h5"/></symbol>
+  <symbol id="i-wa" viewBox="0 0 24 24"><path d="M4 20l1.2-4A8 8 0 1 1 8.3 19L4 20Z"/><path d="M9 8.5c0 3.5 2.6 6.5 6.5 6.5l1-1.6-2-1-1 .9c-1.2-.5-2.3-1.6-2.8-2.8l.9-1-1-2L9 8.5Z"/></symbol>
+  <symbol id="i-image" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="m21 16-5-5-9 9"/></symbol>
+  <symbol id="i-zoom" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5M11 8v6M8 11h6"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><path d="M7 4l13 8-13 8V4Z"/></symbol>
+  <symbol id="i-pause" viewBox="0 0 24 24"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></symbol>
+  <symbol id="i-pen" viewBox="0 0 24 24"><path d="M4 20l4.5-1L19 8.5 15.5 5 5 15.5 4 20Z"/><path d="M13.5 7l3.5 3.5"/></symbol>
+</svg>
+
+<!-- Minimal landing-page header: logo, expert contact, one CTA. No main navigation, so attention stays on the enquiry. -->
+<header class="header" id="header">
+  <div class="header-row">
+    <a class="logo" href="index.html" aria-label="Amirah Gems home">
+      <img class="light" src="assets/brand/wordmark-white.png" width="808" height="131" alt="">
+      <img class="dark" src="assets/brand/wordmark-plum.png" width="808" height="131" alt="">
+    </a>
+    <div class="head-actions">
+      <a class="expert-link wa-link" href="/pages/contact" data-track="whatsapp_click" data-loc="header"><svg class="icon"><use href="#i-wa"/></svg>Talk to an expert</a>
+      <a class="icon-btn wa-icon wa-link" href="/pages/contact" aria-label="Chat with an expert on WhatsApp" data-track="whatsapp_click" data-loc="header"><svg class="icon"><use href="#i-wa"/></svg></a>
+      <a class="btn btn-pink head-cta" href="#enquire" data-track="cta_click" data-loc="header">Start Your Design</a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- Hero: video showing the craft, one promise, two paths (enquire / see proof) -->
+  <section class="hero" aria-label="Custom jewellery">
+    <div class="hero-media">
+      <!-- Replace with your own footage: add an MP4 (H.264) source first for Safari, keep the WebM as a fallback. -->
+      <video id="heroVideo" autoplay muted loop playsinline preload="metadata" poster="assets/video/custom-hero-poster.jpg" aria-label="A pencil sketch of a sapphire ring becoming the finished gold ring">
+        <source src="assets/video/custom-hero.webm" type="video/webm">
+      </video>
+    </div>
+    <button class="vid-toggle" id="vidToggle" type="button" aria-label="Pause video"><svg class="icon pause"><use href="#i-pause"/></svg><svg class="icon play"><use href="#i-play"/></svg></button>
+    <div class="hero-copy">
+      <span class="accent">Amirah Custom Jewellery</span>
+      <h1>Designed by You. Made by Us.</h1>
+      <p>One of a kind rings, pendants and heirlooms, crafted in gold, silver or platinum with an expert guiding you from first sketch to finished piece.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-pink" href="#enquire" data-track="cta_click" data-loc="hero">Start Your Design</a>
+        <a class="btn btn-ghost" href="#work" data-track="cta_click" data-loc="hero_secondary">View Our Work</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Three key stats (edit the numbers in CONFIG.stats) -->
+  <section class="stats" aria-label="Amirah custom jewellery in numbers">
+    <ul id="stats"></ul>
+  </section>
+
+  <!-- Portfolio carousel -->
+  <section class="section" id="work" aria-labelledby="work-h">
+    <div class="wrap sec-head">
+      <span class="accent">Our portfolio</span>
+      <h2 class="h2" id="work-h">Recent Custom Creations</h2>
+      <p class="sub">Every piece here began as a client's idea. Tap any design to see the story behind it.</p>
+    </div>
+    <div class="filters" role="group" aria-label="Filter custom work" id="workFilters"></div>
+    <div class="scroller" id="workTrack" aria-live="polite"></div>
+    <div class="car-nav">
+      <div class="progress" aria-hidden="true"><i id="workBar"></i></div>
+      <div class="arrows">
+        <button class="arrow prev" type="button" data-car="workTrack" data-dir="-1" aria-label="Previous designs"><svg class="icon"><use href="#i-arrow"/></svg></button>
+        <button class="arrow next" type="button" data-car="workTrack" data-dir="1" aria-label="Next designs"><svg class="icon"><use href="#i-arrow"/></svg></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section class="section tint" id="process" aria-labelledby="process-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="accent">How it works</span>
+        <h2 class="h2" id="process-h">From Idea to Heirloom</h2>
+      </div>
+      <ol class="steps">
+        <li><h3>Share your idea</h3><p>Tell us what you love and upload sketches, photos or screenshots. No idea is too rough.</p></li>
+        <li><h3>Talk it through with an expert</h3><p>We guide you on metal, stones and design so it suits your style and budget.</p></li>
+        <li><h3>Approve your design</h3><p>We refine the design with you. Nothing is made until you're happy with it.</p></li>
+        <li><h3>Handcrafted for you</h3><p>Your one of a kind piece is made to order by our craftsmen, ready to treasure.</p></li>
+      </ol>
+      <div class="inline-cta">
+        <a class="btn btn-plum" href="#enquire" data-track="cta_click" data-loc="process">Start Your Design</a>
+        <p>No obligation. Talk to an expert first if you prefer.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="section" id="reviews" aria-labelledby="reviews-h">
+    <div class="wrap sec-head">
+      <span class="accent">300+ Five-Star Reviews</span>
+      <h2 class="h2" id="reviews-h">Words From Our Clients</h2>
+    </div>
+    <div class="scroller" id="quoteTrack"></div>
+    <div class="car-nav">
+      <div class="progress" aria-hidden="true"><i id="quoteBar"></i></div>
+      <div class="arrows">
+        <button class="arrow prev" type="button" data-car="quoteTrack" data-dir="-1" aria-label="Previous reviews"><svg class="icon"><use href="#i-arrow"/></svg></button>
+        <button class="arrow next" type="button" data-car="quoteTrack" data-dir="1" aria-label="Next reviews"><svg class="icon"><use href="#i-arrow"/></svg></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Metals & stones -->
+  <section class="section tint" aria-labelledby="mat-h" style="padding-top:48px;padding-bottom:48px">
+    <div class="wrap">
+      <div class="sec-head" style="margin-bottom:20px"><span class="accent">Crafted in</span><h2 class="h2" id="mat-h">Your Choice of Metal &amp; Stone</h2></div>
+      <ul class="materials">
+        <li>18k Gold</li><li>22k Gold</li><li>24k Gold</li><li>Silver</li><li>Platinum</li>
+        <li>Yellow, White &amp; Rose</li><li>Sapphires</li><li>Rubies</li><li>Emeralds</li><li>Pearls</li><li>Your own stone</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Enquiry form -->
+  <section class="section enquire" id="enquire" aria-labelledby="enquire-h">
+    <div class="wrap">
+      <div class="enquire-intro">
+        <span class="accent">Start your design</span>
+        <h2 class="h2" id="enquire-h">Tell Us About Your Dream Piece</h2>
+        <ul class="next-steps">
+          <li><svg class="icon"><use href="#i-check"/></svg><span>An expert reviews your idea and gets in touch to talk it through.</span></li>
+          <li><svg class="icon"><use href="#i-check"/></svg><span>We recommend metal, stones and design options to suit you.</span></li>
+          <li><svg class="icon"><use href="#i-check"/></svg><span>You approve the final design before anything is made.</span></li>
+        </ul>
+        <div class="chat-alt"><svg class="icon"><use href="#i-wa"/></svg><span>Prefer to chat first? <a class="wa-link" href="/pages/contact" data-track="whatsapp_click" data-loc="form">Message an expert on WhatsApp</a></span></div>
+      </div>
+
+      <div class="cform" id="enquiryForm">
+        <h3>Request Your Design</h3>
+        <p>It takes a couple of minutes. No obligation.</p>
+        <div class="inspired" id="inspired" aria-live="polite">
+          <img src="" alt="" width="800" height="1000">
+          <span></span>
+          <button type="button" id="clearInspired" aria-label="Remove inspiration"><svg class="icon"><use href="#i-x"/></svg></button>
+        </div>
+        <form method="post" action="/contact#enquire" enctype="multipart/form-data" data-custom novalidate>
+          <input type="hidden" name="form_type" value="contact">
+          <input type="hidden" name="utf8" value="✓">
+          <input type="hidden" name="contact[tags]" value="custom-design,landing-page">
+          <input type="hidden" name="contact[Inspired by]" id="fInspired" value="">
+          <input type="hidden" name="contact[Source]" id="fSource" value="">
+
+          <fieldset><legend>Jewellery type</legend><div class="opt" id="typeOpts">
+            <label><input type="radio" name="contact[Jewellery type]" value="Engagement ring" required><span>Engagement ring</span></label>
+            <label><input type="radio" name="contact[Jewellery type]" value="Ring"><span>Ring</span></label>
+            <label><input type="radio" name="contact[Jewellery type]" value="Necklace"><span>Necklace</span></label>
+            <label><input type="radio" name="contact[Jewellery type]" value="Pendant"><span>Pendant</span></label>
+            <label><input type="radio" name="contact[Jewellery type]" value="Earrings"><span>Earrings</span></label>
+            <label><input type="radio" name="contact[Jewellery type]" value="Bracelet"><span>Bracelet</span></label>
+            <label><input type="radio" name="contact[Jewellery type]" value="Something else"><span>Something else</span></label>
+          </div></fieldset>
+
+          <fieldset><legend>Metal type</legend><div class="opt" id="metalType">
+            <label><input type="radio" name="contact[Metal type]" value="18k gold" required><span>18k Gold</span></label>
+            <label><input type="radio" name="contact[Metal type]" value="22k gold"><span>22k Gold</span></label>
+            <label><input type="radio" name="contact[Metal type]" value="24k gold"><span>24k Gold</span></label>
+            <label><input type="radio" name="contact[Metal type]" value="Silver"><span>Silver</span></label>
+            <label><input type="radio" name="contact[Metal type]" value="Platinum"><span>Platinum</span></label>
+          </div></fieldset>
+
+          <fieldset><legend>Metal colour</legend><div class="opt" id="metalColour">
+            <label><input type="radio" name="contact[Metal colour]" value="Yellow" required><span><i class="dot" style="background:linear-gradient(135deg,#f6dc9c,#b8893b)"></i>Yellow</span></label>
+            <label><input type="radio" name="contact[Metal colour]" value="White"><span><i class="dot" style="background:linear-gradient(135deg,#fafafa,#b5b5b5)"></i>White</span></label>
+            <label><input type="radio" name="contact[Metal colour]" value="Rose"><span><i class="dot" style="background:linear-gradient(135deg,#f6cdbd,#c07a64)"></i>Rose</span></label>
+          </div><p class="hint" id="platHint">Platinum is naturally white.</p></fieldset>
+
+          <div class="field">
+            <label class="lbl" for="cStone">Stone preference <small>(optional)</small></label>
+            <input id="cStone" type="text" name="contact[Stone preference]" placeholder="e.g. Oval blue sapphire, around 2 carats">
+          </div>
+
+          <div class="field">
+            <span class="lbl" id="refLbl">Reference images <small>(optional, up to 3)</small></span>
+            <label class="drop" id="drop">
+              <svg class="icon"><use href="#i-image"/></svg>
+              <span>Tap to upload or drop images here</span>
+              <small>Sketches, photos or screenshots. JPG, PNG or HEIC, up to 10MB each</small>
+              <input id="cFiles" type="file" name="attachments[]" accept="image/*" multiple aria-labelledby="refLbl">
+            </label>
+            <div class="thumbs" id="thumbs"></div>
+            <p class="err" id="fileErr" role="alert"></p>
+          </div>
+
+          <div class="field">
+            <label class="lbl" for="cIdea">Tell us about your idea <small>(optional)</small></label>
+            <textarea id="cIdea" name="contact[body]" placeholder="Occasion, style, ring size, date you need it by, anything that inspires you"></textarea>
+          </div>
+
+          <div class="field"><label class="lbl" for="cName">Name</label><input id="cName" type="text" name="contact[name]" autocomplete="name" required></div>
+          <div class="field"><label class="lbl" for="cEmail">Email</label><input id="cEmail" type="email" name="contact[email]" autocomplete="email" inputmode="email" required></div>
+          <div class="field"><label class="lbl" for="cPhone">Contact number</label><input id="cPhone" type="tel" name="contact[phone]" autocomplete="tel" inputmode="tel" pattern="[0-9+()\-\s]{7,}" required></div>
+
+          <button class="btn btn-plum btn-block" type="submit">Request My Design</button>
+          <small class="cnote"><svg class="icon"><use href="#i-lock"/></svg>No obligation. Your details are only used to reply to you.</small>
+        </form>
+        <div class="success" role="status" tabindex="-1">
+          <b>Thank you</b>
+          <p>Your idea is with our experts and we'll be in touch shortly to talk it through.</p>
+          <a class="btn btn-outline wa-link" href="/pages/contact" data-track="whatsapp_click" data-loc="success">Chat on WhatsApp now</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section faq" id="faq" aria-labelledby="faq-h">
+    <div class="wrap">
+      <div class="sec-head"><span class="accent">Good to know</span><h2 class="h2" id="faq-h">Your Questions, Answered</h2></div>
+      <details><summary>How much does a custom piece cost?<svg class="icon"><use href="#i-plus"/></svg></summary><p>It depends on the metal, stones and design. Share your idea and we'll give you a clear quote before anything is made, with no obligation.</p></details>
+      <details><summary>How long does it take?<svg class="icon"><use href="#i-plus"/></svg></summary><p id="faqTime">Most pieces are completed in around three weeks once you approve the design. Let us know if you need it by a particular date.</p></details>
+      <details><summary>Can I make changes to the design?<svg class="icon"><use href="#i-plus"/></svg></summary><p>Yes. We refine the design with you and only begin crafting once you've approved it.</p></details>
+      <details><summary>Can you work from a photo or sketch?<svg class="icon"><use href="#i-plus"/></svg></summary><p>Yes. <a href="#enquire">Upload reference images</a>, sketches or screenshots with your enquiry and our experts will use them as the starting point.</p></details>
+      <details><summary>Which metals and stones can I choose?<svg class="icon"><use href="#i-plus"/></svg></summary><p>18k, 22k and 24k gold in yellow, white or rose, plus silver and platinum, set with sapphires, rubies, emeralds, pearls and other gemstones.</p></details>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="section final" aria-labelledby="final-h">
+    <div class="wrap">
+      <h2 class="h2" id="final-h">Ready to Create Something One of a Kind?</h2>
+      <p>Share your idea today. An expert will guide you every step of the way.</p>
+      <div class="btns">
+        <a class="btn btn-plum" href="#enquire" data-track="cta_click" data-loc="final">Start Your Design</a>
+        <a class="btn btn-outline wa-link" href="/pages/contact" data-track="whatsapp_click" data-loc="final"><svg class="icon"><use href="#i-wa"/></svg>Chat on WhatsApp</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <img class="lockup" src="assets/brand/lockup-white.png" width="808" height="222" alt="Amirah: one of a kind rings and premium jewellery gifting" loading="lazy">
+  <nav aria-label="Footer">
+    <a href="index.html">Home</a><a href="/collections/premium-jewellery-gifting">Shop jewellery</a><a href="/pages/contact">Contact</a><a href="/policies/privacy-policy">Privacy</a>
+  </nav>
+  <small>© <span id="yr">2026</span> Amirah Gems</small>
+</footer>
+
+<!-- Sticky CTA (phones): appears after the hero, hides at the form -->
+<div class="sticky" id="sticky" aria-hidden="true">
+  <a class="btn btn-plum" href="#enquire" tabindex="-1" data-track="cta_click" data-loc="sticky">Start Your Design</a>
+  <a class="btn btn-outline wa wa-link" href="/pages/contact" tabindex="-1" aria-label="Chat on WhatsApp" data-track="whatsapp_click" data-loc="sticky"><svg class="icon"><use href="#i-wa"/></svg></a>
+</div>
+
+<dialog class="lightbox" id="lightbox" aria-labelledby="lbTitle">
+  <div class="lb-inner">
+    <div class="lb-media">
+      <img id="lbImg" src="" alt="" width="800" height="1000">
+      <button class="lb-step prev" type="button" data-lb="-1" aria-label="Previous design"><svg class="icon" style="transform:rotate(180deg)"><use href="#i-arrow"/></svg></button>
+      <button class="lb-step next" type="button" data-lb="1" aria-label="Next design"><svg class="icon"><use href="#i-arrow"/></svg></button>
+      <button class="lb-close" type="button" id="lbClose" aria-label="Close"><svg class="icon"><use href="#i-x"/></svg></button>
+    </div>
+    <div class="lb-text">
+      <span class="badge" id="lbType"></span>
+      <h3 id="lbTitle"></h3>
+      <div class="meta" id="lbMeta"></div>
+      <blockquote id="lbStory"></blockquote>
+      <button class="btn btn-plum btn-block" type="button" id="lbSimilar"><svg class="icon"><use href="#i-pen"/></svg>Design Something Similar</button>
+    </div>
+  </div>
+</dialog>
+
+<script>
+/* ================= CONFIG =================
+   STATS, WORK and TESTIMONIALS are placeholders: replace them with Amirah's real
+   numbers, portfolio photos and client reviews before launch. */
+const CONFIG = {
+  whatsapp: "",                       // international format without "+", e.g. "94771234567"
+  whatsappText: "Hi Amirah, I'd like to talk about a custom piece.",
+  stats: [
+    { value: 4.9, decimals: 1, suffix: "/5", label: "Client rating", sub: "300+ five-star reviews" },
+    { value: 500, suffix: "+", label: "Custom designs", sub: "made to order" },
+    { value: 3, suffix: " wks", label: "Average completion", sub: "from design approval" }
+  ],
+  customForm: { maxFiles: 3, maxMB: 10 }
+};
+const TYPES = { engagement: "Engagement rings", rings: "Rings", pendants: "Pendants", earrings: "Earrings" };
+const FORM_TYPE = { engagement: "Engagement ring", rings: "Ring", pendants: "Pendant", earrings: "Earrings" };
+const WORK = [
+  { id:"work-sapphire-solitaire", type:"engagement", title:"Sapphire Solitaire", meta:"18k yellow gold · 2.1 ct oval blue sapphire", stone:"Oval blue sapphire", story:"He wanted a ring as timeless as her grandmother's. We designed a classic four-prong solitaire around the sapphire she'd always admired." },
+  { id:"work-ruby-halo", type:"engagement", title:"Ruby Halo Ring", meta:"18k white gold · oval ruby with a white-stone halo", stone:"Oval ruby with halo", story:"A vivid ruby framed by a halo of white stones, designed from a screenshot and a rough sketch on a napkin." },
+  { id:"work-emerald-trilogy", type:"rings", title:"Emerald Trilogy Ring", meta:"22k yellow gold · emerald-cut emerald, round side stones", stone:"Emerald-cut emerald with side stones", story:"Three stones for past, present and future, made to celebrate a tenth wedding anniversary." },
+  { id:"work-padparadscha-solitaire", type:"engagement", title:"Padparadscha Solitaire", meta:"18k rose gold · oval padparadscha sapphire", stone:"Oval padparadscha sapphire", story:"A sunset-toned padparadscha set in rose gold, chosen together with our gemstone expert." },
+  { id:"work-initial-pendant", type:"pendants", title:"Engraved Initial Pendant", meta:"22k yellow gold · hand-engraved initial", stone:"No stone, engraved initial", story:"A first birthday keepsake, engraved with her daughter's initial to be worn for years to come." },
+  { id:"work-pearl-drops", type:"earrings", title:"Pearl Drop Earrings", meta:"18k white gold · freshwater pearls", stone:"Freshwater pearls", story:"Bridal earrings designed to match a vintage pearl necklace passed down through the family." },
+  { id:"work-yellow-sapphire-pendant", type:"pendants", title:"Yellow Sapphire Pendant", meta:"18k yellow gold · pear-cut yellow sapphire", stone:"Pear-cut yellow sapphire", story:"A pear-cut yellow sapphire in a bezel setting, made as a gift for a milestone birthday." },
+  { id:"work-signet-ring", type:"rings", title:"Heirloom Signet Ring", meta:"22k yellow gold · engraved initial", stone:"No stone, engraved signet", story:"A modern signet designed to be passed from father to son, engraved with the family initial." }
+];
+const TESTIMONIALS = [
+  { quote:"I sent a sketch on a napkin and they turned it into the most beautiful ring. The expert guidance made the whole process feel easy.", name:"Zara H.", piece:"work-ruby-halo" },
+  { quote:"They helped me choose the perfect sapphire and kept me updated at every step. She said yes!", name:"Imran R.", piece:"work-sapphire-solitaire" },
+  { quote:"Our anniversary ring is even more special than we imagined. Exactly the design we approved, beautifully finished.", name:"Nadia & Faisal", piece:"work-emerald-trilogy" },
+  { quote:"I wanted earrings to match my grandmother's pearls for my wedding. They matched them perfectly.", name:"Amaya P.", piece:"work-pearl-drops" },
+  { quote:"Patient, knowledgeable and genuinely caring. I'll be coming back for every special occasion.", name:"Farah S.", piece:"work-yellow-sapphire-pendant" }
+];
+
+/* ================= helpers ================= */
+const $ = (s, r=document) => r.querySelector(s);
+const $$ = (s, r=document) => [...r.querySelectorAll(s)];
+const IMG = id => `assets/portfolio/${id}.svg`;
+const byId = Object.fromEntries(WORK.map(w => [w.id, w]));
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;" })[c]);
+const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const isShopify = !!(window.Shopify && window.Shopify.shop);
+window.dataLayer = window.dataLayer || [];
+const track = (event, params = {}) => window.dataLayer.push({ event, ...params });
+const starRow = () => `<span class="stars" aria-label="5 out of 5 stars">${'<svg aria-hidden="true"><use href="#i-star"/></svg>'.repeat(5)}</span>`;
+
+/* ================= WhatsApp links ================= */
+if (CONFIG.whatsapp) $$('.wa-link').forEach(a => { a.href = `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(CONFIG.whatsappText)}`; a.target = '_blank'; a.rel = 'noopener'; });
+document.addEventListener('click', e => { const t = e.target.closest('[data-track]'); if (t) track(t.dataset.track, { location: t.dataset.loc }); });
+
+/* ================= hero video ================= */
+(() => {
+  const v = $('#heroVideo'), btn = $('#vidToggle');
+  const set = paused => { btn.classList.toggle('paused', paused); btn.setAttribute('aria-label', paused ? 'Play video' : 'Pause video'); };
+  if (reduceMotion) { v.removeAttribute('autoplay'); v.pause(); set(true); }
+  // Act on what the button shows, not v.paused: the visibility observer may have paused it off screen.
+  btn.addEventListener('click', () => { if (btn.classList.contains('paused')) { v.play().catch(() => {}); set(false); } else { v.pause(); set(true); } });
+  // Save battery: pause while the hero is off screen.
+  new IntersectionObserver(([e]) => { if (btn.classList.contains('paused')) return; e.isIntersecting ? v.play().catch(() => {}) : v.pause(); }).observe(v);
+})();
+
+/* ================= stats with count-up ================= */
+$('#stats').innerHTML = CONFIG.stats.map((s, i) => `<li>
+  <span class="stat-num" data-i="${i}">${s.value.toFixed(s.decimals || 0)}<small>${s.suffix}</small></span>
+  <span class="stat-label">${s.label}</span><span class="stat-sub">${s.sub}</span></li>`).join('');
+$('#faqTime').textContent = `Most pieces are completed in around ${CONFIG.stats[2].value} weeks once you approve the design. Let us know if you need it by a particular date.`;
+if (!reduceMotion) new IntersectionObserver((entries, obs) => entries.forEach(e => {
+  if (!e.isIntersecting) return; obs.disconnect();
+  $$('.stat-num').forEach(el => {
+    const s = CONFIG.stats[+el.dataset.i], t0 = performance.now(), dur = 1400;
+    const step = now => { const p = Math.min(1, (now - t0) / dur), v = s.value * (1 - Math.pow(1 - p, 3));
+      el.firstChild.nodeValue = v.toFixed(s.decimals || 0); if (p < 1) requestAnimationFrame(step); };
+    requestAnimationFrame(step);
+  });
+}), { threshold: .4 }).observe($('#stats'));
+
+/* ================= portfolio carousel + filters ================= */
+let workFilter = 'all';
+const visibleWork = () => WORK.filter(w => workFilter === 'all' || w.type === workFilter);
+$('#workFilters').innerHTML = [['all','All work'], ...Object.entries(TYPES)].map(([k, l], i) =>
+  `<button class="chip" type="button" aria-pressed="${i === 0}" data-filter="${k}">${l}</button>`).join('');
+function renderWork(){
+  $('#workTrack').innerHTML = visibleWork().map((w, i) => `<article class="work">
+    <button class="work-media" type="button" data-open="${w.id}" aria-label="View ${esc(w.title)}">
+      <img src="${IMG(w.id)}" width="800" height="1000" alt="${esc(w.title)}: ${esc(w.meta)}" loading="${i < 2 ? 'eager' : 'lazy'}" decoding="async">
+      <span class="badge">${TYPES[w.type].replace(/s$/, '')}</span>
+      <span class="zoom" aria-hidden="true"><svg class="icon"><use href="#i-zoom"/></svg></span>
+    </button>
+    <div class="work-body"><h3>${esc(w.title)}</h3><p>${esc(w.meta)}</p>
+      <button class="similar" type="button" data-similar="${w.id}">Design something similar <svg class="icon"><use href="#i-arrow"/></svg></button></div>
+  </article>`).join('');
+  $('#workTrack').scrollLeft = 0; syncCarousel($('#workTrack'));
+}
+$('#workFilters').addEventListener('click', e => {
+  const b = e.target.closest('.chip'); if (!b) return;
+  workFilter = b.dataset.filter;
+  $$('.chip', $('#workFilters')).forEach(c => c.setAttribute('aria-pressed', c === b));
+  renderWork(); track('portfolio_filter', { filter: workFilter });
+});
+
+/* ================= testimonials ================= */
+$('#quoteTrack').innerHTML = TESTIMONIALS.map(t => { const w = byId[t.piece]; return `<figure class="quote" style="margin:0">
+  ${starRow()}<blockquote>“${esc(t.quote)}”</blockquote>
+  <footer><img src="${IMG(w.id)}" width="800" height="1000" alt="" loading="lazy"><div><b>${esc(t.name)}</b><span>${esc(w.title)}</span></div></footer>
+</figure>`; }).join('');
+
+/* ================= shared carousel controls ================= */
+function syncCarousel(track){
+  const max = track.scrollWidth - track.clientWidth;
+  const bar = track.id === 'workTrack' ? $('#workBar') : $('#quoteBar');
+  const frac = track.clientWidth / Math.max(track.scrollWidth, 1);
+  bar.style.width = (frac * 100) + '%';
+  bar.style.transform = `translateX(${max > 0 ? (track.scrollLeft / max) * ((1 / frac) - 1) * 100 : 0}%)`;
+  $$(`[data-car="${track.id}"]`).forEach(b => { b.disabled = b.dataset.dir < 0 ? track.scrollLeft <= 2 : track.scrollLeft >= max - 2; });
+  bar.parentElement.parentElement.style.visibility = max > 2 ? '' : 'hidden';
+}
+['workTrack', 'quoteTrack'].forEach(id => { const t = $('#' + id); t.addEventListener('scroll', () => syncCarousel(t), { passive: true }); });
+addEventListener('resize', () => ['workTrack', 'quoteTrack'].forEach(id => syncCarousel($('#' + id))));
+document.addEventListener('click', e => {
+  const b = e.target.closest('[data-car]'); if (!b) return;
+  const t = $('#' + b.dataset.car), card = t.firstElementChild;
+  const stepW = card ? card.getBoundingClientRect().width + 14 : t.clientWidth;
+  t.scrollBy({ left: +b.dataset.dir * stepW * Math.max(1, Math.floor(t.clientWidth / stepW)), behavior: reduceMotion ? 'auto' : 'smooth' });
+});
+renderWork(); syncCarousel($('#quoteTrack'));
+
+/* ================= lightbox ================= */
+const lb = $('#lightbox'); let lbIndex = 0;
+function showWork(i){
+  const list = visibleWork(); lbIndex = (i + list.length) % list.length; const w = list[lbIndex];
+  $('#lbImg').src = IMG(w.id); $('#lbImg').alt = `${w.title}: ${w.meta}`;
+  $('#lbType').textContent = TYPES[w.type].replace(/s$/, ''); $('#lbTitle').textContent = w.title;
+  $('#lbMeta').textContent = w.meta; $('#lbStory').textContent = w.story; lb.dataset.id = w.id;
+}
+document.addEventListener('click', e => {
+  const o = e.target.closest('[data-open]');
+  if (o){ showWork(visibleWork().findIndex(w => w.id === o.dataset.open)); lb.showModal(); track('portfolio_view', { item: o.dataset.open }); return; }
+  const s = e.target.closest('[data-lb]'); if (s) showWork(lbIndex + +s.dataset.lb);
+  const sim = e.target.closest('[data-similar]'); if (sim) inspire(sim.dataset.similar);
+});
+$('#lbClose').addEventListener('click', () => lb.close());
+lb.addEventListener('click', e => { if (e.target === lb) lb.close(); });
+lb.addEventListener('keydown', e => { if (e.key === 'ArrowRight') showWork(lbIndex + 1); if (e.key === 'ArrowLeft') showWork(lbIndex - 1); });
+$('#lbSimilar').addEventListener('click', () => { lb.close(); inspire(lb.dataset.id); });
+
+/* ================= "Design something similar": prefill the form ================= */
+function inspire(id){
+  const w = byId[id]; if (!w) return;
+  const box = $('#inspired');
+  $('img', box).src = IMG(w.id); $('span', box).innerHTML = `Inspired by <b>${esc(w.title)}</b>`; box.classList.add('on');
+  $('#fInspired').value = `${w.title} (${w.meta})`;
+  const type = $(`#typeOpts input[value="${FORM_TYPE[w.type]}"]`); if (type) type.checked = true;
+  if (!$('#cStone').value) $('#cStone').value = w.stone;
+  track('design_similar', { item: id });
+  $('#enquire').scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth' });
+}
+$('#clearInspired').addEventListener('click', () => { $('#inspired').classList.remove('on'); $('#fInspired').value = ''; });
+
+/* ================= enquiry form ================= */
+(() => {
+  const form = $('form[data-custom]');
+  const input = $('#cFiles'), thumbs = $('#thumbs'), err = $('#fileErr'), drop = $('#drop');
+  let files = [], started = false;
+  // Campaign attribution for ads: utm_* parameters and the landing referrer travel with the enquiry.
+  const qs = new URLSearchParams(location.search);
+  $('#fSource').value = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'].filter(k => qs.get(k)).map(k => `${k}=${qs.get(k)}`).join('&') || document.referrer || 'direct';
+  // Deep links from ads, e.g. ?type=engagement-ring&stone=sapphire
+  if (qs.get('type')) { const v = qs.get('type').replace(/-/g, ' ').toLowerCase(); const r = $$('#typeOpts input').find(i => i.value.toLowerCase() === v); if (r) r.checked = true; }
+  if (qs.get('stone')) $('#cStone').value = qs.get('stone').replace(/-/g, ' ');
+
+  form.addEventListener('focusin', () => { if (!started){ started = true; track('form_start'); } });
+  const syncInput = () => { try { const dt = new DataTransfer(); files.forEach(f => dt.items.add(f)); input.files = dt.files; } catch {} };
+  const renderThumbs = () => {
+    $$('img', thumbs).forEach(i => URL.revokeObjectURL(i.src));
+    thumbs.innerHTML = files.map((f, i) => `<div class="thumb"><img src="${URL.createObjectURL(f)}" alt="Reference image ${i + 1}"><button type="button" data-rmfile="${i}" aria-label="Remove image ${i + 1}"><svg class="icon"><use href="#i-x"/></svg></button></div>`).join('');
+  };
+  const addFiles = list => {
+    const msgs = [];
+    for (const f of list){
+      if (!f.type.startsWith('image/')) { msgs.push(`${f.name} isn't an image.`); continue; }
+      if (f.size > CONFIG.customForm.maxMB * 1024 * 1024) { msgs.push(`${f.name} is over ${CONFIG.customForm.maxMB}MB.`); continue; }
+      if (files.length >= CONFIG.customForm.maxFiles) { msgs.push(`You can add up to ${CONFIG.customForm.maxFiles} images.`); break; }
+      files.push(f);
+    }
+    err.textContent = msgs.join(' '); err.classList.toggle('on', !!msgs.length);
+    syncInput(); renderThumbs();
+  };
+  input.addEventListener('change', () => addFiles([...input.files].filter(f => !files.includes(f))));
+  thumbs.addEventListener('click', e => { const b = e.target.closest('[data-rmfile]'); if (!b) return; files.splice(+b.dataset.rmfile, 1); syncInput(); renderThumbs(); err.classList.remove('on'); });
+  ['dragenter','dragover'].forEach(t => drop.addEventListener(t, e => { e.preventDefault(); drop.classList.add('over'); }));
+  ['dragleave','drop'].forEach(t => drop.addEventListener(t, () => drop.classList.remove('over')));
+  drop.addEventListener('drop', e => { e.preventDefault(); addFiles([...e.dataTransfer.files]); });
+
+  // Platinum only comes in white: lock the colour choice to match.
+  $('#metalType').addEventListener('change', () => {
+    const plat = $('#metalType input:checked')?.value === 'Platinum';
+    $$('#metalColour input').forEach(i => { i.disabled = plat && i.value !== 'White'; if (plat) i.checked = i.value === 'White'; });
+    $('#platHint').classList.toggle('on', plat);
+  });
+
+  form.addEventListener('submit', e => {
+    const bad = $$('input[required], textarea[required]', form).find(i => !i.checkValidity());
+    if (bad){ e.preventDefault(); bad.focus(); bad.reportValidity(); track('form_error', { field: bad.name }); return; }
+    track('generate_lead', { form: 'custom_design', jewellery_type: $('#typeOpts input:checked')?.value, images: files.length });
+    if (isShopify) return;                          // see README: image uploads need a form app or endpoint
+    e.preventDefault();
+    const box = form.closest('.cform'); box.classList.add('done'); $('.success', box).focus();
+  });
+})();
+
+/* ================= header + sticky CTA ================= */
+const hero = $('.hero'), enquire = $('#enquire'), footer = $('.footer');
+function onScroll(){
+  $('#header').classList.toggle('solid', scrollY > 40);
+  const r = enquire.getBoundingClientRect();
+  const atForm = r.top < innerHeight * .8 && r.bottom > 0;
+  const show = hero.getBoundingClientRect().bottom < 0 && !atForm && footer.getBoundingClientRect().top > innerHeight - 40;
+  $('#sticky').classList.toggle('show', show);
+  $('#sticky').setAttribute('aria-hidden', !show);
+  $$('#sticky a').forEach(a => a.tabIndex = show ? 0 : -1);
+}
+addEventListener('scroll', onScroll, { passive: true }); onScroll();
+$('#yr').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>

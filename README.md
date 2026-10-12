@@ -26,7 +26,8 @@ Regenerate everything:
 ```bash
 node scripts/generate-assets.mjs   # SVG artwork
 node scripts/render.mjs            # JPG exports and previews (uses the Playwright/Chromium install)
-node scripts/build-standalone.mjs  # single-file preview with images inlined
+node scripts/make-hero-video.mjs   # placeholder hero video for custom.html
+node scripts/build-standalone.mjs  # single-file previews of both pages with images inlined
 ```
 
 ### Viewing it
@@ -36,6 +37,52 @@ node scripts/build-standalone.mjs  # single-file preview with images inlined
    - Open the file in Chrome.
    - Press `Cmd+Opt+I` (Mac) or `Ctrl+Shift+I` (Windows).
    - Press `Cmd+Shift+M` / `Ctrl+Shift+M` and choose an iPhone.
+
+## Custom jewellery landing page (`custom.html`)
+
+A standalone, high-converting landing page for Amirah's custom jewellery service, built for paid social, search ads and links from the homepage. It uses the same brand system as the homepage and is responsive from phone to desktop.
+
+It's built around **one goal, the enquiry**. The header has no main navigation, only the logo, "Talk to an expert" (WhatsApp) and **Start Your Design**, and every section ends in the same CTA.
+
+| # | Section | Why it's there |
+|---|---|---|
+| 1 | Video hero | Autoplaying, muted, looping video that shows the craft: a sketch becoming the finished ring. It uses a poster image for instant paint, has a pause button for accessibility, and pauses when off screen or when reduced motion is set. Headline "Designed by You. Made by Us." with **Start Your Design** and **View Our Work** buttons. On desktop, the copy sits on plum beside the video. |
+| 2 | Three key stats | Client rating, number of custom designs and average completion time. The numbers count up when scrolled into view. Edit them in `CONFIG.stats`. |
+| 3 | Portfolio carousel | Past custom work with filters (Engagement rings, Rings, Pendants, Earrings), swipe or arrow navigation and a progress bar. Tapping a piece opens a lightbox with its story. **Design something similar** prefills the form (jewellery type, stone preference and an "Inspired by" note) and scrolls to it. |
+| 4 | How it works | Four steps: share your idea, talk it through with an expert, approve the design, handcrafted for you. Followed by a CTA. |
+| 5 | Testimonials | A swipeable carousel of client quotes, each linked to the piece they commissioned. |
+| 6 | Metals & stones | 18k, 22k and 24k gold, silver and platinum; yellow, white and rose; sapphires, rubies, emeralds, pearls, or the client's own stone. |
+| 7 | Enquiry form | What happens next, a WhatsApp alternative, and the same form fields as the homepage: jewellery type, metal type, metal colour (platinum locks to white), stone preference, reference images (up to 3), idea, name, email and contact number. A sticky explainer sits beside the form on desktop. |
+| 8 | FAQ | Cost, timing, changes, working from photos, metals and stones. Also emitted as `FAQPage` JSON-LD. |
+| 9 | Final CTA | **Start Your Design** and **Chat on WhatsApp**. |
+| - | Sticky mobile CTA | Start Your Design plus a WhatsApp button. Appears after the hero and hides at the form and footer. |
+
+### Built for ad campaigns
+
+- **Deep links prefill the form.** For example, `custom.html?type=engagement-ring&stone=blue-sapphire` selects Engagement ring and fills the stone field. Use this to match each ad to the form.
+- **Attribution travels with each enquiry.** `utm_source`, `utm_medium`, `utm_campaign`, `utm_content` and `utm_term` (or the referrer) are sent in a hidden `Source` field.
+- **Analytics events** are pushed to `window.dataLayer` (Google Tag Manager or GA4):
+  - `cta_click`
+  - `whatsapp_click`
+  - `portfolio_filter`
+  - `portfolio_view`
+  - `design_similar`
+  - `form_start`
+  - `form_error`
+  - `generate_lead`
+
+  Mark `generate_lead` as the conversion in GA4 and in your Meta and Google Ads pixels.
+
+### Before launch
+
+1. **Hero video:** replace `assets/video/custom-hero.webm` with real footage of your craftsmanship, such as a sketch, the bench, setting a stone and the finished piece. Keep it to 6–12 seconds, muted, under about 3MB, in 4:5 or 9:16 framing for phones. Add an MP4 (H.264) source **first** inside the `<video>` so Safari and iPhone play it, and update the poster (`custom-hero-poster.jpg`). `scripts/make-hero-video.mjs` regenerates the current placeholder.
+2. **Portfolio:** replace `WORK` in `custom.html` and the images in `assets/portfolio/` with photographs of real commissions (4:5, at least 1200px wide). Real client work is the strongest proof on this page.
+3. **Stats:** the 4.9/5 rating, 500+ designs and 3-week average in `CONFIG.stats` are **placeholders**. Use your real figures so the claims are accurate.
+4. **Testimonials:** replace `TESTIMONIALS` with real client reviews, with permission.
+5. **Form uploads and WhatsApp:** as for the homepage, image uploads need a form app or endpoint that accepts files, and `CONFIG.whatsapp` needs your number.
+6. **URL:** publish the page in Shopify as a page template (for example `/pages/custom-jewellery`) and update the canonical URL. The homepage's navigation, menu, category circle, footer and search already link to `custom.html`; change those links to the live URL. The homepage keeps its own short custom section and form for visitors who scroll.
+
+Previews are in `preview/custom-*`. A single-file version with all images and the video embedded is `preview/custom-standalone.html`.
 
 ## Responsive layout
 

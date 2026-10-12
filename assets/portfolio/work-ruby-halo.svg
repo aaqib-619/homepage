@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="800" height="1000">
+<defs>
+  <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#8a6420"/>
+    <stop offset=".28" stop-color="#e9c87a"/>
+    <stop offset=".5" stop-color="#b8893b"/>
+    <stop offset=".72" stop-color="#f7e4b0"/>
+    <stop offset="1" stop-color="#9c7228"/>
+  </linearGradient>
+  <linearGradient id="goldV" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#f7e4b0"/>
+    <stop offset=".45" stop-color="#c99a45"/>
+    <stop offset="1" stop-color="#8a6420"/>
+  </linearGradient>
+  <linearGradient id="emerald" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#5fe0ae"/>
+    <stop offset=".45" stop-color="#11805f"/>
+    <stop offset="1" stop-color="#063d2e"/>
+  </linearGradient>
+  <linearGradient id="sapphire" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#9dbcff"/>
+    <stop offset=".5" stop-color="#2a4fb8"/>
+    <stop offset="1" stop-color="#0f1f5c"/>
+  </linearGradient>
+  <linearGradient id="padpa" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#ffe0d2"/><stop offset=".5" stop-color="#ee8064"/><stop offset="1" stop-color="#9c3a33"/>
+  </linearGradient>
+  <linearGradient id="yellowgem" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#fff4bd"/><stop offset=".5" stop-color="#f0bf2a"/><stop offset="1" stop-color="#9c6606"/>
+  </linearGradient>
+  <linearGradient id="wgold" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#8d939b"/><stop offset=".28" stop-color="#f4f6f8"/><stop offset=".5" stop-color="#b9bfc6"/><stop offset=".72" stop-color="#ffffff"/><stop offset="1" stop-color="#9aa1a9"/>
+  </linearGradient>
+  <linearGradient id="wgoldV" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#ffffff"/><stop offset=".45" stop-color="#c3c8ce"/><stop offset="1" stop-color="#8d939b"/>
+  </linearGradient>
+  <linearGradient id="rgold" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#9a5a48"/><stop offset=".28" stop-color="#f6c9b6"/><stop offset=".5" stop-color="#c98a72"/><stop offset=".72" stop-color="#fbe0d3"/><stop offset="1" stop-color="#a5634f"/>
+  </linearGradient>
+  <linearGradient id="rgoldV" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#fbe0d3"/><stop offset=".45" stop-color="#d0927a"/><stop offset="1" stop-color="#9a5a48"/>
+  </linearGradient>
+  <linearGradient id="ruby" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#ff9aa8"/>
+    <stop offset=".5" stop-color="#c0183a"/>
+    <stop offset="1" stop-color="#5e0619"/>
+  </linearGradient>
+  <radialGradient id="crystal" cx=".35" cy=".3" r=".8">
+    <stop offset="0" stop-color="#ffffff"/>
+    <stop offset=".4" stop-color="#dce7f5"/>
+    <stop offset="1" stop-color="#6f86a6"/>
+  </radialGradient>
+  <radialGradient id="pearl" cx=".35" cy=".3" r=".85">
+    <stop offset="0" stop-color="#ffffff"/>
+    <stop offset=".55" stop-color="#f1e9df"/>
+    <stop offset="1" stop-color="#c9b9a6"/>
+  </radialGradient>
+  <radialGradient id="glow" cx=".5" cy=".42" r=".6">
+    <stop offset="0" stop-color="#ffffff" stop-opacity=".85"/>
+    <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+  </radialGradient>
+  <filter id="soft" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="14"/></filter>
+  <filter id="drop" x="-20%" y="-20%" width="140%" height="140%">
+    <feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#5b4323" flood-opacity=".22"/>
+  </filter>
+</defs>
+  <rect width="800" height="1000" fill="#fff5f5"/><rect width="800" height="1000" fill="url(#glow)"/><rect y="720" width="800" height="280" fill="#f8dede" opacity=".6"/>
+  <ellipse cx="400" cy="820" rx="230" ry="18" fill="#6b5130" opacity=".18" filter="url(#soft)"/><g transform="translate(400 360) scale(1.6)" filter="url(#drop)"><ellipse cx="0" cy="140" rx="150" ry="118" fill="none" stroke="url(#wgold)" stroke-width="24"/></g><circle cx="531.2" cy="360.0" r="20.8" fill="url(#wgold)"/><circle cx="531.2" cy="360.0" r="15.2" fill="url(#crystal)"/><circle cx="523.3" cy="395.0" r="20.8" fill="url(#wgold)"/><circle cx="523.3" cy="395.0" r="15.2" fill="url(#crystal)"/><circle cx="500.5" cy="425.8" r="20.8" fill="url(#wgold)"/><circle cx="500.5" cy="425.8" r="15.2" fill="url(#crystal)"/><circle cx="465.6" cy="448.7" r="20.8" fill="url(#wgold)"/><circle cx="465.6" cy="448.7" r="15.2" fill="url(#crystal)"/><circle cx="422.8" cy="460.8" r="20.8" fill="url(#wgold)"/><circle cx="422.8" cy="460.8" r="15.2" fill="url(#crystal)"/><circle cx="377.2" cy="460.8" r="20.8" fill="url(#wgold)"/><circle cx="377.2" cy="460.8" r="15.2" fill="url(#crystal)"/><circle cx="334.4" cy="448.7" r="20.8" fill="url(#wgold)"/><circle cx="334.4" cy="448.7" r="15.2" fill="url(#crystal)"/><circle cx="299.5" cy="425.8" r="20.8" fill="url(#wgold)"/><circle cx="299.5" cy="425.8" r="15.2" fill="url(#crystal)"/><circle cx="276.7" cy="395.0" r="20.8" fill="url(#wgold)"/><circle cx="276.7" cy="395.0" r="15.2" fill="url(#crystal)"/><circle cx="268.8" cy="360.0" r="20.8" fill="url(#wgold)"/><circle cx="268.8" cy="360.0" r="15.2" fill="url(#crystal)"/><circle cx="276.7" cy="325.0" r="20.8" fill="url(#wgold)"/><circle cx="276.7" cy="325.0" r="15.2" fill="url(#crystal)"/><circle cx="299.5" cy="294.2" r="20.8" fill="url(#wgold)"/><circle cx="299.5" cy="294.2" r="15.2" fill="url(#crystal)"/><circle cx="334.4" cy="271.3" r="20.8" fill="url(#wgold)"/><circle cx="334.4" cy="271.3" r="15.2" fill="url(#crystal)"/><circle cx="377.2" cy="259.2" r="20.8" fill="url(#wgold)"/><circle cx="377.2" cy="259.2" r="15.2" fill="url(#crystal)"/><circle cx="422.8" cy="259.2" r="20.8" fill="url(#wgold)"/><circle cx="422.8" cy="259.2" r="15.2" fill="url(#crystal)"/><circle cx="465.6" cy="271.3" r="20.8" fill="url(#wgold)"/><circle cx="465.6" cy="271.3" r="15.2" fill="url(#crystal)"/><circle cx="500.5" cy="294.2" r="20.8" fill="url(#wgold)"/><circle cx="500.5" cy="294.2" r="15.2" fill="url(#crystal)"/><circle cx="523.3" cy="325.0" r="20.8" fill="url(#wgold)"/><circle cx="523.3" cy="325.0" r="15.2" fill="url(#crystal)"/><g filter="url(#drop)"><polygon points="400.0,282.6 438.0,288.5 470.1,305.3 491.6,330.4 499.2,360.0 491.6,389.6 470.1,414.7 438.0,431.5 400.0,437.4 362.0,431.5 329.9,414.7 308.4,389.6 300.8,360.0 308.4,330.4 329.9,305.3 362.0,288.5" fill="#560316"/><polygon points="400.0,282.6 438.0,288.5 429.6,304.2 400.0,299.6" fill="#d74462"/><polygon points="438.0,288.5 470.1,305.3 454.7,317.3 429.6,304.2" fill="#db526e"/><polygon points="470.1,305.3 491.6,330.4 471.5,336.9 454.7,317.3" fill="#980e2c"/><polygon points="491.6,330.4 499.2,360.0 477.4,360.0 471.5,336.9" fill="#ae1233"/><polygon points="499.2,360.0 491.6,389.6 471.5,383.1 477.4,360.0" fill="#65051b"/><polygon points="491.6,389.6 470.1,414.7 454.7,402.7 471.5,383.1" fill="#870b26"/><polygon points="470.1,414.7 438.0,431.5 429.6,415.8 454.7,402.7" fill="#560316"/><polygon points="438.0,431.5 400.0,437.4 400.0,420.4 429.6,415.8" fill="#8a0c27"/><polygon points="400.0,437.4 362.0,431.5 370.4,415.8 400.0,420.4" fill="#780921"/><polygon points="362.0,431.5 329.9,414.7 345.3,402.7 370.4,415.8" fill="#cd264a"/><polygon points="329.9,414.7 308.4,389.6 328.5,383.1 345.3,402.7" fill="#c5163b"/><polygon points="308.4,389.6 300.8,360.0 322.6,360.0 328.5,383.1" fill="#ed8b9d"/><polygon points="300.8,360.0 308.4,330.4 328.5,336.9 322.6,360.0" fill="#e0617a"/><polygon points="308.4,330.4 329.9,305.3 345.3,317.3 328.5,336.9" fill="#ffc4cd"/><polygon points="329.9,305.3 362.0,288.5 370.4,304.2 345.3,317.3" fill="#eb8497"/><polygon points="362.0,288.5 400.0,282.6 400.0,299.6 370.4,304.2" fill="#fec1ca"/><polygon points="400.0,299.6 429.6,304.2 419.0,324.3 400.0,321.3" fill="#940d2b"/><polygon points="429.6,304.2 454.7,317.3 435.1,332.6 419.0,324.3" fill="#d53e5e"/><polygon points="454.7,317.3 471.5,336.9 445.8,345.2 435.1,332.6" fill="#c9193f"/><polygon points="471.5,336.9 477.4,360.0 449.6,360.0 445.8,345.2" fill="#eb8598"/><polygon points="477.4,360.0 471.5,383.1 445.8,374.8 449.6,360.0" fill="#da506c"/><polygon points="471.5,383.1 454.7,402.7 435.1,387.4 445.8,374.8" fill="#f8aebb"/><polygon points="454.7,402.7 429.6,415.8 419.0,395.7 435.1,387.4" fill="#e26981"/><polygon points="429.6,415.8 400.0,420.4 400.0,398.7 419.0,395.7" fill="#f7aab8"/><polygon points="400.0,420.4 370.4,415.8 381.0,395.7 400.0,398.7" fill="#d43c5c"/><polygon points="370.4,415.8 345.3,402.7 364.9,387.4 381.0,395.7" fill="#de5d77"/><polygon points="345.3,402.7 328.5,383.1 354.2,374.8 364.9,387.4" fill="#ab1132"/><polygon points="328.5,383.1 322.6,360.0 350.4,360.0 354.2,374.8" fill="#c8173d"/><polygon points="322.6,360.0 328.5,336.9 354.2,345.2 350.4,360.0" fill="#870b26"/><polygon points="328.5,336.9 345.3,317.3 364.9,332.6 354.2,345.2" fill="#ad1233"/><polygon points="345.3,317.3 370.4,304.2 381.0,324.3 364.9,332.6" fill="#760821"/><polygon points="370.4,304.2 400.0,299.6 400.0,321.3 381.0,324.3" fill="#b01234"/><polygon points="400.0,321.3 419.0,324.3 435.1,332.6 445.8,345.2 449.6,360.0 445.8,374.8 435.1,387.4 419.0,395.7 400.0,398.7 381.0,395.7 364.9,387.4 354.2,374.8 350.4,360.0 354.2,345.2 364.9,332.6 381.0,324.3" fill="#da4e6a"/><polygon points="400.0,282.6 438.0,288.5 470.1,305.3 491.6,330.4 499.2,360.0 491.6,389.6 470.1,414.7 438.0,431.5 400.0,437.4 362.0,431.5 329.9,414.7 308.4,389.6 300.8,360.0 308.4,330.4 329.9,305.3 362.0,288.5" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="1.6533333333333333"/><ellipse cx="368.256" cy="330.24" rx="15.872000000000002" ry="6.944000000000001" transform="rotate(-30 368.256 330.24)" fill="#fff" opacity=".55"/></g><path transform="translate(590 230) scale(1.3)" d="M0-18C2-6 6-2 18 0 6 2 2 6 0 18-2 6-6 2-18 0-6-2-2-6 0-18Z" fill="#fff" opacity="0.9"/></svg>

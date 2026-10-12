@@ -35,6 +35,24 @@ const defs = `
     <stop offset=".5" stop-color="#2a4fb8"/>
     <stop offset="1" stop-color="#0f1f5c"/>
   </linearGradient>
+  <linearGradient id="padpa" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#ffe0d2"/><stop offset=".5" stop-color="#ee8064"/><stop offset="1" stop-color="#9c3a33"/>
+  </linearGradient>
+  <linearGradient id="yellowgem" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#fff4bd"/><stop offset=".5" stop-color="#f0bf2a"/><stop offset="1" stop-color="#9c6606"/>
+  </linearGradient>
+  <linearGradient id="wgold" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#8d939b"/><stop offset=".28" stop-color="#f4f6f8"/><stop offset=".5" stop-color="#b9bfc6"/><stop offset=".72" stop-color="#ffffff"/><stop offset="1" stop-color="#9aa1a9"/>
+  </linearGradient>
+  <linearGradient id="wgoldV" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#ffffff"/><stop offset=".45" stop-color="#c3c8ce"/><stop offset="1" stop-color="#8d939b"/>
+  </linearGradient>
+  <linearGradient id="rgold" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#9a5a48"/><stop offset=".28" stop-color="#f6c9b6"/><stop offset=".5" stop-color="#c98a72"/><stop offset=".72" stop-color="#fbe0d3"/><stop offset="1" stop-color="#a5634f"/>
+  </linearGradient>
+  <linearGradient id="rgoldV" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#fbe0d3"/><stop offset=".45" stop-color="#d0927a"/><stop offset="1" stop-color="#9a5a48"/>
+  </linearGradient>
   <linearGradient id="ruby" x1="0" y1="0" x2="1" y2="1">
     <stop offset="0" stop-color="#ff9aa8"/>
     <stop offset=".5" stop-color="#c0183a"/>
@@ -91,14 +109,14 @@ const coin = (x, y, s, letter = "") => `
 </g>`;
 
 // Sapphire solitaire ring; sketch=true draws it as a dashed pencil outline.
-const solitaire = (x, y, s, sketch = false) => {
+const solitaire = (x, y, s, sketch = false, stone = "sapphire") => {
   const st = sketch ? 'fill="none" stroke="#fff" stroke-opacity=".45" stroke-width="3" stroke-dasharray="10 7"' : "";
   return `<g transform="translate(${x} ${y}) scale(${s})"${sketch ? "" : ' filter="url(#drop)"'}>
     <ellipse cx="0" cy="140" rx="150" ry="118" ${sketch ? st : 'fill="none" stroke="url(#gold)" stroke-width="26"'}/>
     <path d="M-44 40L44 40 26 78-26 78Z" ${sketch ? st : 'fill="url(#goldV)"'}/>
     ${sketch ? "" : `<rect x="-52" y="-6" width="10" height="40" rx="5" fill="url(#goldV)" transform="rotate(-18 -47 14)"/>
     <rect x="42" y="-6" width="10" height="40" rx="5" fill="url(#goldV)" transform="rotate(18 47 14)"/>`}
-    <ellipse cx="0" cy="8" rx="64" ry="46" ${sketch ? st : 'fill="url(#sapphire)"'}/>
+    <ellipse cx="0" cy="8" rx="64" ry="46" ${sketch ? st : `fill="url(#${stone})"`}/>
     ${sketch ? "" : `<path d="M-64 8L64 8M0-38L0 54M-40-28L40 44M40-28L-40 44" stroke="#fff" stroke-opacity=".22" stroke-width="2"/>
     <ellipse cx="-22" cy="-10" rx="16" ry="9" fill="#fff" opacity=".55"/>
     <rect x="-8" y="-50" width="16" height="14" rx="5" fill="url(#goldV)"/>
@@ -430,5 +448,37 @@ out("assets/banners/custom.svg", svg(1080, 720, `
    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#fff" stroke-opacity=".07" stroke-width="1"/></pattern>
    <linearGradient id="fade" x1="0" y1="0" x2="1" y2="0"><stop offset=".3" stop-color="#fff" stop-opacity="0"/><stop offset=".6" stop-color="#fff" stop-opacity="1"/></linearGradient>
    <mask id="gm"><rect width="1080" height="720" fill="url(#fade)"/></mask>`));
+
+// ---------- custom work portfolio (800x1000) for the custom jewellery landing page ----------
+GEMS.white = ["#ffffff", "#dfe7f1", "#8a9ab0"];
+const inMetal = (str, m) => m === "white" ? str.replace(/url\(#gold\)/g, "url(#wgold)").replace(/url\(#goldV\)/g, "url(#wgoldV)")
+  : m === "rose" ? str.replace(/url\(#gold\)/g, "url(#rgold)").replace(/url\(#goldV\)/g, "url(#rgoldV)") : str;
+const band = (x, y, s) => `<g transform="translate(${x} ${y}) scale(${s})" filter="url(#drop)"><ellipse cx="0" cy="140" rx="150" ry="118" fill="none" stroke="url(#gold)" stroke-width="24"/></g>`;
+const halo = (x, y, s, stone) => {
+  let h = band(x, y, s);
+  for (let i = 0; i < 18; i++) {
+    const a = (i / 18) * Math.PI * 2, hx = x + Math.cos(a) * 82 * s, hy = y + Math.sin(a) * 64 * s;
+    h += `<circle cx="${hx.toFixed(1)}" cy="${hy.toFixed(1)}" r="${(13 * s).toFixed(1)}" fill="url(#gold)"/><circle cx="${hx.toFixed(1)}" cy="${hy.toFixed(1)}" r="${(9.5 * s).toFixed(1)}" fill="url(#crystal)"/>`;
+  }
+  return h + gem(x, y, 62 * s, "oval", stone);
+};
+const trilogy = (x, y, s, centre, cut) => band(x, y + 10 * s, s)
+  + gem(x - 92 * s, y + 6 * s, 36 * s, "round", "white") + gem(x + 92 * s, y + 6 * s, 36 * s, "round", "white")
+  + `<rect x="${x - 70 * s}" y="${y - 50 * s}" width="${140 * s}" height="${100 * s}" fill="url(#gold)" filter="url(#drop)"/>` + gem(x, y, 58 * s, cut, centre);
+const work = {
+  "work-sapphire-solitaire": ["yellow", ["#fdf8f8", "#f3e4e7"], `${shadow(400, 820, 220, 18)}${solitaire(400, 280, 1.55)}${sparkle(560, 240, 1.4)}${sparkle(250, 560, 0.8)}`],
+  "work-ruby-halo": ["white", ["#fff5f5", "#f8dede"], `${shadow(400, 820, 230, 18)}${halo(400, 360, 1.6, "ruby")}${sparkle(590, 230, 1.3)}`],
+  "work-emerald-trilogy": ["yellow", ["#fdf8f8", "#f1e2e5"], `${shadow(400, 820, 240, 18)}${trilogy(400, 360, 1.5, "emerald", "emerald")}${sparkle(600, 250, 1.2)}`],
+  "work-padparadscha-solitaire": ["rose", ["#fff3f0", "#f7dcd6"], `${shadow(400, 820, 220, 18)}${solitaire(400, 280, 1.55, false, "padpa")}${sparkle(560, 240, 1.4)}`],
+  "work-initial-pendant": ["yellow", ["#fdf8f8", "#f3e4e7"], `${chain("M150 -10C190 320 300 440 400 448C500 440 610 320 650 -10", 5)}${coin(400, 460, 2.2, "S")}${sparkle(520, 560, 1)}`],
+  "work-pearl-drops": ["white", ["#f7f6fa", "#e9e6f0"], place(products["pearl-huggies"], 40, 80, 1.2)],
+  "work-yellow-sapphire-pendant": ["yellow", ["#fffaf2", "#f5e8d6"], `${chain("M160 -10C200 300 300 420 400 428C500 420 600 300 640 -10", 4.5)}${teardrop(400, 440, 1.55, "yellowgem")}${sparkle(500, 600, 1.1)}`],
+  "work-signet-ring": ["yellow", ["#f6f1f2", "#e8dcdf"], place(products["signet-ring"], 40, 70, 1.25)],
+};
+for (const [name, [m, [c1, c2], body]] of Object.entries(work)) {
+  out(`assets/portfolio/${name}.svg`, `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="800" height="1000">${defs}
+  <rect width="800" height="1000" fill="${c1}"/><rect width="800" height="1000" fill="url(#glow)"/><rect y="720" width="800" height="280" fill="${c2}" opacity=".6"/>
+  ${inMetal(body, m)}</svg>`);
+}
 
 console.log("Assets generated.");

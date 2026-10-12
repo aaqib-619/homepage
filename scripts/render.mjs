@@ -102,5 +102,33 @@ await dpage.screenshot({ path: join(prev, "desktop-03-navigation.png"), clip: { 
 await dpage.locator("#custom").scrollIntoViewIfNeeded(); await dpage.mouse.move(720, 880);
 await dpage.locator("#custom").screenshot({ path: join(prev, "desktop-04-custom-designs.jpg"), type: "jpeg", quality: 82 });
 
+// 5. Custom jewellery landing page (custom.html): phone and desktop.
+async function openCustom(ctxOpts){
+  const c = await browser.newContext({ ...ctxOpts, ignoreHTTPSErrors: true });
+  const p = await c.newPage();
+  for (let i = 0; i < 4; i++) {
+    await p.goto(pathToFileURL(join(root, "custom.html")).href, { waitUntil: "load" });
+    await p.evaluate(() => document.fonts.ready);
+    if (await p.evaluate(() => ["Cormorant", "DM Sans", "Prata"].every(n => [...document.fonts].some(f => f.family.includes(n) && f.status === "loaded")))) break;
+  }
+  await p.evaluate(() => Promise.all([...document.images].map(i => { i.loading = "eager"; return i.complete ? 0 : new Promise(r => { i.onload = i.onerror = r; }); })));
+  // Freeze the hero video on the finished ring and show final stat values.
+  await p.evaluate(() => new Promise(r => { const v = document.getElementById("heroVideo"); v.pause(); v.currentTime = 6; v.addEventListener("seeked", r, { once: true }); setTimeout(r, 1500); }));
+  await p.evaluate(() => document.querySelectorAll(".stat-num").forEach((el, i) => el.firstChild.nodeValue = CONFIG.stats[i].value.toFixed(CONFIG.stats[i].decimals || 0)));
+  return p;
+}
+const cm = await openCustom(devices["iPhone 13"]);
+await cm.screenshot({ path: join(prev, "custom-01-above-the-fold.png") });
+const hideSticky = await cm.addStyleTag({ content: ".sticky{display:none!important}" });
+await cm.screenshot({ path: join(prev, "custom-02-full-page.jpg"), fullPage: true, type: "jpeg", quality: 80 });
+await hideSticky.evaluate(n => n.remove());
+await cm.setViewportSize(devices["iPhone 13"].viewport);
+await cm.locator('#workTrack [data-open="work-ruby-halo"]').click(); await cm.waitForTimeout(400);
+await cm.screenshot({ path: join(prev, "custom-03-portfolio-lightbox.png") });
+const cd = await openCustom({ viewport: { width: 1440, height: 900 } });
+await cd.mouse.move(720, 880);
+await cd.screenshot({ path: join(prev, "custom-desktop-01-above-the-fold.png") });
+await cd.screenshot({ path: join(prev, "custom-desktop-02-full-page.jpg"), fullPage: true, type: "jpeg", quality: 78 });
+
 await browser.close();
 console.log("Exported to assets/export and preview/");

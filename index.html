@@ -657,7 +657,7 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
         <div class="dd-panel"><a href="/collections/18k-gold">18k Gold</a><a href="/collections/22k-gold">22k Gold</a><a href="/collections/24k-gold">24k Gold</a></div></li>
       <li class="dd"><a href="/collections/gemstones">Gemstones</a>
         <div class="dd-panel"><a href="/collections/sapphires">Sapphires</a><a href="/collections/rubies">Rubies</a><a href="/collections/emeralds">Emeralds</a></div></li>
-      <li><a class="hl" href="#custom">Custom Designs</a></li>
+      <li><a class="hl" href="custom.html">Custom Designs</a></li>
       <li><a href="/collections/under-50k">Under Rs. 50k</a></li>
       <li><a href="/collections/above-50k">Above Rs. 50k</a></li>
     </ul>
@@ -708,7 +708,7 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
       <a class="cat" href="/collections/bracelets"><span class="cat-img"><img src="assets/products/tennis-bracelet.svg" width="600" height="750" alt="" loading="lazy" decoding="async"></span>Bracelets</a>
       <a class="cat" href="/collections/gold-jewellery"><span class="cat-img"><img src="assets/products/dome-hoops.svg" width="600" height="750" alt="" loading="lazy" decoding="async"></span>Gold</a>
       <a class="cat" href="/collections/gemstones"><span class="cat-img"><img src="assets/products/gem-blue-sapphire.svg" width="600" height="750" alt="" loading="lazy" decoding="async" style="--z:1.5;--o:50% 48%"></span>Gemstones</a>
-      <a class="cat hot" href="#custom"><span class="cat-img"><img src="assets/products/custom-ring.svg" width="600" height="750" alt="" loading="lazy" decoding="async"></span>Custom</a>
+      <a class="cat hot" href="custom.html"><span class="cat-img"><img src="assets/products/custom-ring.svg" width="600" height="750" alt="" loading="lazy" decoding="async"></span>Custom</a>
       <a class="cat" href="/collections/gifts"><span class="cat-img"><img src="assets/products/layered-set.svg" width="600" height="750" alt="" loading="lazy" decoding="async"></span>Gifts</a>
     </div>
   </nav>
@@ -969,7 +969,7 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
       <li><a href="/collections/premium-jewellery-gifting">Premium Jewellery &amp; Gifting</a></li>
       <li><a href="/collections/gold-jewellery">Gold Jewellery</a></li>
       <li><a href="/collections/gemstones">Gemstones</a></li>
-      <li><a href="#custom">Custom Designs</a></li>
+      <li><a href="custom.html">Custom Designs</a></li>
       <li><a href="/collections/under-50k">Under Rs. 50k</a></li>
       <li><a href="/collections/above-50k">Above Rs. 50k</a></li></ul></details>
     <details><summary>Help<svg class="icon"><use href="#i-plus"/></svg></summary><ul>
@@ -1002,12 +1002,12 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
       <li><a href="/collections/premium-jewellery-gifting">Premium Jewellery &amp; Gifting <svg class="icon"><use href="#i-arrow"/></svg></a></li>
       <li><a href="/collections/gold-jewellery">Gold Jewellery <svg class="icon"><use href="#i-arrow"/></svg></a></li>
       <li><a href="/collections/gemstones">Gemstones <svg class="icon"><use href="#i-arrow"/></svg></a></li>
-      <li><a href="#custom"><span>Custom Designs<span class="badge badge-new">Bespoke</span></span><svg class="icon"><use href="#i-arrow"/></svg></a></li>
+      <li><a href="custom.html"><span>Custom Designs<span class="badge badge-new">Bespoke</span></span><svg class="icon"><use href="#i-arrow"/></svg></a></li>
       <li><a href="/collections/under-50k">Under Rs. 50k <svg class="icon"><use href="#i-arrow"/></svg></a></li>
       <li><a href="/collections/above-50k">Above Rs. 50k <svg class="icon"><use href="#i-arrow"/></svg></a></li>
       <li><a href="/collections/gifts">Gifts <svg class="icon"><use href="#i-arrow"/></svg></a></li>
     </ul>
-    <a class="menu-promo" href="#custom">
+    <a class="menu-promo" href="custom.html">
       <img src="assets/banners/custom.svg" width="1080" height="720" alt="" loading="lazy">
       <div><span>Custom Designs</span><b>Design<br>Your Own</b></div>
     </a>
@@ -1312,7 +1312,7 @@ function runSearch(q){
   const hits = !q ? PRODUCTS.filter(p => p.badge).slice(0, 4)
     : words.length ? PRODUCTS.filter(p => words.every(w => re(w).test(hay(p))))
     : /gift/.test(q) ? PRODUCTS.filter(p => p.col === 'premium' && p.price < CONFIG.priceBand) : [];
-  const custom = q && CUSTOM_RE.test(q) ? `<a href="#custom"><img src="${IMG('custom-ring')}" width="600" height="750" alt="" loading="lazy"><span style="flex:1">Custom Designs: design your own<br><small style="color:var(--muted)">Guided by our experts</small></span></a>` : '';
+  const custom = q && CUSTOM_RE.test(q) ? `<a href="custom.html"><img src="${IMG('custom-ring')}" width="600" height="750" alt="" loading="lazy"><span style="flex:1">Custom Designs: design your own<br><small style="color:var(--muted)">Guided by our experts</small></span></a>` : '';
   $('#results').innerHTML = `<span class="accent">${q ? (hits.length + (custom ? 1 : 0)) + ' results' : 'New arrivals'}</span>` + custom
     + hits.map(p => `<a href="${url(p)}"><img src="${IMG(p.id)}" width="600" height="750" alt="" loading="lazy"><span style="flex:1">${esc(p.title)}<br><small style="color:var(--muted)">${esc(p.meta)}</small></span><b>${money(p.price)}</b></a>`).join('');
 }
