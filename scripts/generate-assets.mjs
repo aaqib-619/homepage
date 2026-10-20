@@ -449,6 +449,20 @@ out("assets/banners/custom.svg", svg(1080, 720, `
    <linearGradient id="fade" x1="0" y1="0" x2="1" y2="0"><stop offset=".3" stop-color="#fff" stop-opacity="0"/><stop offset=".6" stop-color="#fff" stop-opacity="1"/></linearGradient>
    <mask id="gm"><rect width="1080" height="720" fill="url(#fade)"/></mask>`));
 
+// ---------- homepage gemstone feature banner (1080x810, transparent: the page supplies the blush gradient) ----------
+out("assets/banners/gems-feature.svg", `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 810" width="1080" height="810">${defs}
+  <circle cx="540" cy="420" r="330" fill="#fff" opacity=".55"/>
+  <circle cx="540" cy="420" r="380" fill="none" stroke="#b84d69" stroke-opacity=".18" stroke-width="2"/>
+  ${shadow(540, 690, 330, 20)}
+  ${gem(540, 420, 175, "oval", "sapphire")}
+  ${gem(270, 230, 70, "round", "pink")}
+  ${gem(820, 220, 78, "oval", "padparadscha")}
+  ${gem(230, 560, 88, "cushion", "ruby")}
+  ${gem(860, 570, 92, "emerald", "emerald")}
+  ${gem(540, 150, 52, "pear", "yellow")}
+  ${sparkle(700, 280, 1.6)}${sparkle(380, 640, 1)}${sparkle(950, 380, .9)}${sparkle(140, 380, .8)}
+</svg>`);
+
 // ---------- custom work portfolio (800x1000) for the custom jewellery landing page ----------
 GEMS.white = ["#ffffff", "#dfe7f1", "#8a9ab0"];
 const inMetal = (str, m) => m === "white" ? str.replace(/url\(#gold\)/g, "url(#wgold)").replace(/url\(#goldV\)/g, "url(#wgoldV)")

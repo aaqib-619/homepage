@@ -127,25 +127,21 @@ The content width is capped at 1240px. Desktop previews are in `preview/desktop-
 
 | # | Module | Why it's there |
 |---|---|---|
-| 1 | Transparent header | Sits over the hero photo with the white wordmark and icons. It turns solid white with the plum wordmark after 40px of scroll, so it stays legible over content. The cart count is always visible (`aria-live`). |
-| 2 | Hero | Brand photography with "Rare Gems, Timeless" and two paths: **Shop Now** for ready-to-wear buyers and **Design Your Own** for custom buyers. No rating. |
-| 3 | USP strip | One line, looping: 300+ Five-Star Reviews · Ready-to-Wear Jewellery · Custom Designs · Expert Guidance. It pauses on touch or hover, and shows statically with reduced motion. |
-| 3b | Category carousel | Swipeable circles directly below the hero: New Arrivals, Rings, Earrings, Necklaces, Bracelets, Gold, Gemstones, Custom and Gifts. They give one-tap shortcuts by jewellery type, and a rose ring highlights New Arrivals and Custom. |
-| 4 | Our Collections | Three swipeable tiles, one per primary collection, so shoppers self-select immediately. |
-| 5 | Premium Jewellery & Gifting | Type tabs (Earrings, Necklaces, Rings, Bracelets) and a product grid. Cards show metal colour swatches, "Save %" and "New Arrival" badges, low-stock flags and **Add to cart**. |
-| 6 | Gifting banner | Gifting is part of the premium collection and a high-intent occasion. |
-| 7 | Gold Jewellery | A plum banner, 18k/22k/24k shortcuts and a swipeable product row. |
-| 8 | Shop by budget | Two bands only: **Under Rs. 50k** and **Above Rs. 50k**. |
-| 9 | Gemstones | A banner and a grid of loose stones with carat and cut, plus a "Found your stone? We'll set it for you" cross-sell into Custom Designs. |
-| 10 | Custom Designs | A sketch-to-ring banner, three steps and the metals offered, then the enquiry form (below). |
-| 11 | Reviews | "300+ five-star reviews" with swipeable review cards linked to the product or to custom designs. |
-| 12 | Expert Guidance | WhatsApp and consultation CTAs, the brand's key reassurance for considered, high-value purchases. |
-| 13 | Newsletter | "Save 10%" on the brand's pink band. It's the only newsletter form; the footer has none. |
-| 14 | FAQ | Custom work, metals, loose gemstones and getting help. Also emitted as `FAQPage` JSON-LD. |
-| 15 | Footer | Plum background with the white lockup, accordion links, social and secure-checkout badges. |
-| - | Sticky bottom bar | Appears after the hero and hides over the footer and while overlays are open. |
-| - | Cart drawer | Line items, "You may also like" from the same collection, a "Talk to an expert" link and secure checkout. |
-| - | Welcome offer | A bottom sheet, not a full-screen blocker. Shows after 25s or 50% scroll, once per visitor, and never while someone is filling in the custom form. |
+| 1 | Transparent header | Sits over the hero photo and turns solid white on scroll. The cart count is always visible. |
+| 2 | Hero | Brand photography, "Rare Gems, Timeless", **Shop Now** and **Design Your Own**. |
+| 3 | USP strip | One line: 300+ Five-Star Reviews · Ready-to-Wear Jewellery · Custom Designs · Expert Guidance. |
+| 4 | Category carousel | Swipeable circles by jewellery type. |
+| 5 | Premium Jewellery & Gifting | Type tabs and a product grid with swatches, badges and **Add to cart**. |
+| 6 | Shop by budget | "Luxury at Every Budget": **Under Rs. 50K** (thoughtful gifts and everyday luxury) and **Above Rs. 50K** (statement and heirloom pieces), each with an explicit "Shop under/above 50K" CTA. |
+| 7 | Gold Jewellery | "Gold That Lasts Generations": 18k/22k/24k shortcuts, a product carousel with no banner, and **View All Gold Jewellery**. |
+| 8 | Testimonials | "Loved by Our Clients", with review cards linked to products. Placed straight after the products to build trust before the gemstone and custom asks. |
+| 9 | Gemstone banner | A single banner: "Find the Gem That's Meant for You" with **Explore Gemstones** and **Set It in a Custom Piece** (cross-sells custom work). Artwork is `assets/banners/gems-feature.svg`. |
+| 10 | Custom Designs | Explainer and enquiry form (below). |
+| 11 | Expert Guidance | WhatsApp and consultation CTAs. |
+| 12 | Newsletter | "Save 10%" on the pink band. |
+| 13 | FAQ | Also emitted as `FAQPage` JSON-LD. |
+| 14 | Footer | Lockup, link groups, social and secure-checkout badges. |
+| - | Sticky bar, cart drawer, welcome offer, search | Unchanged. |
 
 ### Custom design form
 

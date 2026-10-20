@@ -219,7 +219,7 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
 .btile small{font:400 14px/1.2 var(--accent)}
 .btile b{display:block;font:600 40px/1 var(--serif);margin:4px 0 8px}
 .btile span{display:block;font-size:12.5px;opacity:.85;line-height:1.4}
-.btile em{font:500 12px/1 var(--sans);font-style:normal;letter-spacing:.1em;text-transform:uppercase;margin-top:12px;display:flex;align-items:center;gap:6px}
+.btile em{font:500 11.5px/1 var(--sans);font-style:normal;letter-spacing:.06em;white-space:nowrap;text-transform:uppercase;margin-top:12px;display:flex;align-items:center;gap:6px}
 .btile em .icon{width:15px;height:15px}
 .btile.under{background:var(--blush);color:var(--plum)}
 .btile.above{background:var(--plum);color:#fff;border-color:var(--pink)}
@@ -230,6 +230,24 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
 .set-it div{flex:1}
 .set-it b{display:block;font-weight:500}
 .set-it span{color:var(--muted);font-size:13px}
+
+/* ---------- section intro text ---------- */
+.sub{margin:10px auto 0;max-width:520px;color:var(--muted);font-size:15px;line-height:1.5}
+.sec-head:has(.sub){text-align:center}
+#budget .sec-head,#gold .sec-head{text-align:center}
+#gold .karats{justify-content:center;margin:0 auto 22px;max-width:420px}
+#gold .more{margin-top:24px}
+
+/* ---------- gemstone feature banner ---------- */
+.gem-feature-wrap{padding-top:0}
+.gem-feature{overflow:hidden;border:1px solid var(--blush);background:linear-gradient(160deg,#fbf3f4 0%,#eedcdf 55%,#ffc2c2 100%)}
+.gem-feature img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.gem-copy{padding:0 20px 26px;text-align:center}
+.gem-copy .h2{font-size:32px}
+.gem-copy p{margin:10px auto 20px;max-width:440px;font-size:15px;color:var(--ink)}
+.gem-ctas{display:grid;gap:10px}
+.gem-note{display:inline-flex;align-items:center;gap:6px;margin-top:14px;font-size:12.5px;color:var(--plum)}
+.gem-note .icon{width:16px;height:16px;color:var(--rose)}
 
 /* ---------- custom designs ---------- */
 .custom{background:var(--plum);color:#fff}
@@ -541,6 +559,14 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
   .btile:hover{box-shadow:0 18px 40px rgba(60,14,42,.14)}
 
   .set-it{padding:20px 24px;font-size:15.5px;margin-top:40px}
+  .gem-feature{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:center}
+  .gem-feature img{order:2;aspect-ratio:4/3}
+  .gem-copy{order:1;padding:56px 64px;text-align:left}
+  .gem-copy .h2{font-size:50px}
+  .gem-copy p{margin:14px 0 30px;font-size:17px}
+  .gem-ctas{display:flex;gap:14px}
+  .sub{font-size:17px;max-width:620px}
+  #gold .karats{margin-bottom:36px}
 
   /* custom designs: explainer left, form right */
   .custom .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:72px;align-items:start}
@@ -713,29 +739,7 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
     </div>
   </nav>
 
-  <!-- The three primary collections -->
-  <section class="section" aria-labelledby="col-h" style="padding-bottom:40px">
-    <div class="wrap sec-head">
-      <span class="accent">Explore Amirah</span>
-      <h2 class="h2" id="col-h">Our Collections</h2>
-    </div>
-    <div class="scroller cols3">
-      <a class="col-card" href="/collections/premium-jewellery-gifting">
-        <img src="assets/banners/col-premium.svg" width="800" height="1000" alt="" loading="lazy" decoding="async">
-        <div><b>Premium Jewellery &amp; Gifting</b><span>Ready-to-wear pieces and gifts to treasure</span><em>Explore <svg class="icon"><use href="#i-arrow"/></svg></em></div>
-      </a>
-      <a class="col-card" href="/collections/gold-jewellery">
-        <img src="assets/banners/col-gold.svg" width="800" height="1000" alt="" loading="lazy" decoding="async">
-        <div><b>Gold Jewellery</b><span>18k, 22k and 24k gold in every form</span><em>Explore <svg class="icon"><use href="#i-arrow"/></svg></em></div>
-      </a>
-      <a class="col-card" href="/collections/gemstones">
-        <img src="assets/banners/col-gems.svg" width="800" height="1000" alt="" loading="lazy" decoding="async">
-        <div><b>Gemstones</b><span>Hand-selected loose gemstones</span><em>Explore <svg class="icon"><use href="#i-arrow"/></svg></em></div>
-      </a>
-    </div>
-  </section>
-
-  <!-- 1. Premium Jewellery & Gifting -->
+  <!-- 1. Premium Jewellery & Gifting (unchanged) -->
   <section class="section tint" id="premium" aria-labelledby="premium-h">
     <div class="wrap">
       <div class="sec-head">
@@ -748,69 +752,66 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
     </div>
   </section>
 
-  <section class="section" style="padding-bottom:0" aria-labelledby="gift-h">
+  <!-- 2. Shop by budget: two clear price bands -->
+  <section class="section" id="budget" aria-labelledby="budget-h">
     <div class="wrap">
-      <div class="banner" style="background:#ffd6d6">
-        <picture><source media="(min-width:768px)" srcset="assets/banners/gifting-wide.svg" width="1920" height="720"><img src="assets/banners/gifting.svg" width="1080" height="720" alt="" loading="lazy" decoding="async"></picture>
-        <div class="banner-copy">
-          <span class="accent">The art of gifting</span>
-          <h2 class="h2" id="gift-h">Gifts as Rare as They Are</h2>
-          <p>Beautifully presented and ready to give.</p>
-          <a class="btn btn-plum" href="/collections/gifts">Shop Gifts</a>
-        </div>
+      <div class="sec-head">
+        <span class="accent">Shop by budget</span>
+        <h2 class="h2" id="budget-h">Luxury at Every Budget</h2>
+        <p class="sub">Pick your price range and discover pieces made to be treasured.</p>
+      </div>
+      <div class="budget">
+        <a class="btile under" href="/collections/under-50k"><div><small>Under</small><b>Rs. 50K</b><span>Thoughtful gifts &amp; everyday luxury</span></div><em>Shop under 50K <svg class="icon"><use href="#i-arrow"/></svg></em></a>
+        <a class="btile above" href="/collections/above-50k"><div><small>Above</small><b>Rs. 50K</b><span>Statement &amp; heirloom pieces</span></div><em>Shop above 50K <svg class="icon"><use href="#i-arrow"/></svg></em></a>
       </div>
     </div>
   </section>
 
-  <!-- 2. Gold Jewellery -->
-  <section class="section" id="gold" aria-labelledby="gold-h">
+  <!-- 3. Gold Jewellery: product carousel, no banner -->
+  <section class="section tint" id="gold" aria-labelledby="gold-h">
     <div class="wrap">
-      <div class="banner dark" style="background:var(--plum)">
-        <picture><source media="(min-width:768px)" srcset="assets/banners/gold-wide.svg" width="1920" height="720"><img src="assets/banners/gold.svg" width="1080" height="720" alt="" loading="lazy" decoding="async"></picture>
-        <div class="banner-copy">
-          <span class="accent">18k · 22k · 24k</span>
-          <h2 class="h2" id="gold-h">Gold Jewellery</h2>
-          <p>Pure gold, crafted to be treasured for generations.</p>
-          <a class="btn btn-pink" href="/collections/gold-jewellery">Explore Gold</a>
-        </div>
+      <div class="sec-head">
+        <span class="accent">18k · 22k · 24k Gold</span>
+        <h2 class="h2" id="gold-h">Gold That Lasts Generations</h2>
+        <p class="sub">Bangles, chains, rings and earrings in pure gold, made to be worn every day and treasured for a lifetime.</p>
       </div>
       <nav class="karats" aria-label="Shop gold by karat">
         <a href="/collections/18k-gold">18k Gold</a><a href="/collections/22k-gold">22k Gold</a><a href="/collections/24k-gold">24k Gold</a>
       </nav>
     </div>
     <div class="scroller slider" id="goldSlider"></div>
+    <div class="wrap"><a class="btn btn-outline btn-block btn-caps more" href="/collections/gold-jewellery">View All Gold Jewellery</a></div>
   </section>
 
-  <!-- Two price bands -->
-  <section class="section tint" aria-labelledby="budget-h">
-    <div class="wrap">
-      <div class="sec-head"><span class="accent">Shop by budget</span><h2 class="h2" id="budget-h">Find Your Piece</h2></div>
-      <div class="budget">
-        <a class="btile under" href="/collections/under-50k"><div><small>Under</small><b>Rs. 50k</b><span>Everyday luxury &amp; thoughtful gifts</span></div><em>Shop <svg class="icon"><use href="#i-arrow"/></svg></em></a>
-        <a class="btile above" href="/collections/above-50k"><div><small>Above</small><b>Rs. 50k</b><span>Statement &amp; heirloom pieces</span></div><em>Shop <svg class="icon"><use href="#i-arrow"/></svg></em></a>
+  <!-- 4. Testimonials -->
+  <section class="section" id="reviews" aria-labelledby="rev-h">
+    <div class="wrap sec-head rev-head">
+      <span class="accent">300+ Five-Star Reviews</span>
+      <h2 class="h2" id="rev-h">Loved by Our Clients</h2>
+      <div class="rev-summary">
+        <span class="stars" aria-hidden="true"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span>
+        <span>300+ five-star reviews</span>
       </div>
     </div>
+    <div class="scroller" id="revSlider"></div>
   </section>
 
-  <!-- 3. Gemstones -->
-  <section class="section" id="gems" aria-labelledby="gems-h">
+  <!-- 5. Gemstones: single feature banner -->
+  <section class="section gem-feature-wrap" id="gems" aria-labelledby="gems-h">
     <div class="wrap">
-      <div class="banner" style="background:#f6ecee">
-        <picture><source media="(min-width:768px)" srcset="assets/banners/gems-wide.svg" width="1920" height="720"><img src="assets/banners/gems.svg" width="1080" height="720" alt="" loading="lazy" decoding="async"></picture>
-        <div class="banner-copy">
-          <span class="accent">Loose gemstones</span>
-          <h2 class="h2" id="gems-h">Gemstones</h2>
-          <p>Hand-selected stones for a ring, pendant or keepsake.</p>
-          <a class="btn btn-plum" href="/collections/gemstones">Explore Gemstones</a>
+      <div class="gem-feature">
+        <img src="assets/banners/gems-feature.svg" width="1080" height="810" alt="Loose sapphires, a ruby, an emerald and a padparadscha sapphire" loading="lazy" decoding="async">
+        <div class="gem-copy">
+          <span class="accent">Loose Gemstones</span>
+          <h2 class="h2" id="gems-h">Find the Gem That's Meant for You</h2>
+          <p>Hand-selected sapphires, rubies and emeralds. Keep it loose, or let our experts set it in a one of a kind design.</p>
+          <div class="gem-ctas">
+            <a class="btn btn-plum" href="/collections/gemstones">Explore Gemstones</a>
+            <a class="btn btn-outline" href="custom.html">Set It in a Custom Piece</a>
+          </div>
+          <small class="gem-note"><svg class="icon"><use href="#i-chat"/></svg>Expert guidance on every stone</small>
         </div>
       </div>
-      <div class="grid" id="gemsGrid" style="margin-top:24px"></div>
-      <a class="set-it" href="#custom">
-        <svg class="icon"><use href="#i-gem"/></svg>
-        <div><b>Found your stone?</b><span>We'll set it in a design made just for you.</span></div>
-        <svg class="icon"><use href="#i-arrow"/></svg>
-      </a>
-      <a class="btn btn-outline btn-block btn-caps more" href="/collections/gemstones">View All Gemstones</a>
     </div>
   </section>
 
@@ -901,19 +902,6 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
         <div class="success" role="status" tabindex="-1"><b>Thank you</b><span>Our experts will be in touch shortly to talk through your design.</span></div>
       </div>
     </div>
-  </section>
-
-  <!-- Reviews -->
-  <section class="section tint" aria-labelledby="rev-h">
-    <div class="wrap sec-head rev-head">
-      <span class="accent">300+ Five-Star Reviews</span>
-      <h2 class="h2" id="rev-h">Loved by Our Clients</h2>
-      <div class="rev-summary">
-        <span class="stars" aria-hidden="true"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span>
-        <span>300+ five-star reviews</span>
-      </div>
-    </div>
-    <div class="scroller" id="revSlider"></div>
   </section>
 
   <!-- Expert guidance -->
@@ -1176,12 +1164,11 @@ $('#premiumTabs').addEventListener('click', e => {
 
 /* ================= gold + gems ================= */
 $('#goldSlider').innerHTML = PRODUCTS.filter(p => p.col === 'gold').map(card).join('');
-const renderGems = () => { $('#gemsGrid').innerHTML = PRODUCTS.filter(p => p.col === 'gems').slice(0, gridCols() === 3 ? 6 : 4).map(card).join(''); };
-renderGems();
+
 // Footer link groups are accordions on phones and always-open columns on desktop.
 const syncFooter = () => $$('.footer details').forEach(d => { d.open = MQ_DESK.matches; });
 syncFooter();
-[MQ_TAB, MQ_DESK].forEach(mq => mq.addEventListener('change', () => { renderPremium(); renderGems(); syncFooter(); }));
+[MQ_TAB, MQ_DESK].forEach(mq => mq.addEventListener('change', () => { renderPremium(); syncFooter(); }));
 
 /* ================= reviews ================= */
 $('#revSlider').innerHTML = REVIEWS.map(r => { const p = r.custom ? null : byId[r.product]; return `<article class="rev">

@@ -52,9 +52,7 @@ let page = await open();
 await page.addStyleTag({ content: ".header,.sticky{display:none!important}" });
 const shots = {
   "banner-hero": ".hero",
-  "banner-gifting": "section[aria-labelledby=gift-h] .banner",
-  "banner-gold-jewellery": "#gold .banner",
-  "banner-gemstones": "#gems .banner",
+  "banner-gemstones": "#gems .gem-feature",
   "banner-custom-designs": "#custom .banner",
   "banner-shop-by-budget": ".budget"
 };
