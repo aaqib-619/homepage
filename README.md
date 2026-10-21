@@ -21,6 +21,8 @@ It also features the **Custom Designs** service, with an enquiry form.
   - `product-*.jpg`: 1200×1500 (4:5) placeholder product images.
 - `preview/*.png|jpg`: screenshots at iPhone 13 size, plus `preview/desktop-*` at 1440x900.
 
+Also in this repo: `claf/`, a homepage mockup for the Ceylon Literary & Arts Festival (see `claf/README.md`).
+
 Regenerate everything:
 
 ```bash

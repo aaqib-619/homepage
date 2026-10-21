@@ -1,0 +1,1510 @@
+<!doctype html>
+<html lang="en-GB" data-missing="nautical-chart trincomalee-map">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ceylon Literary & Arts Festival 2027 | Edition Four: Intersection</title>
+<meta name="description" content="HSBC Ceylon Literary & Arts Festival, Edition Four. Intersection: where stories meet people. 22–24 January 2027, Colombo. Literary, Art, Children, Youth and Performing Arts.">
+<meta name="theme-color" content="#101D3B">
+<style>
+/* =====================================================================
+   CLAF Edition Four homepage mockup
+   Fonts: three families, one fixed role each
+     Financier Display  headings, numerals, reading copy
+     PP Palma           UI: nav, buttons, tags, labels, meta lines
+     Oldforge           vintage accent: dateline, edition numerals, slide day
+   Shape: square corners on everything. One shadow (--shadow), hard offset, print-like.
+   ===================================================================== */
+@font-face{font-family:"Financier Display";src:url(assets/fonts/FinancierDisplay-Regular.woff2) format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"Financier Display";src:url(assets/fonts/FinancierDisplay-Medium.woff2) format("woff2");font-weight:500;font-display:swap}
+@font-face{font-family:"Financier Display";src:url(assets/fonts/FinancierDisplay-Semibold.woff2) format("woff2");font-weight:600;font-display:swap}
+@font-face{font-family:"PP Palma";src:url(assets/fonts/PPPalma-FizzyHeavy.woff2) format("woff2");font-weight:800;font-display:swap}
+@font-face{font-family:"Oldforge";src:url(assets/fonts/Oldforge.woff2) format("woff2");font-weight:400;font-display:swap}
+
+:root{
+  /* Palette: navy / burgundy / crimson over aged-paper cream, gold accent.
+     Sky and cream are sampled from the supplied logo. Others to be confirmed against the guideline PDF. */
+  --navy:#101D3B; --navy-2:#182A52; --navy-3:#0A1328;
+  --paper:#F2EADA; --paper-2:#E7DBC2; --paper-hi:#FBF7EE;
+  --ink:#16182A; --ink-2:#4A4955;
+  --burgundy:#5E1529; --crimson:#B11A2F; --gold:#C2923F;
+  --sky:#BFD6FF; --rose:#E9A9A1; --logo-cream:#E7E7DD;
+  --rule:rgba(22,24,42,.2); --rule-light:rgba(231,231,221,.22);
+
+  --f-head:"Financier Display",Georgia,"Times New Roman",serif;
+  --f-ui:"PP Palma","Helvetica Neue",Arial,sans-serif;
+  --f-mark:"Oldforge",Georgia,serif;
+
+  /* 8px spacing scale */
+  --s1:8px; --s2:16px; --s3:24px; --s4:32px; --s5:48px; --s6:72px; --s7:112px;
+  --gutter:20px; --max:1240px; --header-h:64px;
+  --section:var(--s6);
+  --shadow:6px 6px 0 var(--ink);
+  --newsprint:url("assets/graphics/newspaper-torn.webp"); /* supplied torn-newspaper texture, 1600x939 */
+}
+@media (min-width:768px){:root{--gutter:32px}}
+@media (min-width:1024px){:root{--gutter:40px; --header-h:76px; --section:var(--s7)}}
+
+/* Pillar colour key: the same five colours everywhere a pillar appears */
+[data-pillar="literary"]  {--pc:var(--sky);      --pc-ink:var(--navy)}
+[data-pillar="art"]       {--pc:var(--gold);     --pc-ink:var(--ink)}
+[data-pillar="children"]  {--pc:var(--rose);     --pc-ink:var(--ink)}
+[data-pillar="youth"]     {--pc:var(--crimson);  --pc-ink:var(--paper-hi)}
+[data-pillar="performing"]{--pc:var(--burgundy); --pc-ink:var(--paper-hi)}
+
+*,*::before,*::after{box-sizing:border-box;border-radius:0 !important}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:calc(var(--header-h) + 8px)}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none !important;animation:none !important}}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 1.125rem/1.55 var(--f-head);overflow-x:clip;-webkit-font-smoothing:antialiased}
+body.is-locked{overflow:hidden}
+img{max-width:100%;display:block}
+a{color:inherit}
+button,input,textarea,select{font:inherit;color:inherit;-webkit-appearance:none;appearance:none}
+button{cursor:pointer;background:none;border:0;padding:0}
+h1,h2,h3,h4{font-family:var(--f-head);font-weight:500;margin:0;line-height:1.05;letter-spacing:-.01em;text-wrap:balance}
+h2{font-size:clamp(2.1rem,6vw,3.5rem)}
+h3{font-size:1.5rem;line-height:1.15}
+p{margin:0}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.visually-hidden{position:absolute !important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.wrap{width:100%;max-width:calc(var(--max) + var(--gutter)*2);margin-inline:auto;padding-inline:var(--gutter)}
+.section{padding-block:var(--section);position:relative}
+.skip{position:absolute;left:8px;top:-60px;z-index:200;background:var(--gold);color:var(--ink);padding:12px 16px;font:800 .875rem var(--f-ui)}
+.skip:focus{top:8px}
+
+/* UI type */
+.ui{font-family:var(--f-ui);font-weight:800;letter-spacing:.01em}
+.meta{font:800 .8125rem/1.4 var(--f-ui);letter-spacing:.02em}
+.dek{font-size:1.1875rem;color:var(--ink-2);max-width:38em}
+.on-dark .dek{color:rgba(231,231,221,.82)}
+.on-dark{color:var(--logo-cream)}
+
+/* Placeholder markers: anything the client must replace */
+.ph{background:rgba(194,146,63,.22);box-shadow:inset 0 -1px 0 var(--gold);padding:0 .15em}
+.on-dark .ph{background:rgba(194,146,63,.3)}
+.sample{display:inline-flex;align-items:center;gap:6px;font:800 .625rem/1 var(--f-ui);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2);border:1px dashed currentColor;padding:4px 6px}
+.on-dark .sample{color:rgba(231,231,221,.7)}
+
+/* Buttons: one shape, three fills */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 22px;font:800 .9375rem/1 var(--f-ui);letter-spacing:.02em;text-decoration:none;border:2px solid transparent;transition:transform .15s,box-shadow .15s,background .15s;white-space:nowrap}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:4px 4px 0 var(--ink)}
+.on-dark .btn:hover,.btn--on-dark:hover{box-shadow:4px 4px 0 var(--gold)}
+.btn--primary{background:var(--crimson);color:var(--paper-hi)}
+.btn--ink{background:var(--navy);color:var(--paper-hi)}
+.btn--gold{background:var(--gold);color:var(--ink)}
+.btn--paper{background:var(--paper-hi);color:var(--ink)}
+.btn--line{border-color:currentColor;background:transparent}
+.btn--sm{min-height:40px;padding:0 14px;font-size:.8125rem}
+.btn--block{width:100%}
+.link{font:800 .875rem/1 var(--f-ui);letter-spacing:.02em;text-decoration:none;display:inline-flex;align-items:center;gap:8px;min-height:44px;border-bottom:2px solid currentColor;padding-top:2px;align-self:center}
+.link::after{content:"→"}
+
+/* Pillar tag */
+.tag{display:inline-flex;align-items:center;font:800 .6875rem/1 var(--f-ui);letter-spacing:.08em;text-transform:uppercase;background:var(--pc);color:var(--pc-ink);padding:6px 8px;white-space:nowrap}
+
+/* Section head: heading + optional link, no eyebrows */
+.head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:var(--s2) var(--s4);margin-bottom:var(--s5)}
+.head > div{max-width:46rem;display:grid;gap:var(--s2)}
+
+/* Asset slots for graphics not yet supplied */
+.slot-tag{display:none;position:absolute;z-index:3;font:800 .625rem/1.3 var(--f-ui);letter-spacing:.06em;text-transform:uppercase;padding:6px 8px;border:1px dashed currentColor;max-width:260px}
+html[data-missing~="nautical-chart"] .slot-tag[data-slot="nautical-chart"],
+html[data-missing~="trincomalee-map"] .slot-tag[data-slot="trincomalee-map"]{display:block}
+
+/* ===================== Announcement bar ===================== */
+.announce{background:var(--burgundy);color:var(--paper-hi)}
+.announce .wrap{display:flex;align-items:center;gap:var(--s2);min-height:40px;padding-block:6px}
+.announce p{font:800 .75rem/1.35 var(--f-ui);letter-spacing:.02em;flex:1}
+.announce a{color:var(--paper-hi)}
+.announce__close{width:40px;height:40px;flex:none;display:grid;place-items:center;font:800 1.25rem/1 var(--f-ui);margin-right:-10px}
+.announce[hidden]{display:none}
+
+/* ===================== Header ===================== */
+.header{position:sticky;top:0;z-index:50;background:var(--navy);color:var(--logo-cream);border-bottom:1px solid var(--rule-light)}
+.header .wrap{display:flex;align-items:center;gap:10px;height:var(--header-h)}
+.header__logo{display:block;flex:none;margin-right:auto}
+.header__logo img{height:40px;width:auto}
+@media (min-width:1024px){.header__logo img{height:52px}}
+.nav{display:none}
+.nav ul{display:flex;gap:4px;list-style:none;margin:0;padding:0}
+.nav a{display:flex;align-items:center;height:44px;padding:0 12px;font:800 .875rem/1 var(--f-ui);text-decoration:none;letter-spacing:.02em;border-bottom:2px solid transparent}
+.nav a:hover{border-bottom-color:var(--gold)}
+.header__tickets{min-height:44px;padding:0 14px;font-size:.8125rem}
+.icon-btn{position:relative;width:44px;height:44px;display:grid;place-items:center;flex:none;color:var(--logo-cream)}
+.icon-btn svg{width:24px;height:24px}
+.cart-count{position:absolute;top:4px;right:2px;min-width:18px;height:18px;padding:0 4px;background:var(--gold);color:var(--ink);font:800 .6875rem/18px var(--f-ui);text-align:center}
+.cart-count[data-n="0"]{display:none}
+@media (min-width:1100px){.nav{display:block;margin-right:var(--s2)}.menu-btn{display:none}.header__tickets{min-height:48px;padding:0 22px;font-size:.9375rem}}
+@media (max-width:359px){.header__tickets{padding:0 10px}.header__logo img{height:34px}}
+
+/* Drawer (mobile menu) and cart share a panel style */
+.scrim{position:fixed;inset:0;background:rgba(10,19,40,.6);z-index:90;opacity:0;visibility:hidden;transition:opacity .25s,visibility .25s}
+.scrim.is-open{opacity:1;visibility:visible}
+.panel{position:fixed;top:0;right:0;bottom:0;width:min(440px,100%);z-index:100;display:flex;flex-direction:column;transform:translateX(100%);transition:transform .3s ease;visibility:hidden}
+.panel.is-open{transform:none;visibility:visible}
+.panel__top{display:flex;align-items:center;justify-content:space-between;height:var(--header-h);padding:0 var(--gutter);border-bottom:1px solid var(--rule-light);flex:none}
+.panel__body{flex:1;overflow-y:auto;padding:var(--s3) var(--gutter) var(--s5)}
+.drawer{background:var(--navy);color:var(--logo-cream)}
+.drawer__links{list-style:none;margin:0 0 var(--s4);padding:0}
+.drawer__links a{display:flex;justify-content:space-between;align-items:center;min-height:56px;font:500 1.75rem/1 var(--f-head);text-decoration:none;border-bottom:1px solid var(--rule-light)}
+.drawer__links a::after{content:"→";font:800 1rem var(--f-ui);color:var(--gold)}
+.drawer h2{font:800 .75rem/1 var(--f-ui);letter-spacing:.08em;text-transform:uppercase;margin:0 0 var(--s2);color:rgba(231,231,221,.7)}
+.drawer__pillars{list-style:none;margin:0 0 var(--s4);padding:0;display:grid;gap:8px}
+.drawer__pillars a{display:flex;gap:12px;align-items:center;min-height:44px;font:800 .9375rem/1.2 var(--f-ui);text-decoration:none}
+.drawer__pillars a::before{content:"";width:18px;height:18px;background:var(--pc);flex:none}
+.drawer__date{font:400 1.25rem/1.3 var(--f-mark);margin-top:var(--s3);color:var(--sky)}
+.cart{background:var(--paper-hi);color:var(--ink)}
+.cart .panel__top{border-bottom-color:var(--rule)}
+.cart .icon-btn{color:var(--ink)}
+.cart__empty{color:var(--ink-2)}
+.cart__items{list-style:none;margin:0;padding:0}
+.cart__item{display:grid;grid-template-columns:1fr auto;gap:6px 12px;padding:var(--s2) 0;border-bottom:1px solid var(--rule)}
+.cart__item h3{font-size:1.25rem}
+.cart__item .meta{color:var(--ink-2)}
+.cart__foot{border-top:2px solid var(--ink);padding:var(--s2) var(--gutter) calc(var(--s2) + env(safe-area-inset-bottom));display:grid;gap:12px;flex:none}
+.cart__total{display:flex;justify-content:space-between;font:600 1.375rem/1 var(--f-head)}
+.cart__remove{font:800 .75rem/1 var(--f-ui);text-decoration:underline;min-height:32px}
+
+/* Quantity stepper */
+.qty{display:inline-grid;grid-template-columns:44px 44px 44px;border:2px solid currentColor;height:44px}
+.qty button{font:800 1.125rem/1 var(--f-ui)}
+.qty output{display:grid;place-items:center;font:600 1.125rem/1 var(--f-head);border-inline:2px solid currentColor}
+
+/* ===================== Hero ===================== */
+.hero{position:relative;background:var(--navy) url("assets/graphics/nautical-chart.jpg") center/cover no-repeat;color:var(--logo-cream);padding:var(--s3) 0 96px;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(16,29,59,.35),rgba(16,29,59,.85));pointer-events:none}
+.hero > *{position:relative}
+.hero .slot-tag{position:static;margin:var(--s3) var(--gutter) 0;width:max-content;max-width:calc(100% - var(--gutter)*2);color:var(--sky)}
+@media (min-width:1024px){.hero .slot-tag{position:absolute;right:var(--gutter);top:var(--s2);margin:0}}
+.hero__grid{display:grid;gap:var(--s3)}
+.hero__logo{display:none;width:clamp(220px,24vw,320px);height:auto;margin-bottom:var(--s4)}
+.hero__theme{font:500 .9375rem/1 var(--f-head);letter-spacing:.42em;text-transform:uppercase;color:var(--sky);margin-bottom:var(--s2)}
+.hero h1{font-size:clamp(2.5rem,10.5vw,5.75rem);line-height:.95;letter-spacing:-.02em;color:var(--paper-hi)}
+.hero__dateline{font:400 .9375rem/1.35 var(--f-mark);color:var(--logo-cream);margin-top:var(--s2);display:flex;flex-wrap:wrap;gap:4px 10px}
+.hero__dateline span + span::before{content:"";display:inline-block;width:6px;height:6px;background:var(--gold);margin-right:10px;vertical-align:middle;position:relative;top:-2px}
+.hero__ctas{display:none;gap:var(--s2);margin-top:var(--s4);flex-wrap:wrap}
+@media (min-width:1024px){
+  .hero{padding:var(--s6) 0 calc(var(--s7) + 40px)}
+  .hero__grid{grid-template-columns:5fr 7fr;align-items:center;gap:var(--s5)}
+  .hero__logo{display:block}
+  .hero__ctas{display:flex}
+  .hero__dateline{font-size:1.25rem}
+}
+
+/* Slider */
+.slider{min-width:0}
+.slider__bar{display:flex;align-items:center;justify-content:space-between;gap:var(--s2);margin-bottom:12px}
+.slider__label{font:800 .75rem/1 var(--f-ui);letter-spacing:.08em;text-transform:uppercase;color:var(--sky)}
+.slider__count{font:600 1rem/1 var(--f-head);color:var(--logo-cream)}
+.slider__count b{color:var(--paper-hi);font-weight:600}
+.slider__frame{position:relative;box-shadow:6px 6px 0 var(--gold);background:var(--paper-hi)}
+.slider__viewport{overflow:hidden;touch-action:pan-y}
+.slider__track{display:flex;transition:transform .6s cubic-bezier(.6,0,.2,1)}
+.slide{flex:0 0 100%;min-width:0;display:grid;grid-template-rows:auto 1fr;background:var(--paper-hi);color:var(--ink)}
+.slide__date{background:var(--pc);color:var(--pc-ink);display:grid;grid-template-columns:auto 1fr auto;align-items:end;gap:6px 14px;padding:var(--s2) var(--s3)}
+.slide__date .tag{grid-column:1/-1;justify-self:start;background:var(--paper-hi);color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+.slide__day{font:400 3.5rem/.8 var(--f-mark)}
+.slide__mon{font:800 .8125rem/1.25 var(--f-ui);letter-spacing:.04em;text-transform:uppercase;padding-bottom:2px}
+.slide__time{font:600 1.5rem/1 var(--f-head);justify-self:end}
+.slide__body{display:flex;flex-direction:column;gap:12px;padding:var(--s2) var(--s3) var(--s3)}
+.slide__title{font-size:clamp(1.75rem,6.5vw,2.5rem);line-height:1.04}
+.slide__panel{font-size:1.0625rem;line-height:1.45}
+.slide__panel b{font:800 .6875rem/1 var(--f-ui);letter-spacing:.08em;text-transform:uppercase;margin-right:6px;color:var(--ink-2)}
+.slide__where{display:flex;gap:10px;align-items:flex-start;color:var(--ink-2)}
+.slide__where svg{flex:none;width:18px;height:18px;margin-top:1px}
+.slide__cta{display:flex;flex-wrap:wrap;gap:12px 20px;margin-top:auto;padding-top:var(--s1)}
+@media (min-width:640px){
+  .slide{grid-template-columns:200px 1fr;grid-template-rows:none}
+  .slide__date{grid-template-columns:1fr;align-content:space-between;align-items:start;padding:var(--s3)}
+  .slide__day{font-size:6rem}
+  .slide__time{justify-self:start;font-size:1.75rem}
+  .slide__body{padding:var(--s4)}
+}
+.slider__controls{display:flex;align-items:center;justify-content:space-between;gap:var(--s2);margin-top:var(--s3)}
+.slider__arrows{display:flex;gap:8px}
+.sq-btn{width:48px;height:48px;display:grid;place-items:center;border:2px solid var(--logo-cream);color:var(--logo-cream);transition:background .15s,color .15s}
+.sq-btn:hover{background:var(--logo-cream);color:var(--navy)}
+.sq-btn svg{width:20px;height:20px}
+.slider__dots{display:flex;flex-wrap:wrap;gap:0}
+.dot{width:32px;height:44px;display:grid;place-items:center}
+.dot::before{content:"";width:18px;height:6px;background:rgba(231,231,221,.35);transition:background .2s,width .2s}
+.dot[aria-current="true"]::before{background:var(--pc,var(--gold));width:26px;box-shadow:0 0 0 1px rgba(255,255,255,.5)}
+.slider__progress{height:3px;background:rgba(231,231,221,.18);margin-top:4px;overflow:hidden}
+.slider__progress span{display:block;height:100%;width:100%;background:var(--gold);transform-origin:left;transform:scaleX(0)}
+.slider__progress.is-running span{animation:progress var(--dur,7s) linear forwards}
+.slider.is-paused .slider__progress span{animation-play-state:paused}
+@keyframes progress{to{transform:scaleX(1)}}
+.upnext{margin-top:var(--s3)}
+.upnext h2{font:800 .75rem/1 var(--f-ui);letter-spacing:.08em;text-transform:uppercase;color:var(--sky);margin-bottom:12px}
+.upnext ol{list-style:none;margin:0 calc(var(--gutter)*-1);padding:0 var(--gutter);scroll-padding-inline:var(--gutter);display:grid;grid-auto-flow:column;grid-auto-columns:min(78%,260px);gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}
+.upnext ol::-webkit-scrollbar{display:none}
+.upnext button{scroll-snap-align:start;width:100%;height:100%;text-align:left;display:grid;grid-template-columns:8px 1fr;gap:4px 12px;padding:12px 12px 12px 0;border-top:1px solid var(--rule-light);color:var(--logo-cream)}
+.upnext button::before{content:"";grid-row:1/3;background:var(--pc)}
+.upnext button:hover .upnext__t{text-decoration:underline}
+.upnext__t{max-height:2.4em;font:500 1.0625rem/1.2 var(--f-head);color:var(--paper-hi);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.upnext__m{font:800 .75rem/1.3 var(--f-ui);letter-spacing:.02em;color:rgba(231,231,221,.75)}
+@media (min-width:1024px){.upnext ol{margin:0;padding:0;grid-auto-flow:row;grid-template-columns:repeat(3,1fr);overflow:visible}}
+
+/* ===================== Torn newspaper divider ===================== */
+.tear{position:relative;z-index:2;margin:-80px 0 var(--s2);pointer-events:none;overflow:hidden}
+.tear__img{width:112%;margin-left:-6%;aspect-ratio:1600/939;background:var(--newsprint) center/100% no-repeat}
+@media (min-width:1024px){
+  .tear{position:absolute;right:0;top:-150px;width:52%;margin:0;overflow:visible}
+  .tear__img{width:100%;margin:0}
+}
+
+/* ===================== Intro + stats ===================== */
+.intro{padding-top:0}
+.intro__grid{display:grid;gap:var(--s3)}
+.intro h2{max-width:14em}
+.intro__copy{display:grid;gap:var(--s3);max-width:36rem}
+.intro__copy p{font-size:1.25rem;line-height:1.5}
+.intro__ctas{display:flex;flex-wrap:wrap;gap:12px 24px}
+.stats{list-style:none;margin:var(--s5) 0 0;padding:0;display:grid;grid-template-columns:repeat(2,1fr);border-top:2px solid var(--ink)}
+.stats li{padding:var(--s3) var(--s2) var(--s3) 0;border-bottom:1px solid var(--rule);display:grid;gap:6px;align-content:start}
+.stats li:nth-child(odd){border-right:1px solid var(--rule)}
+.stats li:nth-child(even){padding-left:var(--s2)}
+.stats b{font:600 clamp(2.75rem,10vw,4.5rem)/.9 var(--f-head);letter-spacing:-.02em}
+.stats span{font:800 .8125rem/1.3 var(--f-ui);color:var(--ink-2)}
+.stats li:last-child{grid-column:1/-1;border-right:0;padding-left:0}
+@media (min-width:1024px){
+  .intro{padding-top:var(--s7);min-height:520px}
+  .intro__grid{width:46%}
+  .stats{grid-template-columns:repeat(5,1fr);margin-top:var(--s6)}
+  .stats li,.stats li:nth-child(even),.stats li:last-child{grid-column:auto;padding:var(--s3) var(--s3) var(--s3) var(--s3);border-right:1px solid var(--rule)}
+  .stats li:first-child{padding-left:0}
+  .stats li:last-child{border-right:0}
+}
+
+/* ===================== Pillars (spines) ===================== */
+.pillars{background:var(--paper-2)}
+.spines{list-style:none;margin:0;padding:0;display:grid;gap:0;border:2px solid var(--ink)}
+.spine{background:var(--pc);color:var(--pc-ink);display:grid;grid-template-columns:56px 1fr;gap:4px var(--s2);padding:var(--s3) var(--s3) var(--s3) var(--s2);border-bottom:2px solid var(--ink);text-decoration:none;position:relative;transition:transform .15s,box-shadow .15s}
+.spine:last-child{border-bottom:0}
+.spine:hover{transform:translate(-3px,-3px);box-shadow:var(--shadow);z-index:1}
+.spine__n{grid-row:1/4;font:400 2.75rem/1 var(--f-mark);text-align:center;padding-top:2px}
+.spine h3{font-size:1.875rem}
+.spine p{font-size:1.0625rem;line-height:1.4}
+.spine__go{font:800 .8125rem/1 var(--f-ui);letter-spacing:.02em;margin-top:8px;display:flex;align-items:center;gap:8px;min-height:32px}
+.spine__go::after{content:"→"}
+.spine__flag{position:absolute;top:0;right:0;font:800 .625rem/1 var(--f-ui);letter-spacing:.08em;text-transform:uppercase;background:var(--ink);color:var(--paper-hi);padding:6px 8px}
+@media (min-width:1024px){
+  .spines{grid-template-columns:repeat(5,1fr)}
+  .spine{grid-template-columns:1fr;grid-template-rows:auto auto 1fr auto;min-height:440px;border-bottom:0;border-right:2px solid var(--ink);padding:var(--s3)}
+  .spine:last-child{border-right:0}
+  .spine__n{grid-row:auto;text-align:left;font-size:4.5rem;margin-bottom:var(--s5)}
+  .spine p{align-self:start}
+  .spine__go{align-self:end}
+}
+
+/* ===================== Youth ===================== */
+.youth{background:var(--crimson);color:var(--paper-hi)}
+.youth .dek{color:rgba(251,247,238,.88)}
+.youth__grid{display:grid;gap:var(--s3)}
+.fw{background:var(--paper-hi);color:var(--ink);box-shadow:var(--shadow);display:grid}
+.fw__clip{height:150px;overflow:hidden;background:var(--paper-2);position:relative}
+.fw__clip{background:var(--paper-2) var(--newsprint) 30% 45%/max(640px,130%) auto no-repeat;background-blend-mode:multiply}
+.fw__body{padding:var(--s3);display:grid;gap:var(--s3)}
+.fw__prize{display:grid;gap:4px;border-bottom:2px solid var(--ink);padding-bottom:var(--s3)}
+.fw__prize b{font:600 clamp(3rem,13vw,5.5rem)/.9 var(--f-head);letter-spacing:-.03em;color:var(--crimson)}
+.fw__prize span{font:800 .875rem/1.3 var(--f-ui)}
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:0;counter-reset:step}
+.steps li{counter-increment:step;display:grid;align-content:start;grid-template-columns:40px 1fr;gap:2px 12px;padding:12px 0;border-bottom:1px solid var(--rule)}
+.steps li::before{content:counter(step);grid-row:1/3;width:32px;height:32px;display:grid;place-items:center;background:var(--navy);color:var(--paper-hi);font:600 1.125rem/1 var(--f-head)}
+.steps b{font:800 .875rem/1.3 var(--f-ui)}
+.steps span{font-size:1rem;line-height:1.4;color:var(--ink-2)}
+.fw__ctas{display:flex;flex-wrap:wrap;gap:12px 24px;align-items:center}
+.ycard{padding:var(--s3);display:grid;gap:var(--s2);align-content:start}
+.ycard--pass{background:var(--gold);color:var(--ink)}
+.ycard--vol{background:var(--navy);color:var(--logo-cream)}
+.ycard__big{font:600 2.5rem/1 var(--f-head)}
+.roles{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.roles li{font:800 .75rem/1 var(--f-ui);border:1px solid currentColor;padding:8px 10px}
+@media (min-width:768px){.youth__grid{grid-template-columns:1fr 1fr}.fw{grid-column:1/-1}}
+@media (min-width:1024px){
+  .youth__grid{grid-template-columns:7fr 5fr;grid-template-rows:auto auto}
+  .fw{grid-column:1;grid-row:1/3;grid-template-columns:1fr}
+  .fw__clip{height:200px}
+  .fw__body{padding:var(--s4)}
+  .steps{grid-template-columns:1fr 1fr;column-gap:var(--s4)}
+  .ycard{padding:var(--s4)}
+}
+
+/* ===================== Programme ===================== */
+.tabs{display:flex;gap:0;overflow-x:auto;scrollbar-width:none;margin:0 calc(var(--gutter)*-1);padding:0 var(--gutter);scroll-padding-inline:var(--gutter);scroll-snap-type:x proximity;border-bottom:2px solid var(--ink)}
+.tabs::-webkit-scrollbar{display:none}
+.tab{flex:none;scroll-snap-align:start;display:grid;gap:2px;text-align:left;padding:12px 20px 14px;min-width:150px;border:2px solid transparent;border-bottom:0;margin-bottom:-2px;color:var(--ink-2)}
+.tab b{font:600 1.375rem/1 var(--f-head);color:var(--ink)}
+.tab span{font:800 .75rem/1 var(--f-ui);letter-spacing:.02em}
+.tab[aria-selected="true"]{background:var(--paper-hi);border-color:var(--ink);color:var(--ink)}
+.filters{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;margin:var(--s3) calc(var(--gutter)*-1) var(--s2);padding:0 var(--gutter)}
+.filters::-webkit-scrollbar{display:none}
+.chip{flex:none;display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:0 14px;border:2px solid var(--ink);font:800 .8125rem/1 var(--f-ui);background:transparent}
+.chip::before{content:"";width:12px;height:12px;background:var(--pc,var(--ink));box-shadow:inset 0 0 0 1px rgba(22,24,42,.35)}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--paper-hi)}
+@media (min-width:1024px){.tabs,.filters{margin-inline:0;padding-inline:0}}
+.sessions{list-style:none;margin:0;padding:0}
+.session{display:grid;grid-template-columns:6px 1fr;column-gap:var(--s2);padding:var(--s3) 0;border-bottom:1px solid var(--rule)}
+.session::before{content:"";grid-row:1/4;background:var(--pc)}
+.session__time{font:600 1.25rem/1 var(--f-head);display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:10px}
+.session__time small{font:800 .75rem/1 var(--f-ui);color:var(--ink-2)}
+.session__main{display:grid;gap:8px}
+.session__main h3{font-size:1.5rem}
+.session__who{font-size:1.0625rem;line-height:1.4}
+.session__where{color:var(--ink-2)}
+.session__act{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:var(--s2);align-items:center}
+.sessions__empty{padding:var(--s4) 0;color:var(--ink-2)}
+.prog__foot{display:flex;flex-wrap:wrap;gap:12px 24px;margin-top:var(--s4);align-items:center}
+@media (min-width:768px){
+  .session{grid-template-columns:6px 140px 1fr auto;column-gap:var(--s3);align-items:start}
+  .session::before{grid-row:1}
+  .session__time{flex-direction:column;align-items:flex-start;gap:6px;margin:0;font-size:1.625rem}
+  .session__act{margin:0;flex-direction:column;align-items:flex-end}
+}
+
+/* ===================== Speakers ===================== */
+.speakers{background:var(--navy);color:var(--logo-cream)}
+.speakers h2{color:var(--paper-hi)}
+.people{list-style:none;margin:0 calc(var(--gutter)*-1);padding:0 var(--gutter);scroll-padding-inline:var(--gutter);display:grid;grid-auto-flow:column;grid-auto-columns:min(72%,260px);gap:var(--s3);overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:thin;padding-bottom:var(--s2)}
+.person{scroll-snap-align:start;display:grid;gap:12px;align-content:start}
+.photo-ph{position:relative;aspect-ratio:4/5;background:var(--navy-2);border:1px solid var(--rule-light);overflow:hidden;display:grid;place-items:center}
+.photo-ph::before,.photo-ph::after{content:"";position:absolute;left:50%;top:50%;width:150%;height:1px;background:var(--rule-light);transform:translate(-50%,-50%) rotate(51deg)}
+.photo-ph::after{transform:translate(-50%,-50%) rotate(-51deg)}
+.photo-ph span{position:relative;z-index:1;font:800 .625rem/1 var(--f-ui);letter-spacing:.08em;text-transform:uppercase;background:var(--navy);padding:6px 8px;color:rgba(231,231,221,.75)}
+.person .photo-ph{border-bottom:6px solid var(--pc)}
+.person h3{font-size:1.375rem;color:var(--paper-hi)}
+.person p{font:800 .8125rem/1.35 var(--f-ui);color:rgba(231,231,221,.75)}
+@media (min-width:1024px){.people{margin:0;padding:0;grid-auto-flow:row;grid-template-columns:repeat(4,1fr);overflow:visible;row-gap:var(--s5)}}
+
+/* ===================== Tickets ===================== */
+.tickets__grid{display:grid;gap:var(--s4)}
+.ticket{position:relative;display:grid;grid-template-rows:auto auto 1fr auto;border:2px solid var(--ink);box-shadow:var(--shadow)}
+.ticket--day{background:var(--paper-hi)}
+.ticket--fest{background:var(--navy);color:var(--logo-cream);border-color:var(--navy)}
+.ticket--student{background:var(--crimson);color:var(--paper-hi);border-color:var(--crimson)}
+.ticket__top{padding:var(--s3);display:grid;gap:8px}
+.ticket__top h3{font-size:2rem}
+.ticket__price{font:600 2.75rem/1 var(--f-head);letter-spacing:-.02em;display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.ticket__price small{font:800 .8125rem/1 var(--f-ui);letter-spacing:.02em}
+.ticket__flag{position:absolute;top:-2px;right:-2px;background:var(--gold);color:var(--ink);font:800 .6875rem/1 var(--f-ui);letter-spacing:.08em;text-transform:uppercase;padding:8px 10px}
+/* Perforation with square notches */
+.perf{position:relative;height:0;border-top:2px dashed currentColor;margin:0 var(--s3);opacity:.6}
+.ticket::before,.ticket::after{content:"";position:absolute;top:var(--perf-y,148px);width:16px;height:16px;background:var(--paper);transform:translateY(-50%)}
+.ticket::before{left:-2px;border-right:2px solid var(--ink)}
+.ticket::after{right:-2px;border-left:2px solid var(--ink)}
+.ticket--fest::before,.ticket--fest::after{border-color:var(--navy)}
+.ticket--student::before,.ticket--student::after{border-color:var(--crimson)}
+.ticket ul{list-style:none;margin:0;padding:var(--s3);display:grid;gap:10px;align-content:start}
+.ticket li{display:grid;grid-template-columns:18px 1fr;gap:10px;font-size:1.0625rem;line-height:1.35}
+.ticket li::before{content:"";width:10px;height:10px;background:currentColor;margin-top:7px}
+.ticket__buy{padding:0 var(--s3) var(--s3);display:grid;gap:12px}
+.seg{display:grid;grid-template-columns:repeat(3,1fr);border:2px solid currentColor}
+.seg label{position:relative}
+.seg input{position:absolute;opacity:0;inset:0}
+.seg span{display:grid;place-items:center;min-height:44px;font:800 .8125rem/1.1 var(--f-ui);text-align:center;padding:4px;cursor:pointer}
+.seg label + label span{border-left:2px solid currentColor}
+.seg input:checked + span{background:var(--ink);color:var(--paper-hi)}
+.seg input:focus-visible + span{outline:3px solid var(--gold);outline-offset:-3px}
+.buy-row{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.buy-row .btn{flex:1}
+.tickets__small{margin-top:var(--s4);display:flex;flex-wrap:wrap;gap:12px 32px;color:var(--ink-2);font-size:1rem}
+@media (min-width:900px){.tickets__grid{grid-template-columns:1fr 1.15fr 1fr;align-items:stretch}.ticket--fest{transform:translateY(-16px)}}
+
+/* ===================== Venue ===================== */
+.venue{background:var(--paper-2)}
+.venue__grid{display:grid;gap:var(--s4)}
+.map{position:relative;aspect-ratio:4/3;background:var(--paper) url("assets/graphics/trincomalee-map.jpg") center/cover no-repeat;border:2px solid var(--ink);overflow:hidden}
+.map .slot-tag{left:var(--s2);top:var(--s2);color:var(--ink);background:var(--paper-hi)}
+.map__pin{position:absolute;left:50%;top:50%;transform:translate(-50%,-100%);display:grid;justify-items:center;gap:0}
+.map__pin b{background:var(--crimson);color:var(--paper-hi);font:800 .8125rem/1 var(--f-ui);padding:10px 12px;white-space:nowrap}
+.map__pin::after{content:"";width:2px;height:28px;background:var(--crimson)}
+.facts{margin:0;display:grid;border-top:2px solid var(--ink)}
+.facts div{display:grid;grid-template-columns:1fr;gap:4px;padding:var(--s2) 0;border-bottom:1px solid var(--rule)}
+.facts dt{font:800 .75rem/1 var(--f-ui);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2)}
+.facts dd{margin:0;font-size:1.125rem;line-height:1.45}
+.venue__ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:var(--s3)}
+@media (min-width:640px){.facts div{grid-template-columns:150px 1fr;gap:var(--s3)}}
+@media (min-width:1024px){.venue__grid{grid-template-columns:7fr 5fr;align-items:start}}
+
+/* ===================== Partners ===================== */
+.presenting{display:grid;gap:var(--s3);align-items:center;padding-bottom:var(--s4);border-bottom:2px solid var(--ink);margin-bottom:var(--s4)}
+.presenting p{font:800 .8125rem/1 var(--f-ui);letter-spacing:.04em}
+.logo-ph{display:grid;place-items:center;min-height:96px;border:1px dashed var(--ink-2);color:var(--ink-2);font:800 .6875rem/1.3 var(--f-ui);letter-spacing:.06em;text-transform:uppercase;text-align:center;padding:8px}
+.logo-ph--lg{min-height:140px;max-width:420px}
+.tier + .tier{margin-top:var(--s4)}
+.tier h3{font:800 .8125rem/1 var(--f-ui);letter-spacing:.04em;margin-bottom:var(--s2)}
+.logos{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+@media (min-width:768px){.presenting{grid-template-columns:200px 1fr}.logos{grid-template-columns:repeat(4,1fr)}}
+@media (min-width:1024px){.logos{grid-template-columns:repeat(6,1fr)}}
+
+/* ===================== Past editions ===================== */
+.editions{background:var(--navy-3);color:var(--logo-cream)}
+.editions h2{color:var(--paper-hi)}
+.eds{list-style:none;margin:0 calc(var(--gutter)*-1);padding:0 var(--gutter) var(--s2);scroll-padding-inline:var(--gutter);display:grid;grid-auto-flow:column;grid-auto-columns:min(80%,300px);gap:var(--s3);overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:thin}
+.ed{scroll-snap-align:start;display:grid;grid-template-rows:auto auto 1fr;border-top:2px solid var(--logo-cream)}
+.ed__n{font:400 4.5rem/1 var(--f-mark);padding:var(--s2) 0 var(--s1);color:var(--sky)}
+.ed .photo-ph{aspect-ratio:3/2;margin-bottom:var(--s2);background:var(--navy-2)}
+.ed .photo-ph span{background:var(--navy-3)}
+.ed h3{font-size:1.5rem;color:var(--paper-hi)}
+.ed p{font-size:1.0625rem;line-height:1.45;margin-top:8px;color:rgba(231,231,221,.82)}
+.ed .meta{color:var(--gold);margin-top:6px}
+.ed--now{border-top-color:var(--gold)}
+.ed--now .ed__n{color:var(--gold)}
+.ed--now .ed__now{display:grid;place-items:center;aspect-ratio:3/2;margin-bottom:var(--s2);background:var(--crimson);color:var(--paper-hi);font:400 1.5rem/1.2 var(--f-mark);text-align:center;padding:var(--s2)}
+@media (min-width:1024px){.eds{margin:0;padding:0;grid-auto-flow:row;grid-template-columns:repeat(4,1fr);overflow:visible}}
+
+/* ===================== Newsletter + feedback ===================== */
+.stay__grid{display:grid;gap:var(--s5)}
+.form{display:grid;gap:var(--s2);align-content:start}
+.field{display:grid;gap:8px}
+.field > span,.fieldset legend{font:800 .8125rem/1 var(--f-ui);letter-spacing:.02em}
+.input{width:100%;min-height:52px;padding:12px 14px;border:2px solid var(--ink);background:var(--paper-hi);font:400 1.125rem/1.3 var(--f-head)}
+textarea.input{min-height:120px;resize:vertical}
+.fieldset{border:0;margin:0;padding:0;display:grid;gap:10px}
+.fieldset legend{padding:0;margin-bottom:10px}
+.checks{display:flex;flex-wrap:wrap;gap:8px}
+.check{position:relative}
+.check input{position:absolute;opacity:0;inset:0;cursor:pointer}
+.check span{display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:0 12px;border:2px solid var(--ink);font:800 .8125rem/1 var(--f-ui)}
+.check span::before{content:"";width:12px;height:12px;background:var(--pc);box-shadow:inset 0 0 0 1px rgba(22,24,42,.35)}
+.check input:checked + span{background:var(--ink);color:var(--paper-hi)}
+.check input:focus-visible + span{outline:3px solid var(--gold);outline-offset:2px}
+.inline-row{display:grid;gap:12px}
+.form__done{display:none;padding:var(--s2);background:var(--navy);color:var(--paper-hi);font-size:1.125rem}
+.form.is-done .form__done{display:block}
+.fine{font-size:.9375rem;color:var(--ink-2)}
+.feedback{background:var(--paper-hi);border:2px solid var(--ink);padding:var(--s3)}
+@media (min-width:640px){.inline-row{grid-template-columns:1fr auto}}
+@media (min-width:1024px){.stay__grid{grid-template-columns:1fr 1fr;gap:var(--s6)}.feedback{padding:var(--s4)}}
+
+/* ===================== Footer ===================== */
+.footer{position:relative;background:var(--navy);color:var(--logo-cream);padding:var(--s6) 0 calc(var(--s4) + env(safe-area-inset-bottom))}
+.footer__grid{display:grid;gap:var(--s4)}
+.footer__brand img{width:200px;height:auto}
+.footer__brand p{margin-top:var(--s2);font:400 1.125rem/1.35 var(--f-mark);color:var(--sky)}
+.footer h2{font:800 .75rem/1 var(--f-ui);letter-spacing:.08em;text-transform:uppercase;margin-bottom:12px;color:rgba(231,231,221,.65)}
+.footer ul{list-style:none;margin:0;padding:0;display:grid;gap:2px}
+.footer li a{display:inline-flex;align-items:center;min-height:40px;font:800 .9375rem/1.2 var(--f-ui);text-decoration:none}
+.footer li a:hover{text-decoration:underline}
+.footer__base{margin-top:var(--s5);padding-top:var(--s3);border-top:1px solid var(--rule-light);display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-between;font:800 .75rem/1.4 var(--f-ui);color:rgba(231,231,221,.65)}
+.footer__base button{text-decoration:underline;font:inherit;color:inherit;min-height:32px}
+@media (min-width:768px){.footer__grid{grid-template-columns:1.4fr 1fr 1fr 1fr}}
+
+/* ===================== Show notes ===================== */
+.notes-toggle{position:fixed;left:8px;bottom:calc(8px + env(safe-area-inset-bottom));z-index:80;display:inline-flex;align-items:center;gap:8px;min-height:36px;padding:0 10px;background:var(--gold);color:var(--ink);font:800 .75rem/1 var(--f-ui);box-shadow:3px 3px 0 var(--ink);border:2px solid var(--ink)}
+.notes-toggle[aria-pressed="true"]{background:var(--ink);color:var(--gold);border-color:var(--gold);box-shadow:3px 3px 0 var(--gold)}
+.note,.notes-key{display:none}
+html.notes-on .note{display:block}
+html.notes-on .notes-key{display:block}
+html.notes-on [data-noted]{outline:2px dashed var(--gold);outline-offset:-6px}
+.note{position:relative;z-index:40;margin:0 var(--gutter) var(--s3);max-width:360px;background:#FFF6D9;color:var(--ink);border:2px solid var(--ink);box-shadow:4px 4px 0 var(--gold);padding:12px 14px;font:400 .9375rem/1.45 var(--f-head)}
+.note__h{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-bottom:6px;font:800 .6875rem/1 var(--f-ui);letter-spacing:.06em;text-transform:uppercase}
+.note__h i{font-style:normal;background:var(--ink);color:#FFF6D9;padding:4px 6px}
+.note__h em{font-style:normal;padding:4px 6px;border:1px solid var(--ink)}
+.note__h em[data-r="1"]{background:var(--sky)}
+.note__h em[data-r="2"]{background:var(--rose)}
+.note__h em[data-r="3"]{background:var(--gold)}
+.note ul{margin:6px 0 0;padding-left:18px}
+.note li + li{margin-top:4px}
+@media (min-width:1024px){
+  .note{position:absolute;top:var(--s2);right:var(--s2);margin:0;width:340px}
+  .note--left{right:auto;left:var(--s2)}
+  .note--low{top:auto;bottom:var(--s2)}
+}
+.note--inline{position:relative !important;top:auto !important;left:auto !important;right:auto !important;bottom:auto !important;width:auto !important;max-width:none;margin:0 0 var(--s3)}
+.notes-key{position:relative;z-index:45;background:var(--ink);color:#FFF6D9;padding:var(--s2) 0}
+.notes-key .wrap{display:grid;gap:10px}
+.notes-key p{font:400 .9375rem/1.45 var(--f-head)}
+.notes-key b{font:800 .75rem/1 var(--f-ui);letter-spacing:.06em;text-transform:uppercase}
+.notes-key ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.notes-key li{font:400 .9375rem/1.4 var(--f-head)}
+.notes-key em{font:800 .6875rem/1 var(--f-ui);font-style:normal;color:var(--ink);padding:4px 6px;margin-right:8px;display:inline-block}
+@media (min-width:1024px){.notes-key ul{grid-template-columns:repeat(3,1fr);gap:var(--s3)}}
+
+.toast{position:fixed;left:50%;top:calc(var(--header-h) + 12px);transform:translate(-50%,-12px);z-index:120;background:var(--ink);color:var(--paper-hi);font:800 .875rem/1.3 var(--f-ui);padding:12px 16px;opacity:0;visibility:hidden;transition:opacity .2s,transform .2s,visibility .2s;max-width:calc(100% - 32px);box-shadow:4px 4px 0 var(--gold)}
+.toast.is-on{opacity:1;visibility:visible;transform:translate(-50%,0)}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- Show-notes legend (hidden until toggled) -->
+<div class="notes-key" id="notes-key" role="region" aria-label="Design notes key">
+  <div class="wrap">
+    <p><b>Show notes</b> &nbsp;Each dashed section carries a note on how it meets the brief's three core requirements. Highlighted text marks placeholder content to swap for real programme data.</p>
+    <ul>
+      <li><em style="background:var(--sky)">R1</em>Hero is an event slider of featured sessions across all five pillars.</li>
+      <li><em style="background:var(--rose)">R2</em>All five pillars on the homepage, Youth given its own full-width section.</li>
+      <li><em style="background:var(--gold)">R3</em>Matches the Intersection brand: supplied logo, fonts, textures and palette.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ===================== Announcement bar ===================== -->
+<div class="announce" id="announce" data-noted>
+  <div class="wrap">
+    <p>Edition Four · 22–24 January 2027 · Festival Passes on sale now, early-bird until <span class="ph">[date]</span>. <a href="#tickets">Book now</a></p>
+    <button class="announce__close" type="button" aria-label="Dismiss announcement">×</button>
+  </div>
+</div>
+
+<!-- ===================== Header ===================== -->
+<header class="header" id="header">
+  <div class="wrap">
+    <a class="header__logo" href="#top" aria-label="Ceylon Literary & Arts Festival, home">
+      <img src="assets/brand/claf-logo-light.png" alt="Ceylon Literary & Arts Festival, presented by HSBC" width="1140" height="644">
+    </a>
+    <nav class="nav" aria-label="Main">
+      <ul>
+        <li><a href="#programme">Programme</a></li>
+        <li><a href="#pillars">Pillars</a></li>
+        <li><a href="#youth">Youth</a></li>
+        <li><a href="#speakers">Speakers</a></li>
+        <li><a href="#visit">Visit</a></li>
+        <li><a href="#editions">About</a></li>
+      </ul>
+    </nav>
+    <a class="btn btn--primary btn--on-dark header__tickets" href="#tickets">Get tickets</a>
+    <button class="icon-btn" type="button" id="cart-btn" aria-label="Cart, 0 items" aria-controls="cart" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><path d="M3 7h18l-1.5 13h-15z"/><path d="M8 7V5a4 4 0 0 1 8 0v2"/></svg>
+      <span class="cart-count" data-n="0">0</span>
+    </button>
+    <button class="icon-btn menu-btn" type="button" id="menu-btn" aria-label="Open menu" aria-controls="drawer" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+  </div>
+</header>
+
+<div class="scrim" id="scrim"></div>
+
+<!-- Mobile drawer -->
+<aside class="panel drawer" id="drawer" aria-label="Menu" aria-hidden="true">
+  <div class="panel__top">
+    <img src="assets/brand/claf-logo-light.png" alt="" width="1140" height="644" style="height:40px;width:auto">
+    <button class="icon-btn" type="button" data-close aria-label="Close menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19"/></svg>
+    </button>
+  </div>
+  <div class="panel__body">
+    <ul class="drawer__links">
+      <li><a href="#programme">Programme</a></li>
+      <li><a href="#tickets">Tickets</a></li>
+      <li><a href="#youth">Youth & Future Writers</a></li>
+      <li><a href="#speakers">Speakers</a></li>
+      <li><a href="#visit">Plan your visit</a></li>
+      <li><a href="#editions">About & past editions</a></li>
+    </ul>
+    <h2>Five pillars</h2>
+    <ul class="drawer__pillars" id="drawer-pillars"></ul>
+    <a class="btn btn--primary btn--block" href="#tickets">Get tickets</a>
+    <p class="drawer__date">22-24 January 2027 · Colombo</p>
+  </div>
+</aside>
+
+<!-- Cart (WooCommerce mini-cart) -->
+<aside class="panel cart" id="cart" aria-label="Your cart" aria-hidden="true">
+  <div class="panel__top">
+    <h2 style="font-size:1.75rem">Your cart</h2>
+    <button class="icon-btn" type="button" data-close aria-label="Close cart">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19"/></svg>
+    </button>
+  </div>
+  <div class="panel__body">
+    <p class="cart__empty" id="cart-empty">No passes yet. Every pass opens all five pillars on the days it covers.</p>
+    <ul class="cart__items" id="cart-items"></ul>
+  </div>
+  <div class="cart__foot">
+    <div class="cart__total"><span>Subtotal</span><span id="cart-total">LKR 0</span></div>
+    <span class="sample">Mockup cart · sample prices · live build uses WooCommerce Store API</span>
+    <a class="btn btn--primary btn--block" id="checkout" href="/checkout/">Checkout</a>
+  </div>
+</aside>
+
+<main id="main">
+
+<!-- ===================== Hero ===================== -->
+<section class="hero" id="top" data-noted aria-label="Edition Four: Intersection">
+  <div class="wrap hero__grid">
+    <div class="hero__lockup">
+      <aside class="note note--inline" aria-label="Note"><div class="note__h"><i>01 · Hero</i><em data-r="1">R1</em><em data-r="3">R3</em></div>
+    <ul>
+      <li>Lockup: the supplied light logo on navy, Financier H1 and an Oldforge dateline (Oldforge's only job on the page: dates and edition numerals).</li>
+      <li>Background: the <code>nautical-chart.jpg</code> asset slot, ready for the antique navy chart. It isn't in the upload yet, so it shows plain navy and is never faked in CSS.</li>
+      <li>On phones the header carries the logo, so the slider sits above the fold.</li>
+    </ul></aside>
+      <img class="hero__logo" src="assets/brand/claf-logo-light.png" alt="Ceylon Literary & Arts Festival, presented by HSBC" width="1140" height="644">
+      <p class="hero__theme">Intersection</p>
+      <h1>Where stories meet people</h1>
+      <p class="hero__dateline"><span>Edition Four</span><span>22-24 January 2027</span><span>Colombo</span></p>
+      <div class="hero__ctas">
+        <a class="btn btn--primary btn--on-dark" href="#tickets">Get tickets</a>
+        <a class="btn btn--line btn--on-dark" href="#programme">Explore the programme</a>
+      </div>
+    </div>
+
+    <div class="slider" id="slider" aria-roledescription="carousel" aria-label="Featured sessions">
+      <aside class="note note--inline" aria-label="Note"><div class="note__h"><i>02 · Event slider</i><em data-r="1">R1</em><em data-r="2">R2</em></div>
+        <ul>
+          <li>Each slide has a colour-coded pillar tag, title, panel and chair, date, time and venue, and a ticket CTA that adds the right Day Pass straight to the WooCommerce cart.</li>
+          <li>Six curated slides cover all five pillars, built from <code>SESSIONS</code> entries flagged <code>featured</code>, so the programme team curates the hero from the same data as the programme.</li>
+          <li>Autoplays every 7s with a progress bar, arrows, square dots, swipe, keyboard arrows and an "Up next" rail. It pauses on hover, focus, a hidden tab or the pause button, and doesn't autoplay with reduced motion.</li>
+        </ul></aside>
+      <div class="slider__bar">
+        <h2 class="slider__label">Featured sessions</h2>
+        <div style="display:flex;align-items:center;gap:12px">
+          <span class="slider__count" aria-hidden="true"><b id="slide-now">01</b> / <span id="slide-total">06</span></span>
+          <button class="sq-btn" type="button" id="slider-pause" aria-label="Pause autoplay" style="width:40px;height:40px">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path id="pause-icon" d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
+          </button>
+        </div>
+      </div>
+      <div class="slider__frame">
+        <div class="slider__viewport" id="slider-viewport" aria-live="off">
+          <div class="slider__track" id="slider-track"></div>
+        </div>
+      </div>
+      <div class="slider__progress" id="slider-progress"><span></span></div>
+      <div class="slider__controls">
+        <div class="slider__dots" id="slider-dots" role="group" aria-label="Choose slide"></div>
+        <div class="slider__arrows">
+          <button class="sq-btn" type="button" id="slider-prev" aria-label="Previous session"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+          <button class="sq-btn" type="button" id="slider-next" aria-label="Next session"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+        </div>
+      </div>
+      <div class="upnext">
+        <h2>Up next</h2>
+        <ol id="upnext"></ol>
+      </div>
+    </div>
+  </div>
+  <span class="slot-tag" data-slot="nautical-chart">Asset slot · nautical-chart.jpg<br>Antique navy nautical chart, not yet supplied</span>
+</section>
+
+<!-- ===================== Intro + stats (torn newspaper divider sits on the seam) ===================== -->
+<section class="section intro" id="about" data-noted>
+  <div class="tear" aria-hidden="true"><div class="tear__img"></div></div>
+  <aside class="note" aria-label="Note"><div class="note__h"><i>03 · Divider + intro</i><em data-r="3">R3</em></div>
+    The torn-newspaper texture is the supplied asset, used unaltered except for cropping. On phones it's a full-bleed band across the seam; on desktop it's a collage clipping overlapping the hero, so a thick strip doesn't push the intro down. Stats use a ruled ledger rather than cards.</aside>
+  <div class="wrap">
+    <div class="intro__grid">
+      <h2>A festival built on crossings</h2>
+      <div class="intro__copy">
+        <p>Edition Four is themed Intersection: the point where a writer meets a reader, an artist meets a passer-by, and a child meets the book that stays with them.</p>
+        <p>From 22 to 24 January 2027, five programmes run side by side in Colombo, and a single Festival Pass opens all of them.</p>
+        <div class="intro__ctas">
+          <a class="btn btn--ink" href="#pillars">See the five pillars</a>
+          <a class="link" href="#editions">Our story</a>
+        </div>
+      </div>
+    </div>
+    <ul class="stats" aria-label="Edition Four in numbers">
+      <li><b>3</b><span>days, 22-24 January</span></li>
+      <li><b>5</b><span>pillars under one roof</span></li>
+      <li><b class="ph">80+</b><span>writers, artists and performers</span></li>
+      <li><b class="ph">60+</b><span>sessions, talks and workshops</span></li>
+      <li><b>Free</b><span>entry for every student, all three days</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===================== Five pillars ===================== -->
+<section class="section pillars" id="pillars" data-noted>
+  <aside class="note" aria-label="Note"><div class="note__h"><i>04 · Five pillars</i><em data-r="2">R2</em><em data-r="3">R3</em></div>
+    <ul>
+      <li>All five pillars sit on the homepage, each with a one-line description, the second section after the hero. Last year's visitors didn't know the others existed, so they're never buried in the nav.</li>
+      <li>Shown as book spines: solid pillar colour, an Oldforge numeral and a link that filters the programme to that pillar. The same colour key runs through the slider tags, programme, speakers, menu and newsletter.</li>
+      <li>The Youth spine flags its own section below.</li>
+    </ul></aside>
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <h2>Five pillars, one festival</h2>
+        <p class="dek">Come for one and stay for the rest. Every pass opens all five.</p>
+      </div>
+    </div>
+    <ul class="spines" id="spines"></ul>
+  </div>
+</section>
+
+<!-- ===================== Youth ===================== -->
+<section class="section youth on-dark" id="youth" data-noted>
+  <aside class="note" aria-label="Note"><div class="note__h"><i>05 · Youth</i><em data-r="2">R2</em><em data-r="3">R3</em></div>
+    <ul>
+      <li>Full-width crimson section, the youth colour, given more space than any other pillar because it's the organisers' priority.</li>
+      <li>Three distinct blocks: Future Writers (LKR 100,000 prize and mentorship, with a four-step path), free student passes (one tap reserves one through the same cart) and volunteering.</li>
+      <li>The Future Writers card is headed with the supplied newsprint texture to read as a writers' zine.</li>
+    </ul></aside>
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <h2>For the next generation of storytellers</h2>
+        <p class="dek">Youth is at the heart of Edition Four: a prize that launches a writer, free entry for every student, and a place on the team that runs the festival.</p>
+      </div>
+    </div>
+    <div class="youth__grid">
+      <article class="fw" id="future-writers">
+        <div class="fw__clip" aria-hidden="true"></div>
+        <div class="fw__body">
+          <div class="fw__lede" style="display:grid;gap:10px">
+            <h3 style="font-size:2.25rem">Future Writers</h3>
+            <p>A programme for young writers in Sri Lanka. The winner gets a cash prize and a year of one-to-one mentorship with an established author.</p>
+          </div>
+          <div class="fw__prize">
+            <b>LKR 100,000</b>
+            <span>prize, plus a year of mentorship</span>
+          </div>
+          <ol class="steps">
+            <li><b>Submit your work</b><span>An original short story or poems. Closes <span class="ph">[date]</span>.</span></li>
+            <li><b>Shortlist announced</b><span>Shortlisted writers are told by <span class="ph">[date]</span>.</span></li>
+            <li><b>Mentorship begins</b><span>One-to-one sessions with a published author.</span></li>
+            <li><b>Read at the festival</b><span>Shortlist readings and the winner announced live, Sun 24 January.</span></li>
+          </ol>
+          <div class="fw__ctas">
+            <a class="btn btn--primary" href="#future-writers">Enter Future Writers</a>
+            <a class="link" href="#future-writers">Rules & eligibility</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="ycard ycard--pass">
+        <h3 style="font-size:2rem">Free student passes</h3>
+        <p class="ycard__big">LKR 0, all three days</p>
+        <p>Every school and university student gets in free. Reserve online, then bring your student ID.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:12px 24px;align-items:center">
+          <button class="btn btn--ink add_to_cart_button" type="button" data-add="student" data-product_id="1030" data-quantity="1">Reserve a student pass</button>
+          <a class="link" href="#tickets">School groups</a>
+        </div>
+      </article>
+
+      <article class="ycard ycard--vol">
+        <h3 style="font-size:2rem;color:var(--paper-hi)">Volunteer with us</h3>
+        <p>Run the stages, look after authors and host the children's zone. Volunteers get full festival access, a certificate and a reference.</p>
+        <ul class="roles" aria-label="Volunteer roles">
+          <li>Stage crew</li><li>Author green room</li><li>Children's zone</li><li>Front of house</li><li>Social media</li>
+        </ul>
+        <div><a class="btn btn--gold btn--on-dark" href="#youth">Apply to volunteer</a></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== Programme ===================== -->
+<section class="section programme" id="programme" data-noted>
+  <aside class="note" aria-label="Note"><div class="note__h"><i>06 · Programme</i><em data-r="1">R1</em><em data-r="2">R2</em></div>
+    <ul>
+      <li>Day tabs scroll sideways on phones (ARIA tabs with arrow-key support). Pillar filter chips use the same colour key, and the pillar spines deep-link into them.</li>
+      <li>Rows are a printed-timetable style, deliberately unlike the hero slides. Rendered from the same <code>SESSIONS</code> array; titles and names are placeholders.</li>
+    </ul></aside>
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <h2>Programme</h2>
+        <p class="dek">Three days, five pillars. Pick a day, then narrow it down by pillar.</p>
+      </div>
+      <span class="sample">Sample sessions · full programme <span class="ph">[date]</span></span>
+    </div>
+    <div class="tabs" role="tablist" aria-label="Festival days" id="day-tabs"></div>
+    <div class="filters" role="group" aria-label="Filter by pillar" id="filters"></div>
+    <div role="tabpanel" id="day-panel" tabindex="0">
+      <ul class="sessions" id="sessions"></ul>
+    </div>
+    <div class="prog__foot">
+      <a class="btn btn--ink" href="#tickets">Get tickets</a>
+      <a class="link" href="#programme">Download the programme (PDF)</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== Speakers ===================== -->
+<section class="section speakers on-dark" id="speakers" data-noted>
+  <aside class="note" aria-label="Note"><div class="note__h"><i>07 · Speakers</i><em data-r="2">R2</em></div>
+    Portrait cards whose base bar takes the speaker's pillar colour, so every pillar is visible here too. They swipe on phones and sit in a four-column grid on desktop. Photos are wireframe placeholders (4:5).</aside>
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <h2>Speakers</h2>
+        <p class="dek">Novelists, poets, artists and performers from Sri Lanka and beyond.</p>
+      </div>
+      <a class="link" href="#speakers">All speakers</a>
+    </div>
+    <ul class="people" id="people"></ul>
+  </div>
+</section>
+
+<!-- ===================== Tickets ===================== -->
+<section class="section tickets" id="tickets" data-noted>
+  <aside class="note" aria-label="Note"><div class="note__h"><i>08 · Tickets</i><em data-r="1">R1</em><em data-r="3">R3</em></div>
+    <ul>
+      <li>Three distinct ticket stubs with square-notch perforations: a Day Pass (variable product, one variation per day), the Festival Pass and a free Student Pass.</li>
+      <li>Buttons carry WooCommerce attributes (<code>add_to_cart_button</code>, <code>data-product_id</code>, <code>data-quantity</code>). The <code>WC</code> config switches the mini-cart from the mock to <code>POST /wp-json/wc/store/v1/cart/add-item</code>.</li>
+      <li>Prices are placeholders.</li>
+    </ul></aside>
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <h2>Tickets</h2>
+        <p class="dek">Every pass opens all five pillars on the days it covers. Students go free.</p>
+      </div>
+    </div>
+    <div class="tickets__grid">
+      <article class="ticket ticket--day">
+        <div class="ticket__top">
+          <h3>Day Pass</h3>
+          <p class="ticket__price"><span class="ph">LKR 2,500</span><small>per day</small></p>
+        </div>
+        <div class="perf"></div>
+        <ul>
+          <li>Any one festival day</li>
+          <li>All five pillars that day</li>
+          <li>First come, first seated</li>
+        </ul>
+        <form class="ticket__buy" data-buy="day">
+          <fieldset class="seg" style="margin:0;padding:0" aria-label="Choose a day">
+            <label><input type="radio" name="day" value="fri" checked><span>Fri 22</span></label>
+            <label><input type="radio" name="day" value="sat"><span>Sat 23</span></label>
+            <label><input type="radio" name="day" value="sun"><span>Sun 24</span></label>
+          </fieldset>
+          <div class="buy-row">
+            <div class="qty" data-qty><button type="button" data-step="-1" aria-label="Fewer">−</button><output aria-live="polite">1</output><button type="button" data-step="1" aria-label="More">+</button></div>
+            <button class="btn btn--ink add_to_cart_button" type="submit" data-product_id="1011">Add to cart</button>
+          </div>
+        </form>
+      </article>
+
+      <article class="ticket ticket--fest">
+        <span class="ticket__flag">Best value</span>
+        <div class="ticket__top">
+          <h3 style="color:var(--paper-hi)">Festival Pass</h3>
+          <p class="ticket__price" style="color:var(--paper-hi)"><span class="ph">LKR 6,000</span><small>all three days</small></p>
+        </div>
+        <div class="perf"></div>
+        <ul>
+          <li>All three days, 22-24 January</li>
+          <li>Every session across all five pillars</li>
+          <li>Priority seating for headline sessions</li>
+          <li>Festival tote and printed programme</li>
+        </ul>
+        <form class="ticket__buy" data-buy="festival">
+          <div class="buy-row">
+            <div class="qty" data-qty><button type="button" data-step="-1" aria-label="Fewer">−</button><output aria-live="polite">1</output><button type="button" data-step="1" aria-label="More">+</button></div>
+            <button class="btn btn--gold btn--on-dark add_to_cart_button" type="submit" data-product_id="1020">Add to cart</button>
+          </div>
+        </form>
+      </article>
+
+      <article class="ticket ticket--student">
+        <div class="ticket__top">
+          <h3 style="color:var(--paper-hi)">Student Pass</h3>
+          <p class="ticket__price"><span>Free</span><small>all three days</small></p>
+        </div>
+        <div class="perf"></div>
+        <ul>
+          <li>School and university students</li>
+          <li>All three days, all five pillars</li>
+          <li>Bring valid student ID to the gate</li>
+          <li>One pass per student</li>
+        </ul>
+        <form class="ticket__buy" data-buy="student">
+          <button class="btn btn--paper btn--on-dark btn--block add_to_cart_button" type="submit" data-product_id="1030" data-quantity="1">Reserve free pass</button>
+        </form>
+      </article>
+    </div>
+    <div class="tickets__small">
+      <span>School or group of 10+? <a href="#tickets">Book a group visit</a></span>
+      <span>Need step-free access or a companion seat? <a href="#visit">Access information</a></span>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== When & where ===================== -->
+<section class="section venue" id="visit" data-noted>
+  <aside class="note note--low" aria-label="Note"><div class="note__h"><i>09 · When & where</i><em data-r="3">R3</em></div>
+    The map frame is the <code>trincomalee-map.jpg</code> asset slot, waiting for the supplied Trincomalee map, which isn't in the upload yet. A ruled fact list covers the dates, hours, travel and access. "Add to calendar" downloads a real .ics file.</aside>
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <h2>When & where</h2>
+        <p class="dek">Three days in the heart of Colombo.</p>
+      </div>
+    </div>
+    <div class="venue__grid">
+      <div class="map" role="img" aria-label="Festival map">
+        <span class="slot-tag" data-slot="trincomalee-map">Asset slot · trincomalee-map.jpg<br>Brand map graphic, not yet supplied</span>
+        <div class="map__pin"><b class="ph">[Venue name]</b></div>
+      </div>
+      <div>
+        <dl class="facts">
+          <div><dt>Dates</dt><dd>Friday 22 to Sunday 24 January 2027</dd></div>
+          <div><dt>Venue</dt><dd><span class="ph">[Venue name]</span>, <span class="ph">[address]</span>, Colombo</dd></div>
+          <div><dt>Hours</dt><dd>Doors <span class="ph">9:00</span>, last session ends <span class="ph">21:30</span></dd></div>
+          <div><dt>Getting there</dt><dd>Ride-hailing drop-off at the main gate. Limited parking; <span class="ph">[bus routes]</span> stop nearby.</dd></div>
+          <div><dt>Access</dt><dd>Step-free routes to every stage, quiet room, companion seats free.</dd></div>
+        </dl>
+        <div class="venue__ctas">
+          <a class="btn btn--ink" href="https://maps.google.com/?q=Colombo" target="_blank" rel="noopener">Get directions</a>
+          <button class="btn btn--line" type="button" id="ics">Add to calendar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== Partners ===================== -->
+<section class="section partners" id="partners" data-noted>
+  <aside class="note" aria-label="Note"><div class="note__h"><i>10 · Partners</i><em data-r="3">R3</em></div>
+    HSBC leads as presenting partner, then tiered logo walls. Every logo is a labelled slot; no partner marks are recreated.</aside>
+  <div class="wrap">
+    <div class="head"><div><h2>Partners</h2></div></div>
+    <div class="presenting">
+      <p>Presented by</p>
+      <div class="logo-ph logo-ph--lg">HSBC logo<br>official artwork to be supplied</div>
+    </div>
+    <div class="tier">
+      <h3>Festival partners</h3>
+      <ul class="logos"><li class="logo-ph">Partner logo</li><li class="logo-ph">Partner logo</li><li class="logo-ph">Partner logo</li><li class="logo-ph">Partner logo</li><li class="logo-ph">Partner logo</li><li class="logo-ph">Partner logo</li></ul>
+    </div>
+    <div class="tier">
+      <h3>Media & hospitality partners</h3>
+      <ul class="logos"><li class="logo-ph">Partner logo</li><li class="logo-ph">Partner logo</li><li class="logo-ph">Partner logo</li><li class="logo-ph">Partner logo</li></ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== Past editions ===================== -->
+<section class="section editions on-dark" id="editions" data-noted>
+  <aside class="note" aria-label="Note"><div class="note__h"><i>11 · Past editions</i><em data-r="3">R3</em></div>
+    Archive cards led by large Oldforge numerals, ending on "IV, you are here". Dates and venues come from press coverage of editions one to three; please verify them with the organisers.</aside>
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <h2>Past editions</h2>
+        <p class="dek">From Kandy to Colombo, three festivals so far.</p>
+      </div>
+      <a class="link" href="#editions">Browse the archive</a>
+    </div>
+    <ol class="eds">
+      <li class="ed">
+        <span class="ed__n">I</span>
+        <div class="photo-ph"><span>Edition One photo</span></div>
+        <div><h3>Edition One</h3><p class="meta">8-12 February 2024</p><p>Trinity College and Hotel Suisse, Kandy, continuing at the Public Library, Colombo.</p></div>
+      </li>
+      <li class="ed">
+        <span class="ed__n">II</span>
+        <div class="photo-ph"><span>Edition Two photo</span></div>
+        <div><h3>Edition Two</h3><p class="meta">17-19 January 2025</p><p>Colombo Public Library, in its centenary year.</p></div>
+      </li>
+      <li class="ed">
+        <span class="ed__n">III</span>
+        <div class="photo-ph"><span>Edition Three photo</span></div>
+        <div><h3>Edition Three</h3><p class="meta">13-15 February 2026</p><p>Cinnamon Lakeside, Colombo.</p></div>
+      </li>
+      <li class="ed ed--now">
+        <span class="ed__n">IV</span>
+        <div class="ed__now">Intersection</div>
+        <div><h3>Edition Four</h3><p class="meta">22-24 January 2027</p><p>Where stories meet people. You are here.</p></div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ===================== Newsletter + feedback ===================== -->
+<section class="section stay" id="stay" data-noted>
+  <aside class="note note--low" aria-label="Note"><div class="note__h"><i>12 · Newsletter + feedback</i><em data-r="2">R2</em></div>
+    The sign-up asks which pillars people care about, a fifth appearance of the colour key. The feedback form asks which pillars visitors knew about before today, so the team can measure whether R2 fixes last year's problem.</aside>
+  <div class="wrap stay__grid">
+    <form class="form" id="newsletter" novalidate>
+      <h2>Get the programme first</h2>
+      <p class="dek">Line-up news, early-bird alerts and Future Writers deadlines. One email a fortnight at most.</p>
+      <fieldset class="fieldset">
+        <legend>I'm interested in</legend>
+        <div class="checks" id="interest-checks"></div>
+      </fieldset>
+      <div class="inline-row">
+        <label class="field"><span class="visually-hidden">Email address</span><input class="input" type="email" name="email" placeholder="Email address" autocomplete="email" required></label>
+        <button class="btn btn--primary" type="submit" style="min-height:52px">Sign up</button>
+      </div>
+      <p class="fine">We'll only use your email for festival news. Unsubscribe any time.</p>
+      <p class="form__done" role="status">Thank you. You're on the list.</p>
+    </form>
+
+    <form class="form feedback" id="feedback" novalidate>
+      <h2 style="font-size:clamp(1.75rem,4vw,2.5rem)">Tell us what you want from Edition Four</h2>
+      <fieldset class="fieldset">
+        <legend>Which pillars had you heard of before today?</legend>
+        <div class="checks" id="known-checks"></div>
+      </fieldset>
+      <label class="field"><span>What should we programme this year?</span><textarea class="input" name="idea" rows="4"></textarea></label>
+      <label class="field"><span>Email (optional, if you'd like a reply)</span><input class="input" type="email" name="email" autocomplete="email"></label>
+      <div><button class="btn btn--ink" type="submit">Send feedback</button></div>
+      <p class="form__done" role="status">Thank you. The festival team reads every reply.</p>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<!-- ===================== Footer ===================== -->
+<footer class="footer" data-noted>
+  <aside class="note" aria-label="Note"><div class="note__h"><i>13 · Footer</i><em data-r="3">R3</em></div>
+    Light logo on navy, the Oldforge dateline once more, and grouped links with 40px touch targets. "Show notes" also lives here for handover reviews.</aside>
+  <div class="wrap">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <img src="assets/brand/claf-logo-light.png" alt="Ceylon Literary & Arts Festival, presented by HSBC" width="1140" height="644">
+        <p>Edition Four · 22-24 January 2027 · Colombo</p>
+      </div>
+      <div>
+        <h2>Festival</h2>
+        <ul><li><a href="#programme">Programme</a></li><li><a href="#speakers">Speakers</a></li><li><a href="#tickets">Tickets</a></li><li><a href="#visit">Plan your visit</a></li></ul>
+      </div>
+      <div>
+        <h2>Get involved</h2>
+        <ul><li><a href="#future-writers">Future Writers</a></li><li><a href="#youth">Volunteer</a></li><li><a href="#partners">Partner with us</a></li><li><a href="#stay">Newsletter</a></li></ul>
+      </div>
+      <div>
+        <h2>Follow</h2>
+        <ul><li><a href="#">Instagram</a></li><li><a href="#">Facebook</a></li><li><a href="#">YouTube</a></li><li><a href="mailto:hello@example.com"><span class="ph">[contact email]</span></a></li></ul>
+      </div>
+    </div>
+    <div class="footer__base">
+      <span>© 2026 Ceylon Literary & Arts Festival. Presented by HSBC.</span>
+      <span><a href="#">Privacy</a> · <a href="#">Terms</a> · <button type="button" data-notes>Show notes</button></span>
+    </div>
+  </div>
+</footer>
+
+<button class="notes-toggle" type="button" id="notes-toggle" aria-pressed="false" aria-controls="notes-key">Show notes</button>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+/* =====================================================================
+   DATA: swap these arrays for the real programme (or feed them from WP/WooCommerce).
+   Everything marked sample is placeholder content.
+   ===================================================================== */
+const PILLARS = [
+  { id: "literary",   n: "I",   name: "Literary",        line: "Novelists, poets and thinkers in conversation, with readings and debate in English, Sinhala and Tamil." },
+  { id: "art",        n: "II",  name: "Art",             line: "Exhibitions, artist talks and live studios where image and word share a wall." },
+  { id: "children",   n: "III", name: "Children",        line: "Read-alouds, illustration workshops and story trails for young readers and their grown-ups." },
+  { id: "youth",      n: "IV",  name: "Youth",           line: "Writing labs, the Future Writers prize and free passes for every student." },
+  { id: "performing", n: "V",   name: "Performing Arts", line: "Theatre, spoken word and music that take the page to the stage." },
+];
+const DAYS = [
+  { id: "fri", short: "Fri 22", label: "Friday", date: "22 January", day: "22", dow: "Fri" },
+  { id: "sat", short: "Sat 23", label: "Saturday", date: "23 January", day: "23", dow: "Sat" },
+  { id: "sun", short: "Sun 24", label: "Sunday", date: "24 January", day: "24", dow: "Sun" },
+];
+// featured: position in the hero slider (curated across all five pillars). ticket: which pass the CTA adds.
+const SESSIONS = [
+  { id: "s1",  day: "fri", start: "10:00", end: "11:00", pillar: "literary",   featured: 1, ticket: "day",
+    title: "Opening keynote: writing the island", panel: ["[Keynote speaker]"], chair: "[Chair]", venue: "Main Hall" },
+  { id: "s2",  day: "fri", start: "11:30", end: "12:30", pillar: "art", ticket: "day",
+    title: "Ink and archive: drawing from the colonial map", panel: ["[Artist A]", "[Curator B]"], chair: "[Chair]", venue: "Gallery" },
+  { id: "s3",  day: "fri", start: "14:00", end: "15:00", pillar: "youth", ticket: "student",
+    title: "Write your city: a lab for 16 to 21 year olds", panel: ["[Workshop lead]"], venue: "Library Room" },
+  { id: "s4",  day: "fri", start: "16:00", end: "17:00", pillar: "literary", ticket: "day",
+    title: "Translating Sinhala and Tamil fiction for the world", panel: ["[Translator A]", "[Novelist B]", "[Publisher C]"], chair: "[Chair]", venue: "Main Hall" },
+  { id: "s5",  day: "fri", start: "19:30", end: "21:00", pillar: "performing", featured: 3, ticket: "day",
+    title: "Verse and voice: spoken word after dark", panel: ["[Poet A]", "[Poet B]", "[Musician C]"], venue: "Courtyard Stage" },
+  { id: "s6",  day: "sat", start: "09:30", end: "10:30", pillar: "children", featured: 4, ticket: "day",
+    title: "Story kitchen: a read-aloud for ages 6 to 10", panel: ["[Children's author]", "[Illustrator]"], venue: "Children's Tent" },
+  { id: "s7",  day: "sat", start: "11:30", end: "12:30", pillar: "art", featured: 2, ticket: "day",
+    title: "Where image meets word: a walk through the Intersection exhibition", panel: ["[Lead artist]", "[Curator]"], venue: "Gallery" },
+  { id: "s8",  day: "sat", start: "14:00", end: "15:00", pillar: "literary", ticket: "day",
+    title: "The memoir and the nation", panel: ["[Memoirist A]", "[Historian B]"], chair: "[Chair]", venue: "Main Hall" },
+  { id: "s9",  day: "sat", start: "15:30", end: "16:30", pillar: "children", ticket: "day",
+    title: "Draw your own map: an illustration workshop", panel: ["[Illustrator]"], venue: "Children's Tent" },
+  { id: "s10", day: "sat", start: "18:00", end: "19:30", pillar: "performing", ticket: "day",
+    title: "Staged reading: a new Sri Lankan play", panel: ["[Director]", "[Company]"], venue: "Courtyard Stage" },
+  { id: "s11", day: "sun", start: "10:00", end: "11:00", pillar: "youth", ticket: "student",
+    title: "Campus to cover: how first books get made", panel: ["[Editor A]", "[Debut author B]"], chair: "[Student chair]", venue: "Library Room" },
+  { id: "s12", day: "sun", start: "11:30", end: "12:30", pillar: "children", ticket: "day",
+    title: "Folk tales of the island, retold", panel: ["[Storyteller]"], venue: "Children's Tent" },
+  { id: "s13", day: "sun", start: "14:00", end: "15:00", pillar: "literary", featured: 6, ticket: "day",
+    title: "Poetry at the crossroads", panel: ["[Poet A]", "[Poet B]", "[Poet C]"], chair: "[Chair]", venue: "Main Hall" },
+  { id: "s14", day: "sun", start: "16:00", end: "17:30", pillar: "youth", featured: 5, ticket: "student",
+    title: "Future Writers: shortlist readings and the prize announcement", panel: ["[Shortlisted writers]"], chair: "[Head judge]", venue: "Main Hall" },
+  { id: "s15", day: "sun", start: "19:00", end: "20:30", pillar: "performing", ticket: "day",
+    title: "Closing night: music and words", panel: ["[Band]", "[Guest readers]"], venue: "Courtyard Stage" },
+];
+const SPEAKERS = [
+  { name: "[Speaker name]", role: "Novelist", pillar: "literary" },
+  { name: "[Speaker name]", role: "Visual artist", pillar: "art" },
+  { name: "[Speaker name]", role: "Poet and performer", pillar: "performing" },
+  { name: "[Speaker name]", role: "Children's author", pillar: "children" },
+  { name: "[Speaker name]", role: "Future Writers mentor", pillar: "youth" },
+  { name: "[Speaker name]", role: "Translator", pillar: "literary" },
+  { name: "[Speaker name]", role: "Illustrator", pillar: "children" },
+  { name: "[Speaker name]", role: "Playwright", pillar: "performing" },
+];
+
+/* =====================================================================
+   WOOCOMMERCE: set live:true on the WordPress build and print the Store API nonce
+   (wp_create_nonce('wc_store_api')) into WC.nonce. IDs below are placeholders.
+   The Day Pass is a variable product with one variation per day.
+   ===================================================================== */
+const WC = {
+  live: false,
+  storeApi: "/wp-json/wc/store/v1",
+  nonce: "",
+  checkoutUrl: "/checkout/",
+  products: {
+    day:      { id: 1011, name: "Day Pass",      price: 2500, variations: { fri: 1012, sat: 1013, sun: 1014 } },
+    festival: { id: 1020, name: "Festival Pass", price: 6000 },
+    student:  { id: 1030, name: "Student Pass",  price: 0, maxQty: 1 },
+  },
+};
+
+const $ = (s, el = document) => el.querySelector(s);
+const $$ = (s, el = document) => [...el.querySelectorAll(s)];
+const pillar = id => PILLARS.find(p => p.id === id);
+const dayOf = id => DAYS.find(d => d.id === id);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+// Wrap [bracketed] placeholder names so they're visibly marked
+const ph = s => esc(s).replace(/\[([^\]]+)\]/g, '<span class="ph">$1</span>');
+const lkr = n => n === 0 ? "Free" : "LKR " + n.toLocaleString("en-GB");
+const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+function toast(msg) {
+  const t = $("#toast");
+  t.textContent = msg;
+  t.classList.add("is-on");
+  clearTimeout(toast.timer);
+  toast.timer = setTimeout(() => t.classList.remove("is-on"), 2600);
+}
+
+function ctaLabel(s) {
+  if (s.ticket === "student") return "Free with a Student Pass";
+  return `Get a ${dayOf(s.day).label} pass`;
+}
+
+/* ---------- Pillars (spines, drawer, chips, checkboxes) ---------- */
+$("#spines").innerHTML = PILLARS.map(p => {
+  const count = SESSIONS.filter(s => s.pillar === p.id).length;
+  const href = p.id === "youth" ? "#youth" : "#programme";
+  return `<li><a class="spine" data-pillar="${p.id}" href="${href}" data-filter-link="${p.id}">
+    ${p.id === "youth" ? '<span class="spine__flag">Featured below</span>' : ""}
+    <span class="spine__n" aria-hidden="true">${p.n}</span>
+    <h3>${p.name}</h3>
+    <p>${p.line}</p>
+    <span class="spine__go">${p.id === "youth" ? "Prize and free passes" : `${count} sessions`}</span>
+  </a></li>`;
+}).join("");
+$("#drawer-pillars").innerHTML = PILLARS.map(p =>
+  `<li><a data-pillar="${p.id}" href="${p.id === "youth" ? "#youth" : "#programme"}" data-filter-link="${p.id}">${p.name}</a></li>`).join("");
+const checks = name => PILLARS.map(p =>
+  `<label class="check" data-pillar="${p.id}"><input type="checkbox" name="${name}" value="${p.id}"><span>${p.name}</span></label>`).join("");
+$("#interest-checks").innerHTML = checks("interests");
+$("#known-checks").innerHTML = checks("known");
+
+/* ---------- Hero event slider ---------- */
+const slides = SESSIONS.filter(s => s.featured).sort((a, b) => a.featured - b.featured);
+const pinSvg = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><path d="M12 12a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg>';
+$("#slider-track").innerHTML = slides.map((s, i) => {
+  const d = dayOf(s.day), p = pillar(s.pillar);
+  return `<article class="slide" data-pillar="${s.pillar}" role="group" aria-roledescription="slide" aria-label="${i + 1} of ${slides.length}: ${esc(s.title)}">
+    <div class="slide__date">
+      <span class="tag">${p.name}</span>
+      <span class="slide__day">${d.day}</span>
+      <span class="slide__mon">${d.dow}<br>Jan 2027</span>
+      <span class="slide__time">${s.start}</span>
+    </div>
+    <div class="slide__body">
+      <span class="sample">Sample session</span>
+      <h3 class="slide__title">${esc(s.title)}</h3>
+      <p class="slide__panel"><b>${s.panel.length > 1 ? "Panel" : "With"}</b>${s.panel.map(ph).join(", ")}${s.chair ? ` <br><b>Chair</b>${ph(s.chair)}` : ""}</p>
+      <p class="slide__where meta">${pinSvg}<span>${d.dow} ${d.date}, ${s.start}-${s.end}<br>${esc(s.venue)}, <span class="ph">[Venue]</span>, Colombo</span></p>
+      <div class="slide__cta">
+        <button class="btn btn--primary add_to_cart_button" type="button" data-add="${s.ticket}" data-day="${s.day}"
+          data-product_id="${s.ticket === "day" ? WC.products.day.variations[s.day] : WC.products[s.ticket].id}" data-quantity="1">${ctaLabel(s)}</button>
+        <a class="link" href="#programme" data-goto="${s.day}" data-goto-pillar="${s.pillar}">Session details</a>
+      </div>
+    </div>
+  </article>`;
+}).join("");
+$("#slider-dots").innerHTML = slides.map((s, i) =>
+  `<button class="dot" type="button" data-pillar="${s.pillar}" data-i="${i}" aria-label="Go to slide ${i + 1}: ${esc(s.title)}"></button>`).join("");
+$("#slide-total").textContent = String(slides.length).padStart(2, "0");
+
+const slider = {
+  i: 0, dur: 7000, timer: null, held: new Set(), manualPause: reduceMotion,
+  el: $("#slider"), track: $("#slider-track"), progress: $("#slider-progress"),
+  go(n, user) {
+    this.i = (n + slides.length) % slides.length;
+    this.track.style.transform = `translateX(${-100 * this.i}%)`;
+    $$(".slide", this.track).forEach((el, k) => { const on = k === this.i; el.inert = !on; el.setAttribute("aria-hidden", String(!on)); });
+    $$(".dot").forEach((d, k) => d.setAttribute("aria-current", String(k === this.i)));
+    $("#slide-now").textContent = String(this.i + 1).padStart(2, "0");
+    this.renderUpNext();
+    $("#slider-viewport").setAttribute("aria-live", user ? "polite" : "off");
+    this.restart();
+  },
+  renderUpNext() {
+    const next = [1, 2, 3].map(k => (this.i + k) % slides.length);
+    $("#upnext").innerHTML = next.map(k => {
+      const s = slides[k], d = dayOf(s.day);
+      return `<li><button type="button" data-pillar="${s.pillar}" data-i="${k}">
+        <span class="upnext__t">${esc(s.title)}</span>
+        <span class="upnext__m">${pillar(s.pillar).name} · ${d.short} · ${s.start}</span></button></li>`;
+    }).join("");
+  },
+  running() { return !this.manualPause && this.held.size === 0; },
+  restart() {
+    clearTimeout(this.timer);
+    const bar = this.progress;
+    bar.classList.remove("is-running"); void bar.offsetWidth;
+    this.el.classList.toggle("is-paused", !this.running());
+    if (this.manualPause) return;
+    bar.style.setProperty("--dur", this.dur + "ms");
+    bar.classList.add("is-running");
+    this.remaining = this.dur; this.started = Date.now();
+    if (this.running()) this.timer = setTimeout(() => this.go(this.i + 1), this.dur);
+  },
+  hold(reason) {
+    if (this.held.has(reason)) return;
+    this.held.add(reason);
+    if (this.timer) { clearTimeout(this.timer); this.timer = null; this.remaining -= Date.now() - this.started; }
+    this.el.classList.add("is-paused");
+  },
+  release(reason) {
+    this.held.delete(reason);
+    if (!this.running() || this.timer) return;
+    this.el.classList.remove("is-paused");
+    this.started = Date.now();
+    this.timer = setTimeout(() => this.go(this.i + 1), Math.max(this.remaining, 400));
+  },
+  togglePause() {
+    this.manualPause = !this.manualPause;
+    $("#slider-pause").setAttribute("aria-label", this.manualPause ? "Play autoplay" : "Pause autoplay");
+    $("#pause-icon").setAttribute("d", this.manualPause ? "M7 5l12 7-12 7z" : "M6 5h4v14H6zM14 5h4v14h-4z");
+    this.restart();
+  },
+};
+$("#slider-prev").addEventListener("click", () => slider.go(slider.i - 1, true));
+$("#slider-next").addEventListener("click", () => slider.go(slider.i + 1, true));
+$("#slider-dots").addEventListener("click", e => { const b = e.target.closest(".dot"); if (b) slider.go(+b.dataset.i, true); });
+$("#upnext").addEventListener("click", e => { const b = e.target.closest("button"); if (b) slider.go(+b.dataset.i, true); });
+$("#slider-pause").addEventListener("click", () => slider.togglePause());
+slider.el.addEventListener("mouseenter", () => slider.hold("hover"));
+slider.el.addEventListener("mouseleave", () => slider.release("hover"));
+slider.el.addEventListener("focusin", () => slider.hold("focus"));
+slider.el.addEventListener("focusout", e => { if (!slider.el.contains(e.relatedTarget)) slider.release("focus"); });
+document.addEventListener("visibilitychange", () => document.hidden ? slider.hold("hidden") : slider.release("hidden"));
+slider.el.addEventListener("keydown", e => {
+  if (e.target.closest("input, textarea")) return;
+  if (e.key === "ArrowLeft") { slider.go(slider.i - 1, true); e.preventDefault(); }
+  if (e.key === "ArrowRight") { slider.go(slider.i + 1, true); e.preventDefault(); }
+});
+// Swipe
+(() => {
+  const vp = $("#slider-viewport"); let x0 = null, y0 = 0;
+  vp.addEventListener("pointerdown", e => { if (e.pointerType !== "mouse") { x0 = e.clientX; y0 = e.clientY; } });
+  vp.addEventListener("pointerup", e => {
+    if (x0 === null) return;
+    const dx = e.clientX - x0, dy = e.clientY - y0; x0 = null;
+    if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) slider.go(slider.i + (dx < 0 ? 1 : -1), true);
+  });
+  vp.addEventListener("pointercancel", () => { x0 = null; });
+})();
+if (reduceMotion) { $("#slider-pause").setAttribute("aria-label", "Play autoplay"); $("#pause-icon").setAttribute("d", "M7 5l12 7-12 7z"); }
+slider.go(0);
+
+/* ---------- Programme: day tabs + pillar filters ---------- */
+const prog = { day: "fri", pillar: "all" };
+$("#day-tabs").innerHTML = DAYS.map(d =>
+  `<button class="tab" role="tab" type="button" id="tab-${d.id}" data-day="${d.id}" aria-controls="day-panel"><b>${d.short}</b><span>${d.label}, ${d.date}</span></button>`).join("");
+$("#filters").innerHTML = `<button class="chip" type="button" data-f="all">All pillars</button>` +
+  PILLARS.map(p => `<button class="chip" type="button" data-pillar="${p.id}" data-f="${p.id}">${p.name}</button>`).join("");
+
+function renderProgramme() {
+  $$(".tab").forEach(t => {
+    const on = t.dataset.day === prog.day;
+    t.setAttribute("aria-selected", String(on)); t.tabIndex = on ? 0 : -1;
+  });
+  $("#day-panel").setAttribute("aria-labelledby", "tab-" + prog.day);
+  $$(".chip", $("#filters")).forEach(c => c.setAttribute("aria-pressed", String(c.dataset.f === prog.pillar)));
+  const list = SESSIONS.filter(s => s.day === prog.day && (prog.pillar === "all" || s.pillar === prog.pillar));
+  $("#sessions").innerHTML = list.length ? list.map(s => `
+    <li class="session" data-pillar="${s.pillar}">
+      <p class="session__time">${s.start}<small>to ${s.end}</small></p>
+      <div class="session__main">
+        <div><span class="tag">${pillar(s.pillar).name}</span></div>
+        <h3>${esc(s.title)}</h3>
+        <p class="session__who">${s.panel.map(ph).join(", ")}${s.chair ? `; chaired by ${ph(s.chair)}` : ""}</p>
+        <p class="session__where meta">${esc(s.venue)}</p>
+      </div>
+      <div class="session__act">
+        <button class="btn btn--line btn--sm add_to_cart_button" type="button" data-add="${s.ticket}" data-day="${s.day}" data-quantity="1">${s.ticket === "student" ? "Free student pass" : "Add " + dayOf(s.day).dow + " pass"}</button>
+      </div>
+    </li>`).join("")
+    : `<li class="sessions__empty">No ${pillar(prog.pillar).name} sessions on ${dayOf(prog.day).label} in the sample data. Try another day.</li>`;
+}
+$("#day-tabs").addEventListener("click", e => { const t = e.target.closest(".tab"); if (t) { prog.day = t.dataset.day; renderProgramme(); } });
+$("#day-tabs").addEventListener("keydown", e => {
+  const k = DAYS.findIndex(d => d.id === prog.day);
+  let n = null;
+  if (e.key === "ArrowRight") n = (k + 1) % DAYS.length;
+  if (e.key === "ArrowLeft") n = (k - 1 + DAYS.length) % DAYS.length;
+  if (e.key === "Home") n = 0;
+  if (e.key === "End") n = DAYS.length - 1;
+  if (n === null) return;
+  e.preventDefault(); prog.day = DAYS[n].id; renderProgramme();
+  const t = $("#tab-" + prog.day); t.focus(); t.scrollIntoView({ block: "nearest", inline: "nearest" });
+});
+$("#filters").addEventListener("click", e => { const c = e.target.closest(".chip"); if (c) { prog.pillar = c.dataset.f; renderProgramme(); } });
+// Pillar links (spines, drawer) and slide "Session details" pre-filter the programme
+document.addEventListener("click", e => {
+  const a = e.target.closest("[data-filter-link], [data-goto]");
+  if (!a) return;
+  if (a.dataset.filterLink && a.dataset.filterLink !== "youth") prog.pillar = a.dataset.filterLink;
+  if (a.dataset.goto) { prog.day = a.dataset.goto; prog.pillar = a.dataset.gotoPillar; }
+  renderProgramme();
+});
+renderProgramme();
+
+/* ---------- Speakers ---------- */
+$("#people").innerHTML = SPEAKERS.map((s, i) => `
+  <li class="person" data-pillar="${s.pillar}">
+    <div class="photo-ph"><span>Speaker photo ${String(i + 1).padStart(2, "0")}</span></div>
+    <h3>${ph(s.name)}</h3>
+    <p>${esc(s.role)} · ${pillar(s.pillar).name}</p>
+  </li>`).join("");
+
+/* ---------- Panels: drawer + cart ---------- */
+const scrim = $("#scrim");
+let openPanel = null, lastFocus = null;
+function open(panel, btn) {
+  if (openPanel) close();
+  lastFocus = btn || document.activeElement;
+  openPanel = panel;
+  panel.classList.add("is-open"); panel.setAttribute("aria-hidden", "false");
+  scrim.classList.add("is-open"); document.body.classList.add("is-locked");
+  if (btn) btn.setAttribute("aria-expanded", "true");
+  $("main").inert = true; $("#header").inert = true;
+  setTimeout(() => $("[data-close]", panel).focus(), 50);
+}
+function close() {
+  if (!openPanel) return;
+  openPanel.classList.remove("is-open"); openPanel.setAttribute("aria-hidden", "true");
+  scrim.classList.remove("is-open"); document.body.classList.remove("is-locked");
+  $$("[aria-expanded]").forEach(b => b.setAttribute("aria-expanded", "false"));
+  $("main").inert = false; $("#header").inert = false;
+  openPanel = null;
+  if (lastFocus) lastFocus.focus();
+}
+$("#menu-btn").addEventListener("click", e => open($("#drawer"), e.currentTarget));
+$("#cart-btn").addEventListener("click", e => open($("#cart"), e.currentTarget));
+scrim.addEventListener("click", close);
+$$("[data-close]").forEach(b => b.addEventListener("click", close));
+document.addEventListener("keydown", e => {
+  if (!openPanel) return;
+  if (e.key === "Escape") close();
+  if (e.key === "Tab") { // keep focus inside the open panel
+    const f = $$("a[href], button:not([disabled]), input, textarea", openPanel).filter(el => el.offsetParent !== null);
+    if (!f.length) return;
+    if (e.shiftKey && document.activeElement === f[0]) { e.preventDefault(); f.at(-1).focus(); }
+    else if (!e.shiftKey && document.activeElement === f.at(-1)) { e.preventDefault(); f[0].focus(); }
+  }
+});
+$("#drawer").addEventListener("click", e => { if (e.target.closest("a[href^='#']")) { lastFocus = null; close(); } });
+
+/* ---------- Cart (mock + WooCommerce Store API adapter) ---------- */
+const cart = { lines: [] }; // { key, product, day, qty }
+const lineName = l => WC.products[l.product].name + (l.day ? ` · ${dayOf(l.day).label} ${dayOf(l.day).date}` : "");
+async function addToCart(product, qty = 1, day = null, quiet = false) {
+  const p = WC.products[product];
+  if (WC.live) {
+    const id = day ? p.variations[day] : p.id;
+    const res = await fetch(`${WC.storeApi}/cart/add-item`, {
+      method: "POST", credentials: "same-origin",
+      headers: { "Content-Type": "application/json", Nonce: WC.nonce },
+      body: JSON.stringify({ id, quantity: qty }),
+    });
+    if (!res.ok) { toast("Sorry, that pass couldn't be added."); return; }
+    // The live response is the full cart; map res.json().items onto cart.lines here.
+  }
+  const key = product + (day ? ":" + day : "");
+  const line = cart.lines.find(l => l.key === key);
+  if (line) line.qty = Math.min(line.qty + qty, p.maxQty || 20);
+  else cart.lines.push({ key, product, day, qty: Math.min(qty, p.maxQty || 20) });
+  if (p.maxQty && line && line.qty === p.maxQty) toast(`${p.name}: limited to one per person.`);
+  else if (!quiet) toast(`Added: ${qty} × ${lineName({ product, day })}`);
+  renderCart();
+}
+function renderCart() {
+  const n = cart.lines.reduce((a, l) => a + l.qty, 0);
+  const total = cart.lines.reduce((a, l) => a + l.qty * WC.products[l.product].price, 0);
+  const c = $(".cart-count"); c.textContent = n; c.dataset.n = n;
+  $("#cart-btn").setAttribute("aria-label", `Cart, ${n} item${n === 1 ? "" : "s"}`);
+  $("#cart-empty").hidden = n > 0;
+  $("#cart-items").innerHTML = cart.lines.map(l => `
+    <li class="cart__item">
+      <div><h3>${lineName(l)}</h3><p class="meta">${l.qty} × ${lkr(WC.products[l.product].price)}</p></div>
+      <div style="display:grid;justify-items:end;gap:4px"><b style="font:600 1.125rem var(--f-head)">${lkr(l.qty * WC.products[l.product].price)}</b>
+      <button class="cart__remove" type="button" data-remove="${l.key}">Remove</button></div>
+    </li>`).join("");
+  $("#cart-total").textContent = total ? lkr(total) : "LKR 0";
+}
+$("#cart-items").addEventListener("click", e => {
+  const b = e.target.closest("[data-remove]"); if (!b) return;
+  cart.lines = cart.lines.filter(l => l.key !== b.dataset.remove); renderCart();
+});
+// Quick-add buttons (slider, programme, youth)
+document.addEventListener("click", e => {
+  const b = e.target.closest("button[data-add]"); if (!b) return;
+  addToCart(b.dataset.add, 1, b.dataset.add === "day" ? b.dataset.day : null);
+});
+// Ticket forms
+$$(".ticket__buy").forEach(form => {
+  const out = $("output", form);
+  form.addEventListener("click", e => {
+    const s = e.target.closest("[data-step]"); if (!s) return;
+    out.value = out.textContent = Math.max(1, Math.min(20, +out.textContent + +s.dataset.step));
+  });
+  form.addEventListener("submit", e => {
+    e.preventDefault();
+    const product = form.dataset.buy;
+    const day = product === "day" ? new FormData(form).get("day") : null;
+    addToCart(product, out ? +out.textContent : 1, day, true).then(() => open($("#cart"), $("#cart-btn")));
+  });
+});
+// Line the square notches up with each ticket's perforation
+const perfs = () => $$(".ticket").forEach(t => t.style.setProperty("--perf-y", $(".perf", t).offsetTop + 1 + "px"));
+perfs(); addEventListener("resize", perfs); document.fonts.ready.then(perfs);
+$("#checkout").addEventListener("click", e => { if (!WC.live) { e.preventDefault(); toast("Mockup: this goes to WooCommerce checkout."); } });
+renderCart();
+
+/* ---------- Misc ---------- */
+$(".announce__close").addEventListener("click", () => { $("#announce").hidden = true; });
+
+$("#ics").addEventListener("click", () => {
+  const ics = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//CLAF//Edition Four//EN", "BEGIN:VEVENT",
+    "UID:claf-2027@ceylonliteraryfestival.com", "DTSTAMP:20261021T000000Z",
+    "DTSTART;VALUE=DATE:20270122", "DTEND;VALUE=DATE:20270125",
+    "SUMMARY:Ceylon Literary & Arts Festival, Edition Four", "LOCATION:Colombo, Sri Lanka",
+    "DESCRIPTION:Intersection: where stories meet people.", "END:VEVENT", "END:VCALENDAR"].join("\r\n");
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(new Blob([ics], { type: "text/calendar" }));
+  a.download = "claf-2027.ics"; a.click();
+  setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+});
+
+$$("#newsletter, #feedback").forEach(form => form.addEventListener("submit", e => {
+  e.preventDefault();
+  const email = $("input[type=email]", form);
+  if (email.required && !email.checkValidity()) { email.focus(); toast("Please enter a valid email address."); return; }
+  form.classList.add("is-done");
+}));
+
+function setNotes(on) {
+  document.documentElement.classList.toggle("notes-on", on);
+  $("#notes-toggle").setAttribute("aria-pressed", String(on));
+  $("#notes-toggle").textContent = on ? "Hide notes" : "Show notes";
+  $$("[data-notes]").forEach(b => b.textContent = on ? "Hide notes" : "Show notes");
+  if (on) slider.hold("notes"); else slider.release("notes");
+}
+$("#notes-toggle").addEventListener("click", () => setNotes(!document.documentElement.classList.contains("notes-on")));
+$$("[data-notes]").forEach(b => b.addEventListener("click", () => setNotes(!document.documentElement.classList.contains("notes-on"))));
+if (location.hash === "#notes") setNotes(true);
+</script>
+</body>
+</html>

@@ -1,0 +1,3 @@
+# CLAF: licensed fonts and the build that embeds them stay out of this public repo
+claf/assets/fonts/
+claf/dist/
