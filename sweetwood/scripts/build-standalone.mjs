@@ -15,7 +15,7 @@ const inline = (path) => {
   return cache.get(path);
 };
 let html = readFileSync(join(ROOT, 'index.html'), 'utf8');
-html = html.replace(/assets\/export\/[\w-]+\.(webp|jpg|png)/g, inline);
+html = html.replace(/assets\/(?:composed|amazon|site)\/[\w-]+\.(webp|jpg|png)/g, inline);
 // The preload hints would duplicate the inlined hero bytes, so drop them.
 html = html.replace(/<link rel="preload" as="image"[^>]*>\n/g, '');
 writeFileSync(join(ROOT, 'preview', 'homepage-standalone.html'), html);

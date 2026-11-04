@@ -1,8 +1,8 @@
-// Renders the SVG artwork to JPGs for Shopify upload, and screenshots the homepage.
-// Run: node sweetwood/scripts/render.mjs [--art] [--page]
+// Screenshots the homepage at phone and desktop size and checks for overflow and console errors.
+// Run: node sweetwood/scripts/render.mjs
 import { createRequire } from 'node:module';
 import { execSync } from 'node:child_process';
-import { readdirSync, readFileSync, mkdirSync } from 'node:fs';
+import { mkdirSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 
@@ -12,36 +12,14 @@ try { pw = require('playwright'); } catch { pw = require(join(execSync('npm root
 const { chromium } = pw;
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const ART = join(ROOT, 'assets', 'art');
-const EXPORT = join(ROOT, 'assets', 'export');
 const PREVIEW = join(ROOT, 'preview');
-mkdirSync(EXPORT, { recursive: true });
 mkdirSync(PREVIEW, { recursive: true });
 
 const args = process.argv.slice(2);
-const doArt = !args.length || args.includes('--art');
-const doPage = !args.length || args.includes('--page');
+const doPage = true;
 
-const FONTS = '<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;600;700&display=block" rel="stylesheet">';
 
 const browser = await chromium.launch();
-
-if (doArt) {
-  const page = await browser.newPage();
-  for (const f of readdirSync(ART).filter(f => f.endsWith('.svg'))) {
-    const svg = readFileSync(join(ART, f), 'utf8');
-    const [, w, h] = svg.match(/viewBox="0 0 (\d+) (\d+)"/).map(Number);
-    await page.setViewportSize({ width: w, height: h });
-    await page.setContent(`<!doctype html><html><head>${FONTS}<style>html,body{margin:0;background:#FBF5EC}svg{display:block}</style></head><body>${svg}</body></html>`, { waitUntil: 'networkidle' });
-    await page.evaluate(() => document.fonts.ready);
-    const out = join(EXPORT, f.replace('.svg', f.startsWith('logo') ? '.png' : '.jpg'));
-    await page.screenshot({ path: out, type: out.endsWith('.png') ? 'png' : 'jpeg', quality: out.endsWith('.png') ? undefined : 88, omitBackground: out.endsWith('.png') });
-    console.log('art', f);
-  }
-  await page.close();
-  // WebP copies for the page (smaller); Shopify converts uploads automatically, so upload the JPGs there.
-  execSync(`python3 -I -c "import glob; from PIL import Image\nfor f in glob.glob('${EXPORT}/*.jpg'): Image.open(f).save(f[:-4] + '.webp', 'WEBP', quality=80)"`);
-}
 
 if (doPage) {
   const url = pathToFileURL(join(ROOT, 'index.html')).href;

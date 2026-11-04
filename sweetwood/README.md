@@ -1,22 +1,23 @@
-# Sweet Wood: homepage (mobile-first CRO build)
+# Sweet Wood: homepage v2 (mobile-first, Pebble / Wellina)
 
-A homepage design for **Sweet Wood Ceylon Cinnamon Shots**, built to be rebuilt in Shopify on the **Pebble theme (Wellina preset)**. It explains a new product category, introduces the clinical study without jargon, tells the seed-to-shot story and pushes visitors toward a first order and then a subscription.
-
-> **Status: v1 for review.** The colours, fonts and product art are **placeholders**: the sandbox this was built in couldn't reach sweetwoodshots.com, Amazon or dosedaily.co. Prices, review numbers and the guarantee are placeholders too. See [Placeholders](#placeholders-to-replace-before-launch).
+The homepage for **Sweet Wood Ceylon Cinnamon Shots**, built to be rebuilt in Shopify on the **Pebble theme, Wellina preset**. v2 replaces the v1 illustrations with Sweet Wood's real packaging, colours and copy from the Amazon listing, and follows the live Wellina demo, Dose and Proper Wild sites, which were captured and studied for this version.
 
 ## Files
 
 | Path | What it is |
 |---|---|
-| `index.html` | The homepage. Self-contained CSS and JS, no framework. |
-| `preview/homepage-standalone.html` | The same page as **one file** with all images inlined. Open it on any phone or desktop, or email it. |
-| `preview/*.png` | Screenshots: `mobile-fold`, `mobile-full`, `mobile-cart`, `mobile-menu` (iPhone 13 size, 2x), `desktop-fold` and `desktop-full` (1440px). |
-| `assets/export/*.jpg` | **Shopify-ready artwork.** Upload these to the theme sections listed below. The `.webp` copies are used by the HTML preview. |
-| `assets/art/*.svg` | Editable vector sources for the artwork. |
-| `scripts/` | Generators: `generate-art.mjs` (SVG art), `render.mjs` (JPG/WebP exports and screenshots), `build-standalone.mjs`. |
+| `index.html` | The homepage. Self-contained CSS and JS. |
+| `preview/homepage-standalone.html` | The same page as **one file** with every image inlined (about 4MB). Open it on a phone. |
+| `preview/*.png` | Screenshots: `mobile-fold`, `mobile-full`, `mobile-cart`, `mobile-menu` (iPhone size, 2x), `desktop-fold`, `desktop-full` (1440px). |
+| `assets/composed/*.jpg` | **Shopify uploads.** Hero (mobile 1170x1000, desktop 1600x1100), the three flavour cards and the Sampler (4:5), and the 12-week timeline image. Made from the real bottle cut-outs. |
+| `assets/amazon/` | Cut-outs and photos extracted from the Amazon PDFs: the logo, white-cap US bottles, trays, ingredients, line art, photos and badges. PNG where transparent, JPG otherwise. |
+| `assets/site/` | Images from sweetwoodshots.com: logo, slider bottles, and three product photos downsized to 1400px. |
+| `scripts/compose.mjs` | Rebuilds `assets/composed/` from the cut-outs. Edit the layouts in `JOBS`. |
+| `scripts/import-amazon-assets.py` | Re-extracts the Amazon cut-outs (see the file header). |
+| `scripts/render.mjs`, `scripts/build-standalone.mjs` | Screenshots and the single-file preview. |
 
 ```bash
-node sweetwood/scripts/generate-art.mjs
+node sweetwood/scripts/compose.mjs
 ```
 
 ```bash
@@ -27,89 +28,78 @@ node sweetwood/scripts/render.mjs
 node sweetwood/scripts/build-standalone.mjs
 ```
 
-## The page, section by section
+## What was taken from each reference
 
-Pebble section names are the closest match from the Pebble section library. Confirm the exact names in your theme editor, because presets sometimes rename them.
+| Source | Used for |
+|---|---|
+| **Pebble / Wellina demo** | The section types and their order. These include slideshow, product tabs, stat cards, progress timeline, comparison table, testimonials split slider, newsletter and footer. Also lime pill buttons with a black circular arrow, large-radius cards, a centred logo on mobile, footer accordions on dark green and a rotating circular badge. |
+| **Dose** | The warm cream base and calm serif-and-sans pairing. Also the clinical-results block with a collapsible "Study details", Subscribe & Save as the default, the "Best value" tab on pack size, and numbered footnotes in the footer. |
+| **Proper Wild** (toned down) | Colour-blocked product tiles per flavour and the "When to reach for one" icon grid. Also the polaroid photo collage, big bordered stat boxes and checkmark comparison table. The heavy black type, party photography and slang were left out. |
+| **sweetwoodshots.com and Amazon content** | Optima headings with Manrope body, the brand colours, the bolt pill "The pure power of Ceylon cinnamon", and A+ copy such as "We ran one", "12 weeks is the real timeline", "Three actives" and "Is it for you". Also the real customer reviews, the SIAL seal and the badges. |
 
-| # | Section | Pebble section | Job it does (CRO) |
+## Colours and fonts
+
+| Token | Hex | Where |
+|---|---|---|
+| Lime (brand) | `#B8C329` | Primary buttons, big stat card, accents |
+| Lime soft | `#EEF1C8` | Hero, newsletter, tints |
+| Green | `#0F4D2E` | Announcement, evidence, reviews, footer |
+| Pink | `#FF6D89` / soft `#FFE1E7` | Hibiscus card, Ceylon vs cassia block, timeline note |
+| Yellow | `#FFB700` / soft `#FFEDB8` | Passion Fruit card, Our Story block |
+| Sand | `#F1E2C6` | Pure Cinnamon card |
+| Wine | `#8E1628` | Italic heading accents, "Also includes", honest promise |
+| Cream / paper | `#F8F2E4` / `#FFFDF8` | Page and card backgrounds |
+
+**Pebble colour schemes to create:**
+1. Cream background with ink text (default).
+2. Lime soft (hero, newsletter).
+3. Green with paper text and lime buttons.
+4. Pink.
+5. Yellow soft.
+6. Paper (white cards).
+
+**Fonts:** headings use **Optima**, which is built into iPhone and Mac. Other devices fall back to **Belleza**, the closest free match. Upload your licensed Optima web font to the theme to get it everywhere. Body text is **Manrope**, which is in Shopify's font library.
+
+## Page structure and the Pebble section to use
+
+| # | Section | Pebble section | Why it's there |
 |---|---|---|---|
-| 1 | Announcement bar (3 rotating messages) | Announcement bar | Leads with the subscription offer, free shipping and the study. |
-| 2 | Header: menu, centred logo, account, cart. On desktop, inline nav plus a "Try Sweet Wood" button | Header | The cart is always visible and the count is announced to screen readers. |
-| 3 | **Hero:** "Real Ceylon cinnamon. One shot a day." Sub-line names the estates and the 12-week trial. Two CTAs, price per shot, four proof points | Image banner | On a 390px phone the headline, CTA and "from $2.55 a shot" all sit above the fold. The price anchor removes the "is this expensive?" worry early. |
-| 4 | Proof marquee: PLOS ONE, 12-week study, NutraIngredients, no added sugar | Scrolling text | Credibility straight after the hero, which matters for a product nobody has heard of. |
-| 5 | **What is Sweet Wood:** 3 cards (one small shot, before your main meal, every day) and "What's inside. That's it." | Rich text + Multicolumn | Explains the new category in 10 seconds. A short ingredient list builds trust. |
-| 6 | **Pick your flavour:** 3 product cards (Original, Hibiscus, Passion Fruit) with quick add. Swipeable on mobile, 3-up on desktop | Featured collection | Only 3 products, so all of them sit on the homepage with no collection page needed. "Not sure? Start with Original" removes choice paralysis. |
-| 7 | **The science** (dark green band): journal citation, 4 stats, "What we found", a 4-step "How the study worked" diagram, plain-English fine print, 2 CTAs | Image with text + Multicolumn + Collapsible content | The hero proof point, told for a non-scientist. The honest fine print (funding, dose form, secondary outcome) is collapsed but available, which builds trust instead of looking like hype. |
-| 8 | Benefits: 6 tiles | Multicolumn (icons) | Scannable reasons to buy. |
-| 9 | **Ceylon vs cassia:** illustration and a comparison table | Image with text + Comparison table (or Custom Liquid) | Education that creates the need: "the cinnamon in your kitchen probably isn't this". |
-| 10 | **Grown by us:** estate illustration, 3 facts (1931, 70k sq ft, 0 solvents) and 4 illustrated steps (grow, peel by hand, AquaFX extraction, bottle) | Image with text + Multicolumn | Supply-chain ownership is Sweet Wood's moat. Nobody else can say "seed to shot". |
-| 11 | **Daily ritual:** 3 steps and "Give it 12 weeks" progress bar | Multicolumn + Rich text | Sets the expectation that results take consistency, which leads naturally into subscribing. |
-| 12 | **Buy box:** gallery, flavour, box size (12/24), Subscribe & Save (default, 15% off, frequency, perks) vs one-time, price per shot on the button, 3 assurances | Featured product + subscription app block | The main conversion point, modelled on Dose's PDP buy box. Subscription is preselected, and per-shot pricing makes the price feel smaller. |
-| 13 | Comparison table: Sweet Wood vs capsules, supermarket cinnamon and typical wellness shots | Comparison table (or Custom Liquid) | Handles the "why not just take a capsule?" objection. |
-| 14 | Reviews: rating summary and 3 cards | Testimonials, or your review app's widget | Social proof. **Sample content: replace it.** |
-| 15 | Founder quote (Ranmali Abeyasinghe) and heritage chips | Rich text / Image with text | Human, credible brand story. The quote is from her interview in *The Morning* (Feb 2026). |
-| 16 | FAQ (7 questions) | Collapsible content | Handles objections: taste, timing, safety, medication, subscription, storage. Also output as `FAQPage` JSON-LD. |
-| 17 | Final CTA, starter-trio image and 30-day guarantee | Image with text | Last push, with risk reversal. |
-| 18 | Newsletter: "The Cinnamon Papers", 10% off | Email signup | Captures visitors who aren't ready to buy yet. |
-| 19 | Footer with link groups (accordions on mobile), socials and FDA disclaimer | Footer | Compliance and navigation. |
-| - | Sticky mobile CTA | (theme setting or app) | Shows after the hero and hides at the buy box and footer. |
-| - | Cart drawer: free-shipping bar, **one-time to subscription upsell** | Cart drawer + subscription app | Turns one-time buyers into subscribers at the last step. |
+| - | Announcement bar | Announcement bar | Subscribe & save, free shipping and PLOS ONE, rotating. |
+| - | Header: menu, centred logo, account, cart (mobile); nav and a "Try Sweet Wood" button (desktop) | Header + menu drawer | The drawer shows the three flavours as image tiles, like Wellina's menu. |
+| 1 | **Hero:** "The world's first Ceylon cinnamon *shot.*" with two CTAs, three chips and the SIAL seal | Slideshow (one slide, text above image on mobile) | Headline, CTA and product are all above the fold on a 390px phone. |
+| 2 | Proof marquee | Scrolling text | Clinically studied, PLOS ONE, SIAL 2024, 0g sugar, vegan, since 1931. |
+| 3 | **Find your shot:** three colour-blocked cards with quick add, plus a Sampler banner | Product tabs / Featured collection | All three products on the homepage, and the Sampler for undecided visitors. |
+| 4 | **The evidence:** "Most cinnamon supplements point to studies. *We ran one.*" | Custom section + stat cards + Collapsible content | Shows the 8.59 mg/dL result, 150 adults, 12 weeks, double-blind and placebo-controlled, and links to PLOS ONE. The "Study details" toggle discloses the capsule dose, the secondary outcome, who it worked best for and the funding. |
+| 5 | **Made for the meal window:** Shake, Drink, 15 to 20 minutes, plus "When to reach for one" | Multicolumn / Icon boxes | Makes the habit concrete for this audience: pasta, rice, bread, dessert, dinners out. |
+| 6 | **12 weeks is the real timeline** | Progress timeline | Sets honest expectations, then leads into the subscription. |
+| 7 | **Three actives. Nothing to hide.** | Icon boxes / carousel | Cinnamon extract (660 mg), hibiscus (750 mg) and piperine (0.5 mg), plus the full ingredient list. |
+| 8 | **Not all cinnamon is created equal** (pink block) | Custom section | Explains Ceylon vs cassia, including 0.01% coumarin. |
+| 9 | **Better than pills and powder** | Comparison table | Sweet Wood vs a typical capsule vs cinnamon powder. |
+| 10 | **From the source of true cinnamon** (yellow block) | Custom section / Image with text | Polaroid collage, a rotating "SDS Spices · Est. 1931" badge, facts, four process steps and certification badges. |
+| 11 | **Reviews** | Testimonials split slider | Real reviews from sweetwoodshots.com, each linked to a product. |
+| 12 | **Is Sweet Wood right for you?** | Custom section, two columns | Who it's for and who it isn't, then the wine-coloured "honest promise". This is from your A+ content and suits a skeptical, older buyer. |
+| 13 | **Buy box** | Featured product + subscription app block | Flavour, 1 or 2 boxes (Best value), Subscribe & Save as the default, price per shot on the button and three assurances. |
+| 14 | FAQ | Collapsible content | Eight questions, also output as FAQPage JSON-LD. |
+| 15 | Newsletter: "Get 10% off your first order" | Newsletter | Wellina's rounded input with a circular arrow button. |
+| 16 | Footer: accordions, socials, boxed FDA disclaimer, numbered footnotes | Footer | Compliance and navigation. |
+| - | Sticky mobile CTA and cart drawer with a free-shipping bar and one-time to subscribe upsell | Theme setting / cart drawer | Hidden over the hero, buy box and footer. |
 
-### Patterns borrowed from Dose (dosedaily.co)
+## Claims and compliance
 
-- One hero product story and short, confident headlines.
-- Ingredient transparency, plus a "how we compare" table against alternatives.
-- Subscribe & Save as the default purchase option, with per-serving pricing.
-- Reviews and press proof repeated down the page.
-- "Take it daily" ritual framing.
-
-### Mobile-first details
-
-- Designed at 390px first, then scaled to tablet (640px) and desktop (1024px).
-- All tap targets are at least 44px. Sticky elements respect the iPhone home-indicator safe area.
-- Swipe carousels use scroll-snap, and the comparison table scrolls sideways with a sticky first column.
-- The hero image is preloaded per breakpoint. Below-the-fold images are lazy-loaded WebP, about 390KB of artwork in total.
-- No horizontal overflow at 390px or 1440px, and no console errors.
-- Respects `prefers-reduced-motion`.
-
-### Analytics
-
-Events are pushed to `window.dataLayer` (GA4 or GTM): `add_to_cart` (with flavour, pack and purchase type), `purchase_option`, `cart_upsell_subscribe`, `cta_click` (with the button id) and `newsletter_signup`.
-
-## Claims and compliance (please review)
-
-The study copy is written to be **accurate and defensible**, because overclaiming is the fastest way to lose a skeptical audience and to attract FTC/FDA attention.
-
-- **What the study showed:** 150 adults enrolled and 127 completed. It ran for 12 weeks and was randomised, double-blind and placebo-controlled. After 12 weeks, the extract group had a significantly greater reduction in **fasting blood sugar** than placebo, and the extract was well tolerated.
-- **What it didn't show:** the primary outcome (LDL cholesterol) wasn't significant, so the blood-sugar result is a secondary outcome. The effect was clearest in people with raised blood sugar. Participants took **1,000mg/day of extract in capsules**, not the shot.
-- **How the page handles it:**
-  - It uses the structure/function wording "clinically studied to support healthy blood sugar", with an asterisk pointing to the FDA disclaimer.
-  - It doesn't say "lowers blood sugar", "treats diabetes" or "clinically proven shot".
-  - The plain-English fine print discloses the dose form, the secondary outcome and that SDS Spices funded the study.
-  - "Is Sweet Wood a replacement for medication? No." is in the FAQ.
-- The page says each shot is made with "the same Ceylon cinnamon extract". **Please confirm this, and the amount of extract per shot**, so we can say whether a shot matches the studied dose.
-- "World's first" / "the first Ceylon cinnamon shot" is the brand's own claim. Keep the evidence for it on file.
-- Have the final copy reviewed by someone who knows US supplement and food claims before launch.
+- The 8.59 mg/dL figure, the footnote wording and the "honest promise" come from your Amazon A+ content, so they're already brand-approved.
+- The page adds plain-English disclosures in the evidence section: LDL was the primary outcome and wasn't significant, and the effect was clearest in people with high blood sugar.
+- Testimonials that mention controlling blood sugar levels were trimmed or left out. Testimonials are treated as claims, so they shouldn't say more than the label can.
+- **Certifications:** only GMP, HACCP, FDA-registered facility, Pure Ceylon Cinnamon, Vegan and SIAL are shown. The USDA, EU and JAS organic badges from the Amazon content are held back until you confirm they cover the shots, not only SDS's spice range.
+- **Flavour claims:** the Hibiscus card shows "Healthy metabolism" and Passion Fruit shows "Focus & energy" because they're on the bottle labels. The study supports only the blood-sugar claim, so have these reviewed.
 
 ## Placeholders to replace before launch
 
-| Item | Where | Notes |
-|---|---|---|
-| Brand colours | `:root` tokens at the top of `index.html` | Placeholder palette: cinnamon, bark, cream, estate green, hibiscus and passion fruit. In Shopify, set these in the Pebble colour schemes. |
-| Fonts | Google Fonts link (Fraunces + Inter) | Swap them for Sweet Wood's brand fonts. |
-| Logo | `assets/export/logo-mark.png` and the text wordmark | Use the real logo files. |
-| Product images | `product-*.jpg`, `hero-*.jpg` | These are illustrated stand-ins. Real packshots and lifestyle photography will convert better; keep the 4:5 ratio. |
-| Prices | `CONFIG` in the script, the card prices and the JSON-LD | Currently $36 for 12 shots, $68 for 24, 15% off on subscription and free shipping over $50. |
-| Reviews and rating | Buy box and reviews section | Marked **Sample**. Connect Judge.me, Okendo or Loox, or import your Amazon reviews. |
-| Guarantee | Buy box and final CTA | "30-day happiness guarantee" is a suggestion. Use only if you'll offer it. |
-| Refrigeration copy | FAQ | Confirm the storage instructions. |
-| "Featured in NutraIngredients" | Marquee | They covered the study in March 2025. Swap in your strongest press logos. |
-| Facts: 1931, 70k sq ft | Estate section and founder chips | Taken from SDS / SaaraLife public pages. Please confirm. |
-| Email address | FAQ and footer | `hello@sweetwoodshots.com` is a placeholder. |
-
-## Sources used
-
-- PLOS ONE (2025), doi:10.1371/journal.pone.0317904. Coverage from NutraIngredients (10 Mar 2025), Sunday Times LK and University of Kelaniya news.
-- Sweet Wood "Our Story", the UK and AU stockist product pages, and the Amazon UK listing: ingredients, usage, flavours.
-- *The Morning* (26 Feb 2026) and *Living Magazine*: founder quote and launch story.
-- SDS Spices and SaaraLife about pages: 1931 heritage, Kosgoda facilities.
+| Item | Where |
+|---|---|
+| US prices ($36 / $68), 15% discount, $50 free-shipping threshold | `CONFIG` in the script, card prices and JSON-LD |
+| 30-day money-back guarantee | Buy box assurances |
+| Passion Fruit supplement facts (hibiscus and pure figures are used) | Three actives section |
+| Sampler: is it sold in the US? | Sampler banner, footer link |
+| Image resolution: the cut-outs come from compressed PDFs, at most 800px | `assets/amazon/`. Re-run `compose.mjs` with originals. |
+| Social links and email | Footer |
+| Reviews: real but from Sri Lanka and Singapore. Swap in US reviews (for example, imported from Amazon) when you have them. | Reviews section |

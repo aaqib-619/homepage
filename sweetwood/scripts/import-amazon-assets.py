@@ -40,6 +40,10 @@ PICK = {
     'ing-hibiscus': 'aplus/m/p8_044_506x491.png',
     'ing-hibiscus-leaves': 'aplus/m/p1_005_912x683.png',
     'ing-capsules': 'aplus/m/p9_057_219x219.png',
+    'ing-ceylon-quills-tall': 'hib/m/p5_036_793x800.png',
+    'ing-cassia-bundle': 'hib/m/p5_038_800x436.png',
+    'ing-hibiscus-sprig': 'hib/m/p2_019_800x599.png',
+    'ing-cinnamon-sticks': 'hib/m/p7_053_800x494.png',
     # line art
     'sketch-quills-pile': 'cin/m/p4_027_800x558.png',
     'sketch-quill-bundle': 'cin/m/p7_062_720x503.png',
