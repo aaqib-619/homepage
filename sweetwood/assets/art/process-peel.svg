@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800"><defs>
+  <linearGradient id="glassShade" x1="0" x2="1">
+    <stop offset="0" stop-color="#000" stop-opacity=".18"/>
+    <stop offset=".18" stop-color="#fff" stop-opacity=".35"/>
+    <stop offset=".32" stop-color="#fff" stop-opacity="0"/>
+    <stop offset=".8" stop-color="#000" stop-opacity=".06"/>
+    <stop offset="1" stop-color="#000" stop-opacity=".22"/>
+  </linearGradient>
+  <linearGradient id="capShade" x1="0" x2="1">
+    <stop offset="0" stop-color="#000" stop-opacity=".35"/>
+    <stop offset=".25" stop-color="#fff" stop-opacity=".18"/>
+    <stop offset=".5" stop-color="#fff" stop-opacity="0"/>
+    <stop offset="1" stop-color="#000" stop-opacity=".35"/>
+  </linearGradient>
+  <linearGradient id="quillShade" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#fff" stop-opacity=".28"/>
+    <stop offset=".45" stop-color="#fff" stop-opacity="0"/>
+    <stop offset="1" stop-color="#000" stop-opacity=".28"/>
+  </linearGradient>
+  <radialGradient id="softShadow">
+    <stop offset="0" stop-color="#5A2614" stop-opacity=".28"/>
+    <stop offset="1" stop-color="#5A2614" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="sunGlow">
+    <stop offset="0" stop-color="#FFE3B0" stop-opacity=".95"/>
+    <stop offset="1" stop-color="#FFE3B0" stop-opacity="0"/>
+  </radialGradient>
+  <pattern id="grain" width="6" height="6" patternUnits="userSpaceOnUse">
+    <circle cx="1" cy="1" r=".6" fill="#5A2614" opacity=".05"/>
+    <circle cx="4" cy="4" r=".5" fill="#5A2614" opacity=".04"/>
+  </pattern></defs>
+  <circle cx="400" cy="400" r="340" fill="#F2E5D2"/>
+  <rect x="170" y="380" width="460" height="60" rx="30" fill="#7A5634"/>
+  <path d="M260 380 C 300 300 380 290 440 330 C 400 330 350 350 330 390 Z" fill="#E2A06A"/>
+  <path d="M440 330 C 480 300 540 300 560 330" stroke="#C9743F" stroke-width="14" fill="none" stroke-linecap="round"/>
+  <g transform="translate(520 470) rotate(25)"><rect x="-10" y="-120" width="20" height="120" rx="6" fill="#9AA0A6"/><rect x="-16" y="0" width="32" height="90" rx="10" fill="#5A2614"/></g>
+  <g transform="translate(330 560) rotate(-4)">
+    <ellipse cx="0" cy="34" rx="156" ry="16" fill="url(#softShadow)"/>
+    <rect x="-150" y="-20" width="300" height="40" rx="12" fill="#C9743F"/>
+    <g stroke="#5A2614" stroke-opacity=".22" stroke-width="2" fill="none">
+      <path d="M-138 -12.8 Q0 -14.3 138 -12.8"/><path d="M-138 -7.6 Q0 -6.1 138 -7.6"/><path d="M-138 -2.3999999999999986 Q0 -3.8999999999999986 138 -2.3999999999999986"/><path d="M-138 2.8000000000000043 Q0 4.300000000000004 138 2.8000000000000043"/><path d="M-138 8 Q0 6.5 138 8"/><path d="M-138 13.200000000000003 Q0 14.700000000000003 138 13.200000000000003"/>
+    </g>
+    <rect x="-86.4" y="-20" width="4.8" height="40" fill="#5A2614" opacity=".22"/><rect x="-8.4" y="-20" width="4.8" height="40" fill="#5A2614" opacity=".22"/><rect x="69.6" y="-20" width="4.8" height="40" fill="#5A2614" opacity=".22"/>
+    <rect x="-150" y="-20" width="300" height="40" rx="12" fill="url(#quillShade)"/>
+    <ellipse cx="146" cy="0" rx="11" ry="20" fill="#E2A06A"/>
+    <path d="M156.4 0.0L156.0 4.9L154.9 9.4L153.2 13.2L151.1 16.0L148.6 17.7L146.0 18.2L143.4 17.5L141.1 15.6L139.1 12.6L137.6 8.9L136.7 4.5L136.4 0.0L136.8 -4.5L137.8 -8.6L139.4 -12.1L141.3 -14.7L143.6 -16.2L146.0 -16.7L148.4 -16.0L150.5 -14.2L152.3 -11.5L153.7 -8.1L154.5 -4.1L154.7 -0.0L154.4 4.1L153.4 7.8L152.0 11.0L150.2 13.3L148.2 14.7L146.0 15.1L143.9 14.5L141.9 12.9L140.3 10.4L139.1 7.3L138.3 3.7L138.1 0.0L138.5 -3.7L139.3 -7.0L140.6 -9.9L142.2 -12.0L144.1 -13.2L146.0 -13.5L147.9 -13.0L149.7 -11.5L151.1 -9.3L152.2 -6.5L152.9 -3.3L153.0 -0.0L152.7 3.3L152.0 6.3L150.8 8.8L149.4 10.6L147.7 11.7L146.0 12.0L144.3 11.5L142.8 10.2L141.5 8.2L140.5 5.7L140.0 2.9L139.8 0.0L140.1 -2.9L140.8 -5.5L141.8 -7.7L143.1 -9.3L144.5 -10.2L146.0 -10.4L147.5 -10.0L148.8 -8.8L149.9 -7.1L150.7 -5.0L151.2 -2.5L151.3 -0.0L151.1 2.5L150.5 4.7L149.6 6.5L148.5 7.9L147.3 8.7L146.0 8.9L144.8 8.4L143.6 7.5L142.7 6.0L142.0 4.2L141.6 2.1L141.5 0.0L141.8 -2.1L142.3 -3.9L143.0 -5.4L143.9 -6.6L144.9 -7.2L146.0 -7.3L147.0 -6.9L147.9 -6.1L148.7 -4.9L149.2 -3.4L149.5 -1.7L149.6 -0.0L149.4 1.7L149.0 3.1L148.4 4.3L147.7 5.2L146.8 5.7L146.0 5.8L145.2 5.4L144.5 4.8L143.9 3.8L143.5 2.6L143.3 1.3L143.3 0.0L143.4 -1.3L143.8 -2.4L144.2 -3.2L144.8 -3.9L145.4 -4.2L146.0 -4.2L146.6 -3.9L147.1 -3.4L147.5 -2.7L147.8 -1.8L147.9 -0.9L147.9 -0.0" fill="none" stroke="#5A2614" stroke-opacity=".55" stroke-width="1.2"/>
+  </g>
+</svg>

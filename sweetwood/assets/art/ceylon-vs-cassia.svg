@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1200" width="1200" height="1200"><defs>
+  <linearGradient id="glassShade" x1="0" x2="1">
+    <stop offset="0" stop-color="#000" stop-opacity=".18"/>
+    <stop offset=".18" stop-color="#fff" stop-opacity=".35"/>
+    <stop offset=".32" stop-color="#fff" stop-opacity="0"/>
+    <stop offset=".8" stop-color="#000" stop-opacity=".06"/>
+    <stop offset="1" stop-color="#000" stop-opacity=".22"/>
+  </linearGradient>
+  <linearGradient id="capShade" x1="0" x2="1">
+    <stop offset="0" stop-color="#000" stop-opacity=".35"/>
+    <stop offset=".25" stop-color="#fff" stop-opacity=".18"/>
+    <stop offset=".5" stop-color="#fff" stop-opacity="0"/>
+    <stop offset="1" stop-color="#000" stop-opacity=".35"/>
+  </linearGradient>
+  <linearGradient id="quillShade" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#fff" stop-opacity=".28"/>
+    <stop offset=".45" stop-color="#fff" stop-opacity="0"/>
+    <stop offset="1" stop-color="#000" stop-opacity=".28"/>
+  </linearGradient>
+  <radialGradient id="softShadow">
+    <stop offset="0" stop-color="#5A2614" stop-opacity=".28"/>
+    <stop offset="1" stop-color="#5A2614" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="sunGlow">
+    <stop offset="0" stop-color="#FFE3B0" stop-opacity=".95"/>
+    <stop offset="1" stop-color="#FFE3B0" stop-opacity="0"/>
+  </radialGradient>
+  <pattern id="grain" width="6" height="6" patternUnits="userSpaceOnUse">
+    <circle cx="1" cy="1" r=".6" fill="#5A2614" opacity=".05"/>
+    <circle cx="4" cy="4" r=".5" fill="#5A2614" opacity=".04"/>
+  </pattern></defs>
+  <rect x="0" y="0" width="600" height="1200" fill="#F2E5D2"/>
+  <rect x="600" y="0" width="600" height="1200" fill="#E6D6C4"/>
+  <circle cx="300" cy="400" r="190" fill="#FBF5EC"/>
+  <g transform="translate(300 400) scale(1.8 1)"><ellipse cx="0" cy="0" rx="82.5" ry="150" fill="#E2A06A"/>
+    <path d="M78.4 0.0L75.2 36.6L66.9 70.3L54.3 98.7L38.1 120.0L19.6 132.9L0.0 136.7L-19.3 131.1L-37.0 116.7L-52.0 94.6L-63.2 66.4L-70.0 34.1L-71.9 0.0L-69.0 -33.6L-61.4 -64.4L-49.7 -90.4L-34.9 -109.9L-17.9 -121.7L-0.0 -125.0L17.7 -119.8L33.8 -106.5L47.5 -86.3L57.7 -60.5L63.8 -31.1L65.5 -0.0L62.8 30.6L55.8 58.6L45.2 82.2L31.7 99.8L16.3 110.4L0.0 113.3L-16.0 108.5L-30.6 96.4L-42.9 78.0L-52.1 54.7L-57.6 28.1L-59.1 0.0L-56.6 -27.6L-50.2 -52.7L-40.7 -73.9L-28.5 -89.7L-14.6 -99.1L-0.0 -101.6L14.3 -97.2L27.4 -86.3L38.4 -69.8L46.5 -48.9L51.4 -25.0L52.7 -0.0L50.4 24.5L44.7 46.9L36.1 65.6L25.3 79.6L12.9 87.8L0.0 89.9L-12.7 85.9L-24.2 76.2L-33.8 61.5L-41.0 43.0L-45.2 22.0L-46.2 0.0L-44.1 -21.5L-39.1 -41.1L-31.6 -57.4L-22.0 -69.4L-11.3 -76.5L-0.0 -78.2L11.0 -74.6L21.0 -66.1L29.3 -53.3L35.4 -37.2L39.0 -19.0L39.8 -0.0L37.9 18.5L33.6 35.2L27.0 49.1L18.8 59.3L9.6 65.2L-0.0 66.5L-9.3 63.3L-17.8 55.9L-24.7 45.0L-29.8 31.3L-32.8 16.0L-33.4 0.0L-31.7 -15.5L-28.0 -29.4L-22.5 -40.9L-15.6 -49.2L-7.9 -53.9L-0.0 -54.9L7.7 -52.1L14.6 -45.8L20.2 -36.7L24.3 -25.5L26.6 -12.9L27.0 -0.0L25.5 12.4L22.4 23.5L17.9 32.6L12.4 39.1L6.3 42.6L-0.0 43.2L-6.0 40.8L-11.3 35.7L-15.7 28.5L-18.7 19.6L-20.4 9.9L-20.5 0.0L-19.3 -9.4L-16.9 -17.7L-13.4 -24.3L-9.2 -29.0L-4.6 -31.4L-0.0 -31.5L4.3 -29.5L8.1 -25.6L11.1 -20.2L13.1 -13.8L14.1 -6.9L14.1 -0.0" fill="none" stroke="#5A2614" stroke-opacity=".55" stroke-width="9"/></g>
+  <circle cx="900" cy="400" r="190" fill="#FBF5EC"/>
+  <g>
+    <path d="M790 400 A110 110 0 1 1 922 507.8" fill="none" stroke="#6B3519" stroke-width="46.199999999999996" stroke-linecap="round"/>
+    <path d="M790 400 A110 110 0 1 1 922 507.8" fill="none" stroke="#000" stroke-opacity=".18" stroke-width="8.8" transform="translate(13.2 0)"/>
+  </g>
+  <g transform="translate(300 720) rotate(0)">
+    <ellipse cx="0" cy="54.4" rx="228.8" ry="25.6" fill="url(#softShadow)"/>
+    <rect x="-220" y="-32" width="440" height="64" rx="19.2" fill="#C9743F"/>
+    <g stroke="#5A2614" stroke-opacity=".22" stroke-width="3.2" fill="none">
+      <path d="M-200.8 -20.48 Q0 -21.98 200.8 -20.48"/><path d="M-200.8 -12.16 Q0 -10.66 200.8 -12.16"/><path d="M-200.8 -3.84 Q0 -5.34 200.8 -3.84"/><path d="M-200.8 4.480000000000004 Q0 5.980000000000004 200.8 4.480000000000004"/><path d="M-200.8 12.799999999999997 Q0 11.299999999999997 200.8 12.799999999999997"/><path d="M-200.8 21.120000000000005 Q0 22.620000000000005 200.8 21.120000000000005"/>
+    </g>
+    <rect x="-127.04" y="-32" width="7.68" height="64" fill="#5A2614" opacity=".22"/><rect x="-12.640000000000011" y="-32" width="7.68" height="64" fill="#5A2614" opacity=".22"/><rect x="101.76000000000002" y="-32" width="7.68" height="64" fill="#5A2614" opacity=".22"/>
+    <rect x="-220" y="-32" width="440" height="64" rx="19.2" fill="url(#quillShade)"/>
+    <ellipse cx="213.6" cy="0" rx="17.6" ry="32" fill="#E2A06A"/>
+    <path d="M230.3 0.0L229.6 7.8L227.9 15.0L225.2 21.1L221.7 25.6L217.8 28.4L213.6 29.2L209.5 28.0L205.7 24.9L202.5 20.2L200.1 14.2L198.7 7.3L198.3 0.0L198.9 -7.2L200.5 -13.7L203.0 -19.3L206.2 -23.4L209.8 -26.0L213.6 -26.7L217.4 -25.6L220.8 -22.7L223.7 -18.4L225.9 -12.9L227.2 -6.6L227.6 -0.0L227.0 6.5L225.5 12.5L223.2 17.5L220.4 21.3L217.1 23.5L213.6 24.2L210.2 23.1L207.1 20.6L204.4 16.6L202.5 11.7L201.3 6.0L201.0 0.0L201.5 -5.9L202.9 -11.3L204.9 -15.8L207.5 -19.1L210.5 -21.1L213.6 -21.7L216.7 -20.7L219.4 -18.4L221.8 -14.9L223.5 -10.4L224.6 -5.3L224.8 -0.0L224.3 5.2L223.1 10.0L221.3 14.0L219.0 17.0L216.4 18.7L213.6 19.2L210.9 18.3L208.4 16.3L206.4 13.1L204.9 9.2L204.0 4.7L203.7 0.0L204.2 -4.6L205.3 -8.8L206.9 -12.2L208.9 -14.8L211.2 -16.3L213.6 -16.7L215.9 -15.9L218.1 -14.1L219.8 -11.4L221.2 -7.9L221.9 -4.1L222.1 -0.0L221.7 3.9L220.8 7.5L219.4 10.5L217.6 12.7L215.7 13.9L213.6 14.2L211.6 13.5L209.8 11.9L208.3 9.6L207.2 6.7L206.6 3.4L206.5 0.0L206.8 -3.3L207.6 -6.3L208.8 -8.7L210.3 -10.5L211.9 -11.5L213.6 -11.7L215.2 -11.1L216.7 -9.8L217.9 -7.8L218.8 -5.4L219.3 -2.8L219.4 -0.0L219.0 2.7L218.4 5.0L217.4 7.0L216.2 8.3L214.9 9.1L213.6 9.2L212.3 8.7L211.2 7.6L210.3 6.1L209.6 4.2L209.3 2.1L209.2 0.0L209.5 -2.0L210.0 -3.8L210.7 -5.2L211.6 -6.2L212.6 -6.7L213.6 -6.7L214.5 -6.3L215.3 -5.5L216.0 -4.3L216.4 -2.9L216.6 -1.5L216.6 -0.0" fill="none" stroke="#5A2614" stroke-opacity=".55" stroke-width="1.92"/>
+  </g>
+  <g transform="translate(900 720)">
+    <ellipse cx="0" cy="54" rx="230" ry="26" fill="url(#softShadow)"/>
+    <rect x="-220" y="-40" width="440" height="80" rx="16" fill="#6B3519"/>
+    <rect x="-220" y="-40" width="440" height="80" rx="16" fill="url(#quillShade)"/>
+    <path d="M-206 -14 C -60 -20 60 -8 206 -16 M-206 14 C -60 10 60 20 206 12" stroke="#2E1408" stroke-opacity=".4" stroke-width="5" fill="none"/>
+  </g>
+  <text x="300" y="900" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="64" font-weight="600" fill="#5A2614">Ceylon</text>
+  <text x="300" y="950" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="26" fill="#A64B24">Many paper-thin layers</text>
+  <text x="300" y="990" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="26" fill="#A64B24">Only trace coumarin</text>
+  <text x="900" y="900" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="64" font-weight="600" fill="#4A2E20">Cassia</text>
+  <text x="900" y="950" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="26" fill="#7A5A48">One thick, hard layer</text>
+  <text x="900" y="990" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="26" fill="#7A5A48">Much higher coumarin</text>
+</svg>

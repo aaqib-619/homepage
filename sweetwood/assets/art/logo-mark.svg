@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240"><defs>
+  <linearGradient id="glassShade" x1="0" x2="1">
+    <stop offset="0" stop-color="#000" stop-opacity=".18"/>
+    <stop offset=".18" stop-color="#fff" stop-opacity=".35"/>
+    <stop offset=".32" stop-color="#fff" stop-opacity="0"/>
+    <stop offset=".8" stop-color="#000" stop-opacity=".06"/>
+    <stop offset="1" stop-color="#000" stop-opacity=".22"/>
+  </linearGradient>
+  <linearGradient id="capShade" x1="0" x2="1">
+    <stop offset="0" stop-color="#000" stop-opacity=".35"/>
+    <stop offset=".25" stop-color="#fff" stop-opacity=".18"/>
+    <stop offset=".5" stop-color="#fff" stop-opacity="0"/>
+    <stop offset="1" stop-color="#000" stop-opacity=".35"/>
+  </linearGradient>
+  <linearGradient id="quillShade" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#fff" stop-opacity=".28"/>
+    <stop offset=".45" stop-color="#fff" stop-opacity="0"/>
+    <stop offset="1" stop-color="#000" stop-opacity=".28"/>
+  </linearGradient>
+  <radialGradient id="softShadow">
+    <stop offset="0" stop-color="#5A2614" stop-opacity=".28"/>
+    <stop offset="1" stop-color="#5A2614" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="sunGlow">
+    <stop offset="0" stop-color="#FFE3B0" stop-opacity=".95"/>
+    <stop offset="1" stop-color="#FFE3B0" stop-opacity="0"/>
+  </radialGradient>
+  <pattern id="grain" width="6" height="6" patternUnits="userSpaceOnUse">
+    <circle cx="1" cy="1" r=".6" fill="#5A2614" opacity=".05"/>
+    <circle cx="4" cy="4" r=".5" fill="#5A2614" opacity=".04"/>
+  </pattern></defs><g transform="translate(120 120) scale(2) rotate(-28)">
+    <rect x="-46" y="-9" width="92" height="18" rx="9" fill="#A64B24"/>
+    <rect x="-46" y="-9" width="92" height="18" rx="9" fill="url(#quillShade)"/>
+    <path d="M-30 -6 L-30 6 M-4 -6 L-4 6 M22 -6 L22 6" stroke="#5A2614" stroke-opacity=".35" stroke-width="2"/>
+  </g></svg>

@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800"><defs>
+  <linearGradient id="glassShade" x1="0" x2="1">
+    <stop offset="0" stop-color="#000" stop-opacity=".18"/>
+    <stop offset=".18" stop-color="#fff" stop-opacity=".35"/>
+    <stop offset=".32" stop-color="#fff" stop-opacity="0"/>
+    <stop offset=".8" stop-color="#000" stop-opacity=".06"/>
+    <stop offset="1" stop-color="#000" stop-opacity=".22"/>
+  </linearGradient>
+  <linearGradient id="capShade" x1="0" x2="1">
+    <stop offset="0" stop-color="#000" stop-opacity=".35"/>
+    <stop offset=".25" stop-color="#fff" stop-opacity=".18"/>
+    <stop offset=".5" stop-color="#fff" stop-opacity="0"/>
+    <stop offset="1" stop-color="#000" stop-opacity=".35"/>
+  </linearGradient>
+  <linearGradient id="quillShade" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#fff" stop-opacity=".28"/>
+    <stop offset=".45" stop-color="#fff" stop-opacity="0"/>
+    <stop offset="1" stop-color="#000" stop-opacity=".28"/>
+  </linearGradient>
+  <radialGradient id="softShadow">
+    <stop offset="0" stop-color="#5A2614" stop-opacity=".28"/>
+    <stop offset="1" stop-color="#5A2614" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="sunGlow">
+    <stop offset="0" stop-color="#FFE3B0" stop-opacity=".95"/>
+    <stop offset="1" stop-color="#FFE3B0" stop-opacity="0"/>
+  </radialGradient>
+  <pattern id="grain" width="6" height="6" patternUnits="userSpaceOnUse">
+    <circle cx="1" cy="1" r=".6" fill="#5A2614" opacity=".05"/>
+    <circle cx="4" cy="4" r=".5" fill="#5A2614" opacity=".04"/>
+  </pattern></defs>
+  <circle cx="400" cy="400" r="340" fill="#F2E5D2"/>
+  <path d="M300 220 L300 360 L210 560 Q200 600 240 600 L560 600 Q600 600 590 560 L500 360 L500 220 Z" fill="#F7EEE2" stroke="#5A2614" stroke-width="10" stroke-linejoin="round"/>
+  <path d="M262 470 L538 470 L590 560 Q600 600 560 600 L240 600 Q200 600 210 560 Z" fill="#B8682F"/>
+  <rect x="280" y="200" width="240" height="30" rx="10" fill="#5A2614"/>
+  <circle cx="300" cy="520" r="8" fill="#FBF5EC" opacity=".6"/><circle cx="350" cy="500" r="11" fill="#FBF5EC" opacity=".6"/><circle cx="400" cy="520" r="14" fill="#FBF5EC" opacity=".6"/><circle cx="450" cy="500" r="8" fill="#FBF5EC" opacity=".6"/><circle cx="500" cy="520" r="11" fill="#FBF5EC" opacity=".6"/>
+  <path d="M400 120 C 380 150 420 160 400 190" stroke="#4D7A4F" stroke-width="8" fill="none" stroke-linecap="round"/>
+  <path d="M440 110 C 420 140 460 150 440 180" stroke="#4D7A4F" stroke-width="8" fill="none" stroke-linecap="round" opacity=".6"/>
+</svg>

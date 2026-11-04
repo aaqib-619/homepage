@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800"><defs>
+  <linearGradient id="glassShade" x1="0" x2="1">
+    <stop offset="0" stop-color="#000" stop-opacity=".18"/>
+    <stop offset=".18" stop-color="#fff" stop-opacity=".35"/>
+    <stop offset=".32" stop-color="#fff" stop-opacity="0"/>
+    <stop offset=".8" stop-color="#000" stop-opacity=".06"/>
+    <stop offset="1" stop-color="#000" stop-opacity=".22"/>
+  </linearGradient>
+  <linearGradient id="capShade" x1="0" x2="1">
+    <stop offset="0" stop-color="#000" stop-opacity=".35"/>
+    <stop offset=".25" stop-color="#fff" stop-opacity=".18"/>
+    <stop offset=".5" stop-color="#fff" stop-opacity="0"/>
+    <stop offset="1" stop-color="#000" stop-opacity=".35"/>
+  </linearGradient>
+  <linearGradient id="quillShade" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#fff" stop-opacity=".28"/>
+    <stop offset=".45" stop-color="#fff" stop-opacity="0"/>
+    <stop offset="1" stop-color="#000" stop-opacity=".28"/>
+  </linearGradient>
+  <radialGradient id="softShadow">
+    <stop offset="0" stop-color="#5A2614" stop-opacity=".28"/>
+    <stop offset="1" stop-color="#5A2614" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="sunGlow">
+    <stop offset="0" stop-color="#FFE3B0" stop-opacity=".95"/>
+    <stop offset="1" stop-color="#FFE3B0" stop-opacity="0"/>
+  </radialGradient>
+  <pattern id="grain" width="6" height="6" patternUnits="userSpaceOnUse">
+    <circle cx="1" cy="1" r=".6" fill="#5A2614" opacity=".05"/>
+    <circle cx="4" cy="4" r=".5" fill="#5A2614" opacity=".04"/>
+  </pattern></defs>
+  <circle cx="400" cy="400" r="340" fill="#F2E5D2"/>
+  
+  <g>
+    <ellipse cx="400" cy="654" rx="131.04" ry="16" fill="url(#softShadow)"/>
+    <path d="M316 628 L316 290 C316 254 362 250 362 244 L362 210 L438 210 L438 244 C438 250 484 254 484 290 L484 628 Q484 650 462 650 L338 650 Q316 650 316 628 Z" fill="#B8682F"/>
+    <path d="M316 628 L316 290 C316 254 362 250 362 244 L362 210 L438 210 L438 244 C438 250 484 254 484 290 L484 628 Q484 650 462 650 L338 650 Q316 650 316 628 Z" fill="url(#glassShade)"/>
+    <rect x="316" y="324" width="168" height="250" fill="#FBF5EC"/>
+    <rect x="316" y="324" width="168" height="16" fill="#A64B24"/>
+    <rect x="316" y="520" width="168" height="54" fill="#A64B24"/>
+    <g fill="#5A2614" opacity=".9">
+      <g transform="translate(400 382) scale(0.55) rotate(-28)">
+    <rect x="-46" y="-9" width="92" height="18" rx="9" fill="#A64B24"/>
+    <rect x="-46" y="-9" width="92" height="18" rx="9" fill="url(#quillShade)"/>
+    <path d="M-30 -6 L-30 6 M-4 -6 L-4 6 M22 -6 L22 6" stroke="#5A2614" stroke-opacity=".35" stroke-width="2"/>
+  </g>
+    </g>
+    <text x="400" y="442" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-weight="600" font-size="30.0" letter-spacing="1.0" fill="#5A2614">Sweet</text>
+    <text x="400" y="474" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-weight="600" font-size="30.0" letter-spacing="1.0" fill="#5A2614">Wood</text>
+    <text x="400" y="500" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-weight="600" font-size="10.0" letter-spacing="2.4" fill="#A64B24">CEYLON CINNAMON</text>
+    <text x="400" y="514" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-weight="600" font-size="10.0" letter-spacing="2.4" fill="#A64B24">SHOT</text>
+    <text x="400" y="552" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-weight="700" font-size="12.5" letter-spacing="2.0" fill="#FBF5EC">ORIGINAL</text>
+    <rect x="316" y="324" width="168" height="250" fill="url(#glassShade)" opacity=".55"/>
+    <rect x="354" y="136" width="92" height="80" rx="8" fill="#5A2614"/>
+    <g stroke="#000" stroke-opacity=".18" stroke-width="1.4">
+      <line x1="362" y1="144" x2="362" y2="208"/><line x1="368.3333333333333" y1="144" x2="368.3333333333333" y2="208"/><line x1="374.6666666666667" y1="144" x2="374.6666666666667" y2="208"/><line x1="381" y1="144" x2="381" y2="208"/><line x1="387.3333333333333" y1="144" x2="387.3333333333333" y2="208"/><line x1="393.6666666666667" y1="144" x2="393.6666666666667" y2="208"/><line x1="400" y1="144" x2="400" y2="208"/><line x1="406.3333333333333" y1="144" x2="406.3333333333333" y2="208"/><line x1="412.6666666666667" y1="144" x2="412.6666666666667" y2="208"/><line x1="419" y1="144" x2="419" y2="208"/><line x1="425.3333333333333" y1="144" x2="425.3333333333333" y2="208"/><line x1="431.6666666666667" y1="144" x2="431.6666666666667" y2="208"/><line x1="438" y1="144" x2="438" y2="208"/>
+    </g>
+    <rect x="354" y="136" width="92" height="80" rx="8" fill="url(#capShade)"/>
+    <rect x="352" y="204" width="96" height="12" rx="3" fill="#5A2614"/>
+  </g>
+</svg>
