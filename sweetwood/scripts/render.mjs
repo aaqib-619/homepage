@@ -41,6 +41,8 @@ if (doPage) {
     await page.evaluate(async () => { for (let y = 0; y < document.body.scrollHeight; y += 400) { scrollTo(0, y); await new Promise(r => setTimeout(r, 120)); } scrollTo(0, 0); });
     await page.waitForLoadState('networkidle');
     await page.evaluate(() => { document.querySelectorAll('.reveal').forEach(el => el.classList.add('in')); document.getElementById('sticky').style.display = 'none'; });
+    // content-visibility:auto skips painting off-screen sections; force them for the full-page capture
+    await page.addStyleTag({ content: 'main > .section{content-visibility:visible!important}' });
     await page.waitForTimeout(300);
     await page.screenshot({ path: join(PREVIEW, `${s.name}-full.png`), fullPage: true });
     const overflow = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);

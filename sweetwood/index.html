@@ -14,12 +14,16 @@
 <meta property="og:image" content="assets/composed/hero-desktop.jpg">
 <meta name="twitter:card" content="summary_large_image">
 
-<link rel="preload" as="image" href="assets/composed/hero-mobile.webp" media="(max-width: 1023px)" fetchpriority="high">
+<link rel="preload" as="image" href="assets/composed/hero-mobile.webp" imagesrcset="assets/composed/hero-mobile-780w.webp 780w, assets/composed/hero-mobile.webp 1170w" imagesizes="100vw" media="(max-width: 1023px)" fetchpriority="high">
 <link rel="preload" as="image" href="assets/composed/hero-desktop.webp" media="(min-width: 1024px)" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <!-- Optima is the brand heading face (built into Apple devices). Belleza is the closest free fallback for other devices. -->
-<link href="https://fonts.googleapis.com/css2?family=Belleza&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="preload" as="font" type="font/woff2" href="https://fonts.gstatic.com/s/manrope/v23/xn7gYHE41ni1AdIRggexSvfedN4.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="https://fonts.gstatic.com/s/belleza/v18/0nkoC9_pNeMfhX4BhcH4ai7oqP4.woff2" crossorigin>
+<!-- Loaded without blocking first paint; text shows in the fallback font for a moment, then swaps. -->
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Belleza&family=Manrope:wght@400;500;600;700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Belleza&family=Manrope:wght@400;500;600;700;800&display=swap"></noscript>
 
 <script type="application/ld+json">
 {
@@ -46,22 +50,25 @@
    Colours sampled from the Amazon content and sweetwoodshots.com.
    In Pebble: Theme settings > Colors (map to colour schemes 1-6, see README).
    ========================================================================== */
+/* Fallback faces sized to match the brand fonts, so text does not jump when they load */
+@font-face{font-family:"Manrope Fallback";src:local("Arial"),local("Liberation Sans"),local("Roboto");size-adjust:102.5%;ascent-override:104%;descent-override:29%;line-gap-override:0%}
+@font-face{font-family:"Belleza Fallback";src:local("Arial"),local("Liberation Sans"),local("Roboto");size-adjust:90.4%;ascent-override:100%;descent-override:26%;line-gap-override:0%}
 :root{
   --cream:#F8F2E4; --paper:#FFFDF8; --sand:#F1E2C6;
-  --ink:#1D1A15; --muted:#5E564B; --line:#E5D9C2;
+  --ink:#1D1A15; --muted:#544C41; --line:#E5D9C2;
   --green:#0F4D2E; --green-2:#006838; --green-tint:#DDE8D3;
   --lime:#B8C329; --lime-soft:#EEF1C8; --lime-pale:#F6F8E2;
   --pink:#FF6D89; --pink-soft:#FFE1E7; --pink-mid:#FFB3C2;
   --yellow:#FFB700; --yellow-soft:#FFEDB8;
   --wine:#8E1628; --cinnamon:#C27A2C;
-  --head:Optima, "Optima nova", Belleza, Candara, "Segoe UI", sans-serif;
-  --sans:Manrope, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --head:Optima, "Optima nova", Belleza, "Belleza Fallback", sans-serif;
+  --sans:Manrope, "Manrope Fallback", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --gutter:16px; --r-lg:24px; --r:18px; --r-sm:12px;
   --safe-b:env(safe-area-inset-bottom, 0px);
 }
 *,*::before,*::after{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
-body{margin:0;background:var(--cream);color:var(--ink);font:400 16px/1.6 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:70px;scroll-padding-bottom:84px}
+body{margin:0;background:var(--cream);color:var(--ink);font:400 17px/1.6 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden;-webkit-tap-highlight-color:transparent}
 img{display:block;max-width:100%;height:auto}
 a{color:inherit}
 button,input,select{font:inherit;color:inherit}
@@ -363,6 +370,7 @@ sup{font-size:.6em;line-height:0}
 .rev-avatar{flex:none;width:48px;height:48px;border-radius:50%;display:grid;place-items:center;font:800 16px/1 var(--sans);color:var(--ink)}
 .rev footer b{display:block}
 .rev footer span{font-size:13.5px;color:#CFDCCF;display:inline-flex;gap:6px;align-items:center}
+.rev footer .rev-avatar{display:grid;color:var(--ink)}
 .rev footer .icon{width:15px;height:15px;color:var(--lime);stroke-width:2.6}
 .rev-prod{display:flex;align-items:center;gap:12px;margin-top:22px;padding:10px 12px;border-radius:var(--r);background:rgba(255,255,255,.08);text-decoration:none;max-width:340px}
 .rev-prod img{width:44px;height:56px;object-fit:cover;border-radius:8px}
@@ -379,6 +387,9 @@ sup{font-size:.6em;line-height:0}
 
 /* 12. Is it for you (honest-fit module from the Amazon A+ content) */
 .fit-grid{display:grid;gap:12px}
+.fit-tabs{display:grid;grid-template-columns:1fr 1fr;gap:4px;padding:4px;margin-bottom:12px;border-radius:999px;background:var(--paper);border:1px solid var(--line)}
+.fit-tabs button{min-height:46px;border-radius:999px;font:700 14.5px/1.2 var(--sans);color:var(--muted)}
+.fit-tabs button[aria-selected="true"]{background:var(--ink);color:var(--paper)}
 .fit{padding:20px 18px;border-radius:var(--r-lg);background:var(--paper);border:1.5px solid var(--line)}
 .fit.yes-card{border-color:var(--green)}
 .fit h3{font-size:22px;margin-bottom:10px}
@@ -513,6 +524,109 @@ sup{font-size:.6em;line-height:0}
 .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
 .reveal.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}}
+
+
+/* ======================= Mobile optimisation (phones first) =======================
+   Readability for a 40-65 audience: nothing under 13px, most supporting text 14.5-16px.
+   Tap targets at least 44px. Shorter page on phones. Cheaper painting while scrolling. */
+.announce{font-size:14px}
+.eyebrow{font-size:13px}
+.fine{font-size:13.5px}
+.chip{font-size:13px}
+.hero-chips .chip,.buy-chips .chip{font-size:12.5px;padding:8px 12px}
+.pill-note{font-size:13.5px}
+.tag{font-size:12.5px;padding:7px 12px}
+.card-kicker{font-size:12.5px}
+.card-body .notes{font-size:15.5px}
+.price small{font-size:13.5px}
+.stat span{font-size:14.5px}
+.journal p{font-size:15px}
+.attrs ul{font-size:15.5px}
+.step p{font-size:15.5px}
+.step small{font-size:13px}
+.when > p{font-size:15.5px}
+.when-grid li{font-size:14px}
+.tl small{font-size:13px}
+.habit{font-size:16px}
+.active .dose{font-size:13px}
+.active p,.also p{font-size:15.5px}
+.cvc-media figcaption small{font-size:12.5px}
+.cvc-table{font-size:15px}
+.cvc-table thead th{font-size:12.5px}
+.compare{font-size:15px}
+.compare thead th{font-size:13.5px}
+.maybe,.swipe-note{font-size:13.5px}
+.polaroid figcaption{font-size:12.5px}
+.fact span{font-size:13px}
+.process li{font-size:15.5px}
+.rev footer span,.rev-prod span{font-size:14.5px}
+.fit li,.promise{font-size:16px}
+.opt-label{font-size:13px}
+.flavour{font-size:14px}
+.flavour small{font-size:12.5px}
+.pack small{font-size:13.5px}
+.pack .best{font-size:11.5px}
+.po-perks{font-size:14.5px}
+.assure div{font-size:13px}
+.faq-list details > div{font-size:16.5px}
+.footer{font-size:15.5px}
+.disclaimer{font-size:13.5px}
+.footnotes{font-size:13.5px}
+.legal{font-size:14px}
+.sticky-info span{font-size:13.5px}
+.cart-item p{font-size:14px}
+.menu-shots a{font-size:13.5px}
+.menu-promo p{font-size:15px}
+.sampler div span{font-size:15px}
+.hero-chips .chip,.buy-chips .chip,.tag,.card-kicker,.polaroid figcaption,.flavour small,.cvc-media figcaption small,.pack .best,.fact span{font-size:13px}
+.legal{gap:0 18px;align-items:center}
+
+/* Tap targets */
+.logo{display:flex;align-items:center;min-height:44px}
+.footer-cols a{display:flex;align-items:center;min-height:44px;padding:0}
+.footer-cols ul{gap:0}
+.legal a{display:inline-flex;align-items:center;justify-content:center;min-height:44px;min-width:44px}
+.link{display:inline-block;padding:10px 0}
+.sampler .link{padding:6px 0}
+
+
+@media (max-width:639px){
+  .section{padding:48px 0}
+  .sec-head{margin-bottom:24px}
+  /* Solid header instead of a blur: cheaper to paint while scrolling */
+  .header,.sticky{backdrop-filter:none;-webkit-backdrop-filter:none}
+  .header{background:var(--cream)}
+  .sticky{background:var(--paper);box-shadow:0 -8px 24px -12px rgba(29,26,21,.25)}
+  .reveal{transform:translateY(10px);transition-duration:.4s}
+  /* Steps: tighter rows */
+  .step{grid-template-columns:52px 1fr;gap:14px;padding:14px 16px}
+  .step-ico{width:52px;height:52px}
+  .step-ico .icon{width:26px;height:26px}
+  .when{margin-top:24px;padding:20px 14px}
+  /* The timeline image repeats the product shown above, so phones skip it (and its download) */
+  .tl-media{display:none}
+  /* Ceylon vs cassia: smaller discs */
+  .cvc-media .disc{max-width:150px;margin:0 auto}
+  /* Collage: a little shorter */
+  .collage{height:300px;margin-bottom:24px}
+  .p1{height:185px}.p2{height:215px}.p3{height:150px;top:140px}
+  .process li{padding:10px 12px}
+  /* Fit: one list at a time, switched by tabs */
+  .fit-grid[data-show="yes"] .no-card,.fit-grid[data-show="no"] .yes-card{display:none}
+  /* Buy box: square gallery image so options arrive sooner */
+  .buy-media{aspect-ratio:1/1}
+  .buy-media img{object-position:50% 68%}
+  .buy-info{margin-top:18px}
+  .buy-chips{display:none}
+  .buy-thumbs button{flex:0 0 64px}
+  /* Badges: one swipeable row */
+  .certs{flex-wrap:nowrap;justify-content:flex-start;overflow-x:auto;margin:24px calc(var(--gutter) * -1) 0;padding:0 var(--gutter);scrollbar-width:none}
+  .certs::-webkit-scrollbar{display:none}
+  .certs li{flex:none;width:64px;height:64px;padding:10px}
+}
+@media (min-width:640px){
+  .fit-tabs{display:none}
+}
 
 /* ======================= Tablet ======================= */
 @media (min-width:640px){
@@ -655,7 +769,7 @@ sup{font-size:.6em;line-height:0}
     <div class="h-left">
       <button class="icon-btn menu-toggle" aria-label="Open menu" aria-controls="menu" aria-expanded="false" data-open="menu"><svg class="icon"><use href="#i-menu"/></svg></button>
     </div>
-    <a class="logo" href="#" aria-label="Sweet Wood home"><img src="assets/amazon/logo-sweetwood-black.webp" alt="Sweet Wood" width="182" height="96"></a>
+    <a class="logo" href="#" aria-label="Sweet Wood home"><img src="assets/amazon/logo-sweetwood-black-200w.webp" alt="Sweet Wood" width="182" height="96"></a>
     <nav class="nav-desktop" aria-label="Main">
       <a href="#shop">Shop</a>
       <a href="#evidence">The Science</a>
@@ -677,11 +791,11 @@ sup{font-size:.6em;line-height:0}
 <div class="drawer drawer-left" id="menu" aria-hidden="true">
   <div class="drawer-scrim" data-close></div>
   <div class="drawer-panel" role="dialog" aria-modal="true" aria-label="Menu">
-    <div class="drawer-head"><img src="assets/amazon/logo-sweetwood-black.webp" alt="Sweet Wood" style="height:36px;width:auto"><button class="icon-btn" aria-label="Close menu" data-close><svg class="icon"><use href="#i-close"/></svg></button></div>
+    <div class="drawer-head"><img src="assets/amazon/logo-sweetwood-black-200w.webp" alt="Sweet Wood" width="68" height="36" style="height:36px;width:auto"><button class="icon-btn" aria-label="Close menu" data-close><svg class="icon"><use href="#i-close"/></svg></button></div>
     <div class="menu-shots">
-      <a href="#shop" data-close style="background:var(--sand)"><img src="assets/composed/card-original.webp" alt="" loading="lazy"><span>Pure Cinnamon</span></a>
-      <a href="#shop" data-close style="background:var(--pink-soft)"><img src="assets/composed/card-hibiscus.webp" alt="" loading="lazy"><span>Hibiscus</span></a>
-      <a href="#shop" data-close style="background:var(--yellow-soft)"><img src="assets/composed/card-passion.webp" alt="" loading="lazy"><span>Passion Fruit</span></a>
+      <a href="#shop" data-close style="background:var(--sand)"><img src="assets/composed/card-original-480w.webp" srcset="assets/composed/card-original-160w.webp 160w, assets/composed/card-original-480w.webp 480w" sizes="120px" alt="" width="480" height="600" loading="lazy"><span>Pure Cinnamon</span></a>
+      <a href="#shop" data-close style="background:var(--pink-soft)"><img src="assets/composed/card-hibiscus-480w.webp" srcset="assets/composed/card-hibiscus-160w.webp 160w, assets/composed/card-hibiscus-480w.webp 480w" sizes="120px" alt="" width="480" height="600" loading="lazy"><span>Hibiscus</span></a>
+      <a href="#shop" data-close style="background:var(--yellow-soft)"><img src="assets/composed/card-passion-480w.webp" srcset="assets/composed/card-passion-160w.webp 160w, assets/composed/card-passion-480w.webp 480w" sizes="120px" alt="" width="480" height="600" loading="lazy"><span>Passion Fruit</span></a>
     </div>
     <ul class="menu-list">
       <li><a href="#evidence" data-close>The Science <svg class="icon"><use href="#i-right"/></svg></a></li>
@@ -720,10 +834,10 @@ sup{font-size:.6em;line-height:0}
   <div class="hero-media">
     <picture>
       <source media="(min-width:1024px)" srcset="assets/composed/hero-desktop.webp" type="image/webp">
-      <source srcset="assets/composed/hero-mobile.webp" type="image/webp">
+      <source srcset="assets/composed/hero-mobile-780w.webp 780w, assets/composed/hero-mobile.webp 1170w" sizes="100vw" type="image/webp">
       <img src="assets/composed/hero-mobile.jpg" alt="Sweet Wood Ceylon Cinnamon Shots in Pure Cinnamon, Hibiscus and Passion Fruit with cinnamon quills and a hibiscus flower" width="1170" height="1000" fetchpriority="high">
     </picture>
-    <span class="seal" aria-hidden="true"><img src="assets/amazon/badge-sial-2024.webp" alt=""></span>
+    <span class="seal" aria-hidden="true"><img src="assets/amazon/badge-sial-2024-180w.webp" alt="" width="120" height="120"></span>
   </div>
 </section>
 
@@ -745,7 +859,7 @@ sup{font-size:.6em;line-height:0}
     </div>
     <div class="cards" id="cards">
       <article class="card t-original">
-        <div class="card-media"><span class="tag dark">Best seller</span><img src="assets/composed/card-original.webp" alt="Sweet Wood Pure Cinnamon shot with a bundle of Ceylon cinnamon quills" width="1000" height="1250" loading="lazy"></div>
+        <div class="card-media"><span class="tag dark">Best seller</span><img src="assets/composed/card-original.webp" srcset="assets/composed/card-original-480w.webp 480w, assets/composed/card-original-760w.webp 760w, assets/composed/card-original.webp 1000w" sizes="(min-width:1024px) 30vw, (min-width:640px) 46vw, 76vw" alt="Sweet Wood Pure Cinnamon shot with a bundle of Ceylon cinnamon quills" width="1000" height="1250" loading="lazy" decoding="async"></div>
         <div class="card-body">
           <span class="card-kicker">Healthy sugar balance<sup>*</sup></span>
           <h3>Pure Cinnamon</h3>
@@ -754,7 +868,7 @@ sup{font-size:.6em;line-height:0}
         </div>
       </article>
       <article class="card t-hibiscus">
-        <div class="card-media"><span class="tag">Tart &amp; berry-like</span><img src="assets/composed/card-hibiscus.webp" alt="Sweet Wood Ceylon Cinnamon and Hibiscus shot with a red hibiscus flower" width="1000" height="1250" loading="lazy"></div>
+        <div class="card-media"><span class="tag">Tart &amp; berry-like</span><img src="assets/composed/card-hibiscus.webp" srcset="assets/composed/card-hibiscus-480w.webp 480w, assets/composed/card-hibiscus-760w.webp 760w, assets/composed/card-hibiscus.webp 1000w" sizes="(min-width:1024px) 30vw, (min-width:640px) 46vw, 76vw" alt="Sweet Wood Ceylon Cinnamon and Hibiscus shot with a red hibiscus flower" width="1000" height="1250" loading="lazy" decoding="async"></div>
         <div class="card-body">
           <span class="card-kicker">Healthy metabolism<sup>*</sup></span>
           <h3>Cinnamon + Hibiscus</h3>
@@ -763,7 +877,7 @@ sup{font-size:.6em;line-height:0}
         </div>
       </article>
       <article class="card t-passion">
-        <div class="card-media"><span class="tag">Bright &amp; tropical</span><img src="assets/composed/card-passion.webp" alt="Sweet Wood Ceylon Cinnamon and Passion Fruit shot with cinnamon sticks" width="1000" height="1250" loading="lazy"></div>
+        <div class="card-media"><span class="tag">Bright &amp; tropical</span><img src="assets/composed/card-passion.webp" srcset="assets/composed/card-passion-480w.webp 480w, assets/composed/card-passion-760w.webp 760w, assets/composed/card-passion.webp 1000w" sizes="(min-width:1024px) 30vw, (min-width:640px) 46vw, 76vw" alt="Sweet Wood Ceylon Cinnamon and Passion Fruit shot with cinnamon sticks" width="1000" height="1250" loading="lazy" decoding="async"></div>
         <div class="card-body">
           <span class="card-kicker">Focus &amp; energy<sup>*</sup></span>
           <h3>Cinnamon + Passion Fruit</h3>
@@ -774,7 +888,7 @@ sup{font-size:.6em;line-height:0}
     </div>
     <div class="dots" id="cardDots" aria-hidden="true"><i class="on"></i><i></i><i></i></div>
     <a class="sampler" href="#buy" data-track="sampler">
-      <img src="assets/composed/card-sampler.webp" alt="" loading="lazy">
+      <img src="assets/composed/card-sampler-240w.webp" alt="" width="240" height="300" loading="lazy">
       <div><b>Can't decide? Try the Sampler.</b><span>All three flavours in one box, so you can find your favourite.</span></div>
       <span class="link">Shop the Sampler</span>
     </a>
@@ -864,7 +978,7 @@ sup{font-size:.6em;line-height:0}
       <p class="habit reveal">No stimulant, no immediate hit. Treat this as a habit, not a dose. A subscription keeps the shots coming so you don't break the streak.</p>
       <div class="btn-row"><a class="btn btn-dark" href="#buy" data-track="timeline_cta">Start your 12 weeks <span class="arr"><svg class="icon"><use href="#i-arrow"/></svg></span></a></div>
     </div>
-    <figure class="tl-media reveal"><img src="assets/composed/timeline-trays.webp" alt="Two 12-shot boxes of Sweet Wood, Hibiscus and Pure Cinnamon" width="1000" height="1000" loading="lazy"></figure>
+    <figure class="tl-media reveal"><img src="assets/composed/timeline-trays.webp" srcset="assets/composed/timeline-trays-760w.webp 760w, assets/composed/timeline-trays.webp 1000w" sizes="(min-width:1024px) 45vw, 92vw" alt="Two 12-shot boxes of Sweet Wood, Hibiscus and Pure Cinnamon" width="1000" height="1000" loading="lazy" decoding="async"></figure>
   </div>
 </section>
 
@@ -883,19 +997,19 @@ sup{font-size:.6em;line-height:0}
     </div>
     <div class="actives">
       <article class="active reveal">
-        <div class="active-img" style="background:var(--sand)"><img src="assets/amazon/ing-cinnamon-and-powder.webp" alt="Ceylon cinnamon quills and powder" loading="lazy"></div>
+        <div class="active-img" style="background:var(--sand)"><img src="assets/amazon/ing-cinnamon-and-powder-600w.webp" width="600" height="468" alt="Ceylon cinnamon quills and powder" loading="lazy"></div>
         <h3>Ceylon Cinnamon Extract</h3>
         <span class="dose">660 mg cinnamon solids equivalent</span>
         <p>The studied ingredient. Standardized to at least 30% polyphenols, largely type-A proanthocyanidins, and concentrated from bark rather than dried and powdered.</p>
       </article>
       <article class="active reveal">
-        <div class="active-img" style="background:var(--pink-soft)"><img src="assets/amazon/ing-hibiscus.webp" alt="Red hibiscus flower" loading="lazy"></div>
+        <div class="active-img" style="background:var(--pink-soft)"><img src="assets/amazon/ing-hibiscus-480w.webp" width="480" height="466" alt="Red hibiscus flower" loading="lazy"></div>
         <h3>Hibiscus</h3>
         <span class="dose">750 mg petals equivalent · Hibiscus shot</span>
         <p>Naturally rich in antioxidants, and the reason the shot tastes tart and bright. No sugar needed to make it drinkable.</p>
       </article>
       <article class="active reveal">
-        <div class="active-img" style="background:var(--lime-soft)"><img src="assets/amazon/ing-pepper-bowl.webp" alt="Black peppercorns in a wooden bowl" loading="lazy"></div>
+        <div class="active-img" style="background:var(--lime-soft)"><img src="assets/amazon/ing-pepper-bowl-480w.webp" width="480" height="320" alt="Black peppercorns in a wooden bowl" loading="lazy"></div>
         <h3>Piperine</h3>
         <span class="dose">0.5 mg from black pepper</span>
         <p>Included specifically to support the bioavailability of the cinnamon compounds, not as a flavor note.</p>
@@ -912,8 +1026,8 @@ sup{font-size:.6em;line-height:0}
       <h2 id="cvc-title">Not all cinnamon is <em>created equal</em></h2>
       <p class="lede">Most cinnamon sold in the U.S. is cassia: cheaper, harsher and naturally high in coumarin, which is why health authorities publish tolerable intake limits for it. Ceylon is the other species. It's the one in our shot, and the one in our trial.</p>
       <div class="cvc-media">
-        <figure><div class="disc"><img src="assets/amazon/ing-ceylon-quills-tall.webp" alt="Ceylon cinnamon quills with many thin rolled layers" loading="lazy"></div><figcaption>Ceylon<small>True cinnamon</small></figcaption></figure>
-        <figure><div class="disc"><img src="assets/amazon/ing-cassia-bundle.webp" alt="Cassia cinnamon sticks, thick single-layer bark" loading="lazy"></div><figcaption>Cassia<small>Most supermarket cinnamon</small></figcaption></figure>
+        <figure><div class="disc"><img src="assets/amazon/ing-ceylon-quills-tall-360w.webp" width="360" height="363" alt="Ceylon cinnamon quills with many thin rolled layers" loading="lazy"></div><figcaption>Ceylon<small>True cinnamon</small></figcaption></figure>
+        <figure><div class="disc"><img src="assets/amazon/ing-cassia-bundle-360w.webp" width="360" height="196" alt="Cassia cinnamon sticks, thick single-layer bark" loading="lazy"></div><figcaption>Cassia<small>Most supermarket cinnamon</small></figcaption></figure>
       </div>
     </div>
     <div class="reveal">
@@ -944,17 +1058,17 @@ sup{font-size:.6em;line-height:0}
         <table class="compare">
           <thead><tr>
             <th scope="col"><span class="sr-only">Feature</span></th>
-            <th scope="col" class="us"><img src="assets/amazon/bottle-original.webp" alt="" loading="lazy">Sweet Wood shot</th>
-            <th scope="col"><img src="assets/amazon/ing-capsules.webp" alt="" loading="lazy">Typical capsule</th>
-            <th scope="col"><img src="assets/amazon/ing-cinnamon-powder.webp" alt="" loading="lazy">Cinnamon powder</th>
+            <th scope="col" class="us"><img src="assets/amazon/bottle-original-160w.webp" alt="" width="74" height="74" loading="lazy">Sweet Wood shot</th>
+            <th scope="col"><img src="assets/amazon/ing-capsules-160w.webp" alt="" width="74" height="74" loading="lazy">Typical capsule</th>
+            <th scope="col"><img src="assets/amazon/ing-cinnamon-powder-160w.webp" alt="" width="74" height="74" loading="lazy">Cinnamon powder</th>
           </tr></thead>
           <tbody>
-            <tr><th scope="row">True Ceylon cinnamon</th><td class="us"><span class="yes" aria-label="Yes"><svg class="icon"><use href="#i-check"/></svg></span></td><td><span class="maybe">Usually cassia</span></td><td><span class="maybe">Usually cassia</span></td></tr>
-            <tr><th scope="row">Clinically studied extract</th><td class="us"><span class="yes" aria-label="Yes"><svg class="icon"><use href="#i-check"/></svg></span></td><td><span class="maybe">Varies by brand</span></td><td><span class="no" aria-label="No"><svg class="icon"><use href="#i-x"/></svg></span></td></tr>
-            <tr><th scope="row">Same measured amount every time</th><td class="us"><span class="yes" aria-label="Yes"><svg class="icon"><use href="#i-check"/></svg></span></td><td><span class="yes" aria-label="Yes"><svg class="icon"><use href="#i-check"/></svg></span></td><td><span class="no" aria-label="No"><svg class="icon"><use href="#i-x"/></svg></span></td></tr>
-            <tr><th scope="row">Piperine for absorption</th><td class="us"><span class="yes" aria-label="Yes"><svg class="icon"><use href="#i-check"/></svg></span></td><td><span class="maybe">Rarely</span></td><td><span class="no" aria-label="No"><svg class="icon"><use href="#i-x"/></svg></span></td></tr>
-            <tr><th scope="row">No pills, no grit, no mixing</th><td class="us"><span class="yes" aria-label="Yes"><svg class="icon"><use href="#i-check"/></svg></span></td><td><span class="no" aria-label="No"><svg class="icon"><use href="#i-x"/></svg></span></td><td><span class="no" aria-label="No"><svg class="icon"><use href="#i-x"/></svg></span></td></tr>
-            <tr><th scope="row">Tastes like something</th><td class="us"><span class="yes" aria-label="Yes"><svg class="icon"><use href="#i-check"/></svg></span></td><td><span class="maybe">Tasteless</span></td><td><span class="maybe">Harsh</span></td></tr>
+            <tr><th scope="row">True Ceylon cinnamon</th><td class="us"><span class="yes" role="img" aria-label="Yes"><svg class="icon"><use href="#i-check"/></svg></span></td><td><span class="maybe">Usually cassia</span></td><td><span class="maybe">Usually cassia</span></td></tr>
+            <tr><th scope="row">Clinically studied extract</th><td class="us"><span class="yes" role="img" aria-label="Yes"><svg class="icon"><use href="#i-check"/></svg></span></td><td><span class="maybe">Varies by brand</span></td><td><span class="no" role="img" aria-label="No"><svg class="icon"><use href="#i-x"/></svg></span></td></tr>
+            <tr><th scope="row">Same measured amount every time</th><td class="us"><span class="yes" role="img" aria-label="Yes"><svg class="icon"><use href="#i-check"/></svg></span></td><td><span class="yes" role="img" aria-label="Yes"><svg class="icon"><use href="#i-check"/></svg></span></td><td><span class="no" role="img" aria-label="No"><svg class="icon"><use href="#i-x"/></svg></span></td></tr>
+            <tr><th scope="row">Piperine for absorption</th><td class="us"><span class="yes" role="img" aria-label="Yes"><svg class="icon"><use href="#i-check"/></svg></span></td><td><span class="maybe">Rarely</span></td><td><span class="no" role="img" aria-label="No"><svg class="icon"><use href="#i-x"/></svg></span></td></tr>
+            <tr><th scope="row">No pills, no grit, no mixing</th><td class="us"><span class="yes" role="img" aria-label="Yes"><svg class="icon"><use href="#i-check"/></svg></span></td><td><span class="no" role="img" aria-label="No"><svg class="icon"><use href="#i-x"/></svg></span></td><td><span class="no" role="img" aria-label="No"><svg class="icon"><use href="#i-x"/></svg></span></td></tr>
+            <tr><th scope="row">Tastes like something</th><td class="us"><span class="yes" role="img" aria-label="Yes"><svg class="icon"><use href="#i-check"/></svg></span></td><td><span class="maybe">Tasteless</span></td><td><span class="maybe">Harsh</span></td></tr>
           </tbody>
         </table>
       </div>
@@ -967,12 +1081,12 @@ sup{font-size:.6em;line-height:0}
 <section class="section source" id="source" aria-labelledby="src-title">
   <div class="wrap src-grid">
     <div class="collage reveal" aria-hidden="true">
-      <figure class="polaroid p1"><img src="assets/amazon/photo-cinnamon-bales.webp" alt="" loading="lazy"><figcaption>Our cinnamon, Sri Lanka</figcaption></figure>
-      <figure class="polaroid p2"><img src="assets/site/photo-hand-hibiscus.webp" alt="" loading="lazy"><figcaption>Cinnamon + Hibiscus</figcaption></figure>
-      <figure class="polaroid p3"><img src="assets/site/photo-grass-trio.webp" alt="" loading="lazy" style="object-position:50% 40%"><figcaption>All three shots</figcaption></figure>
+      <figure class="polaroid p1"><img src="assets/amazon/photo-cinnamon-bales-480w.webp" alt="" width="480" height="261" loading="lazy"><figcaption>Our cinnamon, Sri Lanka</figcaption></figure>
+      <figure class="polaroid p2"><img src="assets/site/photo-hand-hibiscus-400w.webp" alt="" width="400" height="500" loading="lazy"><figcaption>Cinnamon + Hibiscus</figcaption></figure>
+      <figure class="polaroid p3"><img src="assets/site/photo-grass-trio-400w.webp" alt="" width="400" height="500" loading="lazy" style="object-position:50% 40%"><figcaption>All three shots</figcaption></figure>
       <div class="badge-spin">
         <svg viewBox="0 0 100 100"><defs><path id="circ" d="M50 50 m-38 0 a38 38 0 1 1 76 0 a38 38 0 1 1 -76 0"/></defs><circle cx="50" cy="50" r="49" fill="#1D1A15"/><text font-family="Manrope, sans-serif" font-size="9.4" font-weight="800" letter-spacing="2.2" fill="#FFB700"><textPath href="#circ">SDS SPICES · EST. 1931 · SRI LANKA ·</textPath></text></svg>
-        <img src="assets/amazon/logo-sds-spices.webp" alt="">
+        <img src="assets/amazon/logo-sds-spices.webp" alt="" width="42" height="53" loading="lazy">
       </div>
     </div>
     <div>
@@ -996,12 +1110,12 @@ sup{font-size:.6em;line-height:0}
   </div>
   <div class="wrap">
     <ul class="certs reveal" aria-label="Certifications and recognition">
-      <li><img src="assets/amazon/badge-pure-ceylon.webp" alt="Pure Ceylon Cinnamon lion logo" loading="lazy"></li>
-      <li><img src="assets/amazon/badge-vegan.webp" alt="Vegetarian Society Vegan Approved" loading="lazy"></li>
-      <li><img src="assets/amazon/badge-gmp.webp" alt="GMP certified by SGS" loading="lazy"></li>
-      <li><img src="assets/amazon/badge-haccp.webp" alt="HACCP certified by SGS" loading="lazy"></li>
-      <li><img src="assets/amazon/badge-fda-registered.webp" alt="FDA registered facility" loading="lazy"></li>
-      <li><img src="assets/amazon/badge-sial-2024.webp" alt="SIAL Innovation Selection, Paris 2024" loading="lazy"></li>
+      <li><img src="assets/amazon/badge-pure-ceylon.webp" alt="Pure Ceylon Cinnamon lion logo" width="50" height="50" loading="lazy"></li>
+      <li><img src="assets/amazon/badge-vegan.webp" alt="Vegetarian Society Vegan Approved" width="50" height="50" loading="lazy"></li>
+      <li><img src="assets/amazon/badge-gmp.webp" alt="GMP certified by SGS" width="50" height="50" loading="lazy"></li>
+      <li><img src="assets/amazon/badge-haccp.webp" alt="HACCP certified by SGS" width="50" height="50" loading="lazy"></li>
+      <li><img src="assets/amazon/badge-fda-registered.webp" alt="FDA registered facility" width="50" height="50" loading="lazy"></li>
+      <li><img src="assets/amazon/badge-sial-2024-180w.webp" alt="SIAL Innovation Selection, Paris 2024" width="50" height="50" loading="lazy"></li>
     </ul>
   </div>
 </section>
@@ -1018,28 +1132,28 @@ sup{font-size:.6em;line-height:0}
       <div class="rev-viewport" aria-live="polite">
         <div class="rev-track" id="revTrack">
           <article class="rev" aria-roledescription="slide">
-            <span class="stars" aria-label="5 out of 5 stars"><svg><use href="#star"/></svg><svg><use href="#star"/></svg><svg><use href="#star"/></svg><svg><use href="#star"/></svg><svg><use href="#star"/></svg></span>
+            <span class="stars" role="img" aria-label="5 out of 5 stars"><svg><use href="#star"/></svg><svg><use href="#star"/></svg><svg><use href="#star"/></svg><svg><use href="#star"/></svg><svg><use href="#star"/></svg></span>
             <blockquote>"It really helps curb my sweet cravings, and I feel so much better reaching for this than sugary treats."</blockquote>
             <footer><span class="rev-avatar" style="background:var(--pink)">PP</span><div><b>Priyanthi P.</b><span><svg class="icon"><use href="#i-check"/></svg>Kandy, Sri Lanka</span></div></footer>
-            <a class="rev-prod" href="#buy"><img src="assets/composed/card-hibiscus.webp" alt="" loading="lazy"><span><b>Cinnamon + Hibiscus</b>12 shots</span></a>
+            <a class="rev-prod" href="#buy"><img src="assets/composed/card-hibiscus-160w.webp" alt="" width="44" height="56" loading="lazy"><span><b>Cinnamon + Hibiscus</b>12 shots</span></a>
           </article>
           <article class="rev" aria-roledescription="slide">
-            <span class="stars" aria-label="5 out of 5 stars"><svg><use href="#star"/></svg><svg><use href="#star"/></svg><svg><use href="#star"/></svg><svg><use href="#star"/></svg><svg><use href="#star"/></svg></span>
+            <span class="stars" role="img" aria-label="5 out of 5 stars"><svg><use href="#star"/></svg><svg><use href="#star"/></svg><svg><use href="#star"/></svg><svg><use href="#star"/></svg><svg><use href="#star"/></svg></span>
             <blockquote>"Very satisfied with the Sweet Wood shots! Particularly when on holiday and overindulging."</blockquote>
             <footer><span class="rev-avatar" style="background:var(--yellow)">RW</span><div><b>Ramesh W.</b><span><svg class="icon"><use href="#i-check"/></svg>Singapore</span></div></footer>
-            <a class="rev-prod" href="#buy"><img src="assets/composed/card-sampler.webp" alt="" loading="lazy"><span><b>The Sampler</b>All three flavours</span></a>
+            <a class="rev-prod" href="#buy"><img src="assets/composed/card-sampler-240w.webp" alt="" width="44" height="56" loading="lazy"><span><b>The Sampler</b>All three flavours</span></a>
           </article>
           <article class="rev" aria-roledescription="slide">
-            <span class="stars" aria-label="5 out of 5 stars"><svg><use href="#star"/></svg><svg><use href="#star"/></svg><svg><use href="#star"/></svg><svg><use href="#star"/></svg><svg><use href="#star"/></svg></span>
+            <span class="stars" role="img" aria-label="5 out of 5 stars"><svg><use href="#star"/></svg><svg><use href="#star"/></svg><svg><use href="#star"/></svg><svg><use href="#star"/></svg><svg><use href="#star"/></svg></span>
             <blockquote>"I love the smooth, earthy flavour. Such a simple and delicious way to enjoy the goodness of Sri Lankan cinnamon."</blockquote>
             <footer><span class="rev-avatar" style="background:var(--lime)">MS</span><div><b>Mano S.</b><span><svg class="icon"><use href="#i-check"/></svg>Colombo, Sri Lanka</span></div></footer>
-            <a class="rev-prod" href="#buy"><img src="assets/composed/card-original.webp" alt="" loading="lazy"><span><b>Pure Cinnamon</b>12 shots</span></a>
+            <a class="rev-prod" href="#buy"><img src="assets/composed/card-original-160w.webp" alt="" width="44" height="56" loading="lazy"><span><b>Pure Cinnamon</b>12 shots</span></a>
           </article>
           <article class="rev" aria-roledescription="slide">
-            <span class="stars" aria-label="5 out of 5 stars"><svg><use href="#star"/></svg><svg><use href="#star"/></svg><svg><use href="#star"/></svg><svg><use href="#star"/></svg><svg><use href="#star"/></svg></span>
+            <span class="stars" role="img" aria-label="5 out of 5 stars"><svg><use href="#star"/></svg><svg><use href="#star"/></svg><svg><use href="#star"/></svg><svg><use href="#star"/></svg><svg><use href="#star"/></svg></span>
             <blockquote>"Its natural sweetness has curbed my sweet tooth after meals. Ideal before a big meal."</blockquote>
             <footer><span class="rev-avatar" style="background:var(--pink-mid)">TJ</span><div><b>Tharindu J.</b><span><svg class="icon"><use href="#i-check"/></svg>Chef, Colombo</span></div></footer>
-            <a class="rev-prod" href="#buy"><img src="assets/composed/card-passion.webp" alt="" loading="lazy"><span><b>Cinnamon + Passion Fruit</b>12 shots</span></a>
+            <a class="rev-prod" href="#buy"><img src="assets/composed/card-passion-160w.webp" alt="" width="44" height="56" loading="lazy"><span><b>Cinnamon + Passion Fruit</b>12 shots</span></a>
           </article>
         </div>
       </div>
@@ -1061,8 +1175,12 @@ sup{font-size:.6em;line-height:0}
       <h2 id="fit-title">Is Sweet Wood <em>right for you?</em></h2>
       <p class="lede">A cinnamon shot is new to the U.S., so here's who reaches for one, and who probably shouldn't bother.</p>
     </div>
-    <div class="fit-grid">
-      <div class="fit yes-card reveal">
+    <div class="fit-tabs" role="tablist" aria-label="Who Sweet Wood is for">
+      <button role="tab" id="fitTabYes" aria-selected="true" aria-controls="fitYes" data-fit="yes">It's for you if…</button>
+      <button role="tab" id="fitTabNo" aria-selected="false" aria-controls="fitNo" data-fit="no" tabindex="-1">It's not for you if…</button>
+    </div>
+    <div class="fit-grid" id="fitGrid" data-show="yes">
+      <div class="fit yes-card reveal" id="fitYes" role="tabpanel" aria-labelledby="fitTabYes">
         <h3>You'll get it if you…</h3>
         <ul>
           <li><span class="yes"><svg class="icon"><use href="#i-check"/></svg></span><span>eat carb-heavy meals (rice, pasta, bread, dessert) and want daily support around them<sup>*</sup></span></li>
@@ -1072,7 +1190,7 @@ sup{font-size:.6em;line-height:0}
           <li><span class="yes"><svg class="icon"><use href="#i-check"/></svg></span><span>value a routine you'll keep: one shot, one moment, no mixing</span></li>
         </ul>
       </div>
-      <div class="fit reveal">
+      <div class="fit no-card reveal" id="fitNo" role="tabpanel" aria-labelledby="fitTabNo">
         <h3>It's probably not for you if…</h3>
         <ul>
           <li><span class="no"><svg class="icon"><use href="#i-x"/></svg></span><span>you want an overnight fix. This is a 12-week habit, not a switch.</span></li>
@@ -1089,12 +1207,12 @@ sup{font-size:.6em;line-height:0}
 <section class="section buy" id="buy" aria-labelledby="buy-title">
   <div class="wrap buy-grid">
     <div class="buy-gallery">
-      <div class="buy-media"><img id="buyImg" src="assets/composed/card-original.webp" alt="Sweet Wood Pure Cinnamon shot" width="1000" height="1250" loading="lazy"></div>
+      <div class="buy-media"><img id="buyImg" src="assets/composed/card-original.webp" srcset="assets/composed/card-original-480w.webp 480w, assets/composed/card-original-760w.webp 760w, assets/composed/card-original.webp 1000w" sizes="(min-width:1024px) 45vw, 92vw" alt="Sweet Wood Pure Cinnamon shot" width="1000" height="1250" loading="lazy" decoding="async"></div>
       <div class="buy-thumbs" role="group" aria-label="Product images">
-        <button aria-pressed="true" data-thumb="assets/composed/card-original.webp"><img src="assets/composed/card-original.webp" alt="Front of bottle" loading="lazy"></button>
-        <button aria-pressed="false" data-thumb="assets/amazon/tray-original.webp" data-contain><img src="assets/amazon/tray-original.webp" alt="12-shot box" loading="lazy" style="object-fit:contain"></button>
-        <button aria-pressed="false" data-thumb="assets/site/photo-hand-passion.webp"><img src="assets/site/photo-hand-passion.webp" alt="Shot held in hand" loading="lazy"></button>
-        <button aria-pressed="false" data-thumb="assets/amazon/bottle-original-back.webp" data-contain><img src="assets/amazon/bottle-original-back.webp" alt="Back label with supplement facts" loading="lazy" style="object-fit:contain"></button>
+        <button aria-pressed="true" data-thumb="assets/composed/card-original.webp"><img src="assets/composed/card-original-160w.webp" alt="Front of bottle" width="80" height="80" loading="lazy"></button>
+        <button aria-pressed="false" data-thumb="assets/amazon/tray-original.webp" data-srcset="assets/amazon/tray-original-760w.webp 760w, assets/amazon/tray-original.webp 800w" data-contain><img src="assets/amazon/tray-original-160w.webp" alt="12-shot box" width="80" height="80" loading="lazy" style="object-fit:contain"></button>
+        <button aria-pressed="false" data-thumb="assets/site/photo-hand-passion.webp" data-srcset="assets/site/photo-hand-passion-760w.webp 760w, assets/site/photo-hand-passion.webp 1120w"><img src="assets/site/photo-hand-passion-160w.webp" alt="Shot held in hand" width="80" height="80" loading="lazy"></button>
+        <button aria-pressed="false" data-thumb="assets/amazon/bottle-original-back.webp" data-srcset="assets/amazon/bottle-original-back-760w.webp 760w, assets/amazon/bottle-original-back.webp 800w" data-contain><img src="assets/amazon/bottle-original-back-160w.webp" alt="Back label with supplement facts" width="80" height="80" loading="lazy" style="object-fit:contain"></button>
       </div>
     </div>
     <div class="buy-info">
@@ -1105,9 +1223,9 @@ sup{font-size:.6em;line-height:0}
 
       <div class="opt-label">Flavour <span id="flavourName">Pure Cinnamon</span></div>
       <div class="flavours" role="radiogroup" aria-label="Flavour">
-        <button class="flavour" role="radio" aria-checked="true" data-flavour="original"><img src="assets/composed/card-original.webp" alt="">Pure Cinnamon<small>Warm, spiced</small></button>
-        <button class="flavour" role="radio" aria-checked="false" data-flavour="hibiscus"><img src="assets/composed/card-hibiscus.webp" alt="">Hibiscus<small>Tart, berry-like</small></button>
-        <button class="flavour" role="radio" aria-checked="false" data-flavour="passion"><img src="assets/composed/card-passion.webp" alt="">Passion Fruit<small>Bright, tropical</small></button>
+        <button class="flavour" role="radio" aria-checked="true" data-flavour="original"><img src="assets/composed/card-original-160w.webp" alt="" width="64" height="64" loading="lazy">Pure Cinnamon<small>Warm, spiced</small></button>
+        <button class="flavour" role="radio" aria-checked="false" data-flavour="hibiscus"><img src="assets/composed/card-hibiscus-160w.webp" alt="" width="64" height="64" loading="lazy">Hibiscus<small>Tart, berry-like</small></button>
+        <button class="flavour" role="radio" aria-checked="false" data-flavour="passion"><img src="assets/composed/card-passion-160w.webp" alt="" width="64" height="64" loading="lazy">Passion Fruit<small>Bright, tropical</small></button>
       </div>
 
       <div class="opt-label">Box size</div>
@@ -1191,7 +1309,7 @@ sup{font-size:.6em;line-height:0}
   <div class="wrap">
     <div class="footer-top">
       <div>
-        <img class="footer-logo" src="assets/amazon/logo-sweetwood-black.webp" alt="Sweet Wood" width="99" height="52" loading="lazy">
+        <img class="footer-logo" src="assets/amazon/logo-sweetwood-black-200w.webp" alt="Sweet Wood" width="99" height="52" loading="lazy">
         <p class="footer-about">Founded and crafted by women, Sweet Wood blends the wisdom of Sri Lanka's ancient spice heritage with the rigour of modern science. Made by SDS Spices, est. 1931.</p>
         <div class="socials">
           <a href="#" aria-label="Instagram"><svg class="icon"><use href="#i-ig"/></svg></a>
@@ -1200,7 +1318,7 @@ sup{font-size:.6em;line-height:0}
         </div>
       </div>
       <div class="footer-cols">
-        <details open><summary>Shop</summary><ul><li><a href="#shop">Pure Cinnamon</a></li><li><a href="#shop">Cinnamon + Hibiscus</a></li><li><a href="#shop">Cinnamon + Passion Fruit</a></li><li><a href="#shop">The Sampler</a></li><li><a href="#buy">Subscribe &amp; Save</a></li></ul></details>
+        <details><summary>Shop</summary><ul><li><a href="#shop">Pure Cinnamon</a></li><li><a href="#shop">Cinnamon + Hibiscus</a></li><li><a href="#shop">Cinnamon + Passion Fruit</a></li><li><a href="#shop">The Sampler</a></li><li><a href="#buy">Subscribe &amp; Save</a></li></ul></details>
         <details><summary>Learn</summary><ul><li><a href="#evidence">The Science</a></li><li><a href="#ceylon">Ceylon vs Cassia</a></li><li><a href="#source">Our Story</a></li><li><a href="#">Blog</a></li></ul></details>
         <details><summary>Help</summary><ul><li><a href="#faq">FAQ</a></li><li><a href="#">Shipping &amp; Returns</a></li><li><a href="#">Manage Subscription</a></li><li><a href="#">Contact Us</a></li></ul></details>
       </div>
@@ -1216,7 +1334,7 @@ sup{font-size:.6em;line-height:0}
 
 <!-- Sticky mobile CTA -->
 <div class="sticky" id="sticky" aria-hidden="true">
-  <img src="assets/composed/card-original.webp" alt="">
+  <img src="assets/composed/card-original-160w.webp" alt="" width="40" height="50" loading="lazy">
   <div class="sticky-info"><b>Sweet Wood Shots</b><span>From $2.55 a shot · Save 15%</span></div>
   <a class="btn btn-lime" href="#buy" tabindex="-1" data-track="sticky_cta">Try it <span class="arr"><svg class="icon"><use href="#i-arrow"/></svg></span></a>
 </div>
@@ -1259,6 +1377,9 @@ const money = n => new Intl.NumberFormat('en-US', { style: 'currency', currency:
 const subPrice = pack => +(CONFIG.price[pack] * (1 - CONFIG.subscribeDiscount)).toFixed(2);
 const track = (event, data = {}) => { (window.dataLayer = window.dataLayer || []).push({ event, ...data }); };
 const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+// Responsive sources for the composed product cards (phones get 480/760px files)
+const cardSet = src => { const m = src.match(/assets\/composed\/card-\w+/); return m ? `${m[0]}-480w.webp 480w, ${m[0]}-760w.webp 760w, ${src} 1000w` : ''; };
+const thumb = src => src.replace(/\.webp$/, '-160w.webp');
 
 /* Announcement rotation */
 (() => { const t = $('#announceTrack'); let i = 0; if (reduced) return; setInterval(() => { i = (i + 1) % t.children.length; t.style.transform = `translateX(-${i * 100}%)`; }, 4500); })();
@@ -1313,7 +1434,7 @@ function renderCart() {
   cart.items.forEach((it, idx) => {
     total += it.price * it.qty; count += it.qty;
     const li = document.createElement('li'); li.className = 'cart-item';
-    li.innerHTML = `<img src="${CONFIG.flavours[it.flavour].img}" alt=""><div><h3>${CONFIG.flavours[it.flavour].name}</h3><p>${it.pack} shots · ${it.sub ? 'Subscribe & Save, every ' + it.freq + ' weeks' : 'One-time'}</p><p>Qty ${it.qty}</p></div><div style="text-align:right"><b>${money(it.price * it.qty)}</b><br><button class="x" data-remove="${idx}">Remove</button></div>`;
+    li.innerHTML = `<img src="${thumb(CONFIG.flavours[it.flavour].img)}" alt="" width="72" height="90"><div><h3>${CONFIG.flavours[it.flavour].name}</h3><p>${it.pack} shots · ${it.sub ? 'Subscribe & Save, every ' + it.freq + ' weeks' : 'One-time'}</p><p>Qty ${it.qty}</p></div><div style="text-align:right"><b>${money(it.price * it.qty)}</b><br><button class="x" data-remove="${idx}">Remove</button></div>`;
     list.appendChild(li);
   });
   $('#cartEmpty').hidden = cart.items.length > 0;
@@ -1343,7 +1464,7 @@ $$('[data-add]').forEach(b => b.addEventListener('click', () => addToCart({ flav
 (() => {
   const state = { flavour: 'original', pack: 12, sub: true };
   const img = $('#buyImg');
-  const show = (src, contain) => { img.src = src; img.classList.toggle('contain', !!contain); };
+  const show = (src, contain, set) => { img.srcset = set || cardSet(src); img.src = src; img.classList.toggle('contain', !!contain); };
   const render = () => {
     const once = CONFIG.price[state.pack], sub = subPrice(state.pack);
     $('#oncePrice').textContent = money(once); $('#subPrice').textContent = money(sub); $('#subCompare').textContent = money(once);
@@ -1352,7 +1473,7 @@ $$('[data-add]').forEach(b => b.addEventListener('click', () => addToCart({ flav
   };
   const radio = (sel, key, cast = v => v) => $$(sel).forEach(b => b.addEventListener('click', () => {
     $$(sel).forEach(x => x.setAttribute('aria-checked', String(x === b))); state[key] = cast(b.dataset[key]);
-    if (key === 'flavour') { const src = CONFIG.flavours[state.flavour].img; show(src); img.alt = 'Sweet Wood ' + CONFIG.flavours[state.flavour].name + ' shot'; const t = $('[data-thumb]'); t.dataset.thumb = src; $('img', t).src = src; $$('[data-thumb]').forEach((x, i) => x.setAttribute('aria-pressed', String(i === 0))); }
+    if (key === 'flavour') { const src = CONFIG.flavours[state.flavour].img; show(src); img.alt = 'Sweet Wood ' + CONFIG.flavours[state.flavour].name + ' shot'; const t = $('[data-thumb]'); t.dataset.thumb = src; $('img', t).src = thumb(src); $$('[data-thumb]').forEach((x, i) => x.setAttribute('aria-pressed', String(i === 0))); }
     render();
   }));
   radio('.flavour', 'flavour'); radio('.pack', 'pack', Number);
@@ -1362,9 +1483,20 @@ $$('[data-add]').forEach(b => b.addEventListener('click', () => addToCart({ flav
     e.preventDefault(); const n = opts[(i + (e.key === 'ArrowRight' || e.key === 'ArrowDown' ? 1 : opts.length - 1)) % opts.length]; n.focus(); n.click();
   }));
   $$('input[name="purchase"]').forEach(r => r.addEventListener('change', () => { state.sub = r.value === 'sub' && r.checked; render(); track('purchase_option', { type: r.value }); }));
-  $$('[data-thumb]').forEach(t => t.addEventListener('click', () => { $$('[data-thumb]').forEach(x => x.setAttribute('aria-pressed', String(x === t))); show(t.dataset.thumb, t.hasAttribute('data-contain')); }));
+  $$('[data-thumb]').forEach(t => t.addEventListener('click', () => { $$('[data-thumb]').forEach(x => x.setAttribute('aria-pressed', String(x === t))); show(t.dataset.thumb, t.hasAttribute('data-contain'), t.dataset.srcset); }));
   $('#buyBtn').addEventListener('click', () => addToCart({ ...state, freq: +$('#freq').value }));
   render();
+})();
+
+/* Footer link groups: accordions on phones, always open on desktop */
+if (matchMedia('(min-width:1024px)').matches) $$('.footer-cols details').forEach(d => d.open = true);
+
+/* Fit tabs (phones only; both lists show side by side on larger screens) */
+(() => {
+  const grid = $('#fitGrid'), tabs = $$('.fit-tabs [role="tab"]');
+  const select = t => { tabs.forEach(x => { const on = x === t; x.setAttribute('aria-selected', String(on)); x.tabIndex = on ? 0 : -1; }); grid.dataset.show = t.dataset.fit; };
+  tabs.forEach(t => t.addEventListener('click', () => select(t)));
+  $('.fit-tabs').addEventListener('keydown', e => { if (!['ArrowLeft', 'ArrowRight'].includes(e.key)) return; const i = tabs.indexOf(document.activeElement); const n = tabs[(i + 1) % tabs.length]; n.focus(); select(n); });
 })();
 
 /* Newsletter (wire to Shopify customer form or Klaviyo) */

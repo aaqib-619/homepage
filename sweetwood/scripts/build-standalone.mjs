@@ -15,8 +15,10 @@ const inline = (path) => {
   return cache.get(path);
 };
 let html = readFileSync(join(ROOT, 'index.html'), 'utf8');
-html = html.replace(/assets\/(?:composed|amazon|site)\/[\w-]+\.(webp|jpg|png)/g, inline);
 // The preload hints would duplicate the inlined hero bytes, so drop them.
 html = html.replace(/<link rel="preload" as="image"[^>]*>\n/g, '');
+// One file only needs one copy of each image: drop the responsive variants (srcset) before inlining.
+html = html.replace(/\s(?:data-)?(?:image)?(?:srcset|sizes)="[^"]*"/g, '');
+html = html.replace(/assets\/(?:composed|amazon|site)\/[\w-]+\.(webp|jpg|png)/g, inline);
 writeFileSync(join(ROOT, 'preview', 'homepage-standalone.html'), html);
 console.log(`preview/homepage-standalone.html: ${(html.length / 1024).toFixed(0)} KB, ${cache.size} images inlined`);

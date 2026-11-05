@@ -92,3 +92,5 @@ for (const [name, [w, h, bg, body]] of Object.entries(JOBS)) {
 }
 await browser.close();
 execSync(`python3 -I -c "import glob; from PIL import Image\nfor f in glob.glob('${OUT}/*.jpg'): Image.open(f).save(f[:-4] + '.webp', 'WEBP', quality=80)"`);
+// Phone-sized variants used by srcset in index.html
+execSync(`python3 -I ${join(dirname(fileURLToPath(import.meta.url)), 'make-variants.py')}`, { stdio: 'inherit' });

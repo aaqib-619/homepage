@@ -7,12 +7,13 @@ The homepage for **Sweet Wood Ceylon Cinnamon Shots**, built to be rebuilt in Sh
 | Path | What it is |
 |---|---|
 | `index.html` | The homepage. Self-contained CSS and JS. |
-| `preview/homepage-standalone.html` | The same page as **one file** with every image inlined (about 4MB). Open it on a phone. |
+| `preview/homepage-standalone.html` | The same page as **one file** with every image inlined (about 1.8MB). Open it on a phone. |
 | `preview/*.png` | Screenshots: `mobile-fold`, `mobile-full`, `mobile-cart`, `mobile-menu` (iPhone size, 2x), `desktop-fold`, `desktop-full` (1440px). |
 | `assets/composed/*.jpg` | **Shopify uploads.** Hero (mobile 1170x1000, desktop 1600x1100), the three flavour cards and the Sampler (4:5), and the 12-week timeline image. Made from the real bottle cut-outs. |
 | `assets/amazon/` | Cut-outs and photos extracted from the Amazon PDFs: the logo, white-cap US bottles, trays, ingredients, line art, photos and badges. PNG where transparent, JPG otherwise. |
 | `assets/site/` | Images from sweetwoodshots.com: logo, slider bottles, and three product photos downsized to 1400px. |
-| `scripts/compose.mjs` | Rebuilds `assets/composed/` from the cut-outs. Edit the layouts in `JOBS`. |
+| `scripts/compose.mjs` | Rebuilds `assets/composed/` from the cut-outs, then runs `make-variants.py`. Edit the layouts in `JOBS`. |
+| `scripts/make-variants.py` | Makes the phone-sized WebP variants used by `srcset`. |
 | `scripts/import-amazon-assets.py` | Re-extracts the Amazon cut-outs (see the file header). |
 | `scripts/render.mjs`, `scripts/build-standalone.mjs` | Screenshots and the single-file preview. |
 
@@ -27,6 +28,43 @@ node sweetwood/scripts/render.mjs
 ```bash
 node sweetwood/scripts/build-standalone.mjs
 ```
+
+## Mobile optimisation
+
+Measured with Lighthouse in mobile mode (a mid-range phone on a throttled 4G connection) and a usability check at iPhone 13 size.
+
+| | Before | After |
+|---|---|---|
+| Lighthouse performance | 87 | **98–99** |
+| Lighthouse accessibility | 93 | **100** |
+| First contentful paint | 2.8 s | **1.4 s** |
+| Largest contentful paint | 3.1 s | **2.0 s** |
+| Layout shift (CLS) | 0 | 0.001 |
+| Page weight | 370 KB | **292 KB** |
+| Page length on a phone | 18.7 screens | **17.5 screens**, with larger text |
+| Text under 13px | 90 items | 5 (badge labels) |
+| Tap targets under 44px | 19 | 0 (excluding the hidden radio inputs inside full-size option rows) |
+
+What changed:
+- **Speed.**
+  - Phone-sized image variants (`*-160w`, `*-480w`, `*-760w`, made by `scripts/make-variants.py`) are served with `srcset`/`sizes`, and every image has width and height set.
+  - Fonts no longer block the first paint. The two font files are preloaded, and fallback fonts sized to match Manrope and Belleza stop text jumping when the brand fonts arrive.
+  - The header and sticky bar use solid colours instead of blur, which is cheaper to scroll on low-end Android.
+- **Readability for a 40–65 audience.** Body text is 17px. Supporting text is 14.5–16px and labels are at least 13px. The grey text is darker for contrast.
+- **Thumbs.** Footer and legal links are 44px tall. Jump links stop clear of the sticky header and sticky bar.
+- **Shorter page on phones.**
+  - "Is it for you?" shows one list at a time with tabs.
+  - The 12-week section drops its repeated product image, and the buy box uses a square image.
+  - The badges sit in one swipeable row, the footer Shop list starts collapsed, and step rows and the collage are tighter.
+  - Tablet and desktop are unchanged.
+- **Accessibility.**
+  - Review avatar contrast is fixed.
+  - Tick, cross and star icons have proper image roles.
+
+**In Shopify:**
+- You don't need the `*-w.webp` files. Upload the full-size JPGs and Pebble's `image_url` and `srcset` filters serve the right width automatically.
+- Use Pebble's theme font settings (Manrope from the Shopify font library, plus your uploaded Optima) instead of the Google Fonts link.
+- Shopify's CDN handles compression and caching. Those were the only remaining Lighthouse flags on the local test server.
 
 ## What was taken from each reference
 
