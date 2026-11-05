@@ -66,6 +66,14 @@ What changed:
 - Use Pebble's theme font settings (Manrope from the Shopify font library, plus your uploaded Optima) instead of the Google Fonts link.
 - Shopify's CDN handles compression and caching. Those were the only remaining Lighthouse flags on the local test server.
 
+## Screen sizes tested
+
+The page is checked at 360, 390, 430 (phones), 768 (tablet), 1024, 1280, 1440, 1912 and 2560px wide. At every size there's no sideways scrolling, every image loads, and the hero text never overlaps the product image.
+
+- **Hero:** on desktop it's a two-column split, with copy on the left and the product image in its own column, inside the 1280px content width. An earlier version laid the copy over a full-width background image. That broke above about 1,500px wide: the headline squeezed to one word per line and sat over the bottles.
+- **1024–1199px (small laptops, iPad landscape):** the header keeps the menu-drawer layout, because six nav links don't fit, and the reviews heading sits above the slider.
+- **Tablets:** the Ceylon/cassia discs, the 12-week image and the buy-box gallery are capped in size instead of filling the screen.
+
 ## What was taken from each reference
 
 | Source | Used for |

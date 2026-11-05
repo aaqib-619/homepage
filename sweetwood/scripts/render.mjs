@@ -38,7 +38,7 @@ if (doPage) {
     // reveal any scroll-triggered content
     await page.screenshot({ path: join(PREVIEW, `${s.name}-fold.png`) });
     // scroll through so lazy images load, then reveal everything for the full-page capture
-    await page.evaluate(async () => { for (let y = 0; y < document.body.scrollHeight; y += 400) { scrollTo(0, y); await new Promise(r => setTimeout(r, 120)); } scrollTo(0, 0); });
+    await page.evaluate(async () => { for (let y = 0; y < document.body.scrollHeight; y += 300) { scrollTo(0, y); await new Promise(r => setTimeout(r, 250)); } scrollTo(0, 0); });
     await page.waitForLoadState('networkidle');
     await page.evaluate(() => { document.querySelectorAll('.reveal').forEach(el => el.classList.add('in')); document.getElementById('sticky').style.display = 'none'; });
     // content-visibility:auto skips painting off-screen sections; force them for the full-page capture

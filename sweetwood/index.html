@@ -14,8 +14,7 @@
 <meta property="og:image" content="assets/composed/hero-desktop.jpg">
 <meta name="twitter:card" content="summary_large_image">
 
-<link rel="preload" as="image" href="assets/composed/hero-mobile.webp" imagesrcset="assets/composed/hero-mobile-780w.webp 780w, assets/composed/hero-mobile.webp 1170w" imagesizes="100vw" media="(max-width: 1023px)" fetchpriority="high">
-<link rel="preload" as="image" href="assets/composed/hero-desktop.webp" media="(min-width: 1024px)" fetchpriority="high">
+<link rel="preload" as="image" href="assets/composed/hero-mobile.webp" imagesrcset="assets/composed/hero-mobile-780w.webp 780w, assets/composed/hero-mobile.webp 1170w" imagesizes="(min-width:1024px) 50vw, 100vw" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <!-- Optima is the brand heading face (built into Apple devices). Belleza is the closest free fallback for other devices. -->
@@ -640,11 +639,27 @@ sup{font-size:.6em;line-height:0}
   .fit-grid{grid-template-columns:1fr 1fr}
   .collage{height:420px;max-width:620px;margin-left:auto;margin-right:auto}
   .p1{height:270px}.p2{height:300px}.p3{height:210px;top:200px}
-  .hero-media img{aspect-ratio:16/10}
+  .hero-media img{max-width:620px;margin:0 auto}
+  .seal{right:calc(50% - 300px)}
+}
+@media (min-width:640px) and (max-width:1023px){
+  /* Tablets: keep images at a comfortable size instead of full-width */
+  .cvc-media .disc{max-width:230px;margin:0 auto}
+  .tl-media{max-width:480px;margin-left:auto;margin-right:auto}
+  .buy-gallery{max-width:520px;margin:0 auto}
   .hero .btn-row{display:flex}
 }
 
 /* ======================= Desktop ======================= */
+@media (min-width:1024px) and (max-width:1199px){
+  .header .header-inner{grid-template-columns:1fr auto 1fr}
+  .header .h-left{display:flex}
+  .header .logo{grid-column:2}
+  .header .nav-desktop,.header .h-search-d{display:none}
+  /* Reviews: heading above the slider instead of a squeezed side column */
+  .reviews .rev-grid{display:block}
+  .reviews .rev-viewport{margin-top:26px}
+}
 @media (min-width:1024px){
   :root{--gutter:40px}
   .section{padding:96px 0}
@@ -660,15 +675,15 @@ sup{font-size:.6em;line-height:0}
   .header-cta{display:inline-flex;min-height:46px;font-size:14.5px;margin-left:8px;padding:0 6px 0 18px}
   .header-cta .arr{width:32px;height:32px}
 
-  .hero{min-height:min(84vh,780px);display:flex;align-items:center}
-  .hero-media{position:absolute;inset:0;margin:0}
-  .hero-media picture,.hero-media img{height:100%;width:100%}
-  .hero-media img{aspect-ratio:auto;object-position:right center}
-  .hero-copy{padding:60px 0 70px max(40px,calc((100vw - 1280px)/2 + 40px));max-width:min(44vw,620px)}
+  .hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.08fr);align-items:center;column-gap:40px;padding:40px max(40px,calc((100vw - 1280px) / 2 + 40px)) 0}
+  .hero-copy{padding:0 0 56px;max-width:600px}
+  .hero h1{font-size:clamp(44px,4.4vw,64px)}
+  .hero-media{margin:0;align-self:end}
+  .hero-media img{width:100%;max-width:none;height:auto}
   .hero .btn{padding:0 10px 0 24px;font-size:16px}
   .hero .btn-line{padding:0 24px}
   .hero-sub{font-size:18.5px}
-  .seal{width:120px;height:120px;right:5%;top:10%}
+  .seal{width:112px;height:112px;right:2%;top:6%}
 
   .cards{display:grid;grid-template-columns:repeat(3,1fr);overflow:visible;margin:0;padding:0;gap:22px}
   .dots{display:none}
@@ -833,8 +848,7 @@ sup{font-size:.6em;line-height:0}
   </div>
   <div class="hero-media">
     <picture>
-      <source media="(min-width:1024px)" srcset="assets/composed/hero-desktop.webp" type="image/webp">
-      <source srcset="assets/composed/hero-mobile-780w.webp 780w, assets/composed/hero-mobile.webp 1170w" sizes="100vw" type="image/webp">
+      <source srcset="assets/composed/hero-mobile-780w.webp 780w, assets/composed/hero-mobile.webp 1170w" sizes="(min-width:1024px) 50vw, 100vw" type="image/webp">
       <img src="assets/composed/hero-mobile.jpg" alt="Sweet Wood Ceylon Cinnamon Shots in Pure Cinnamon, Hibiscus and Passion Fruit with cinnamon quills and a hibiscus flower" width="1170" height="1000" fetchpriority="high">
     </picture>
     <span class="seal" aria-hidden="true"><img src="assets/amazon/badge-sial-2024-180w.webp" alt="" width="120" height="120"></span>
